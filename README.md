@@ -49,4 +49,4 @@ You should hold a data more than 5 clock period.
 The out_port will convert 4*32bit result data to 16*8bit output data.  
 The default speed of it is 16 clock periods per 8bit data.  
 #### Tips
-The speed of in_port should faster than the out_port's to ensure the system could work continuously.
+The speed of out_port should faster than the in_port's to ensure the system could work continuously.
