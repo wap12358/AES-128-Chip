@@ -1,0 +1,252 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "12/03/2019 14:27:29"
+                                                                                
+// Verilog Test Bench template for design : aes_top
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+
+`timescale 1 ps/ 1 ps
+module aes_top_vlg_tst();
+
+//parameter
+parameter cp_h = 1;
+parameter cp = (2*cp_h);                                          
+
+// test vector input registers
+//reg clk;
+//reg cu;
+//reg id;
+//reg rst;
+//reg shi;
+//reg [7:0] user_data;
+//// wires                                               
+//wire [7:0]  chip_data;
+//wire sho;
+
+reg clk;
+reg config_usual;
+reg instruction_data;
+reg rst;
+reg shakehand_in;
+reg [7:0] user_data;
+// wires                                               
+wire [7:0]  chip_data;
+wire shakehand_out;
+
+//// assign statements (if any)                          
+//aes_top i1 (
+//// port map - connection between master ports and signals/registers   
+//	.chip_data(chip_data),
+//	.clk(clk),
+//	.cu(cu),
+//	.id(id),
+//	.rst(rst),
+//	.shi(shi),
+//	.sho(sho),
+//	.user_data(user_data)
+//);
+
+// assign statements (if any)                          
+aes_top i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.rst(rst),
+	.cu(config_usual),
+	.id(instruction_data),
+	.user_data(user_data),
+	.shi(shakehand_in),
+	.chip_data(chip_data),
+	.sho(shakehand_out)
+);
+
+// parameter the test need to use
+//config instructions
+parameter MOD = 24'h4D4F44; //config mode
+parameter E = 8'h45; //means encode
+parameter D = 8'h44; //means decode
+parameter KEY = 24'h4B4559; //config key length
+parameter F = 8'h46 ; //means receive 128(full) length 
+parameter Q = 8'h51 ; //means receive 032(quar) length
+parameter N = 8'h4E ; //means receive 000(null) length
+parameter SPD = 24'h535044; // config output speed  
+
+//choose mode
+parameter config_mode = 1'b1;
+parameter default_mode = 1'b0;
+parameter instruction_mode = 1'b1;
+parameter data_mode = 1'b0;
+parameter encode_mode = 1'b1;
+parameter decode_mode = 1'b0;
+
+// key & txt
+reg [127 : 0] nist_aes128_key;
+
+reg [127 : 0] nist_plaintext0;
+reg [127 : 0] nist_plaintext1;
+reg [127 : 0] nist_plaintext2;
+reg [127 : 0] nist_plaintext3;
+
+reg [127 : 0] nist_ecb_128_enc_expected0;
+reg [127 : 0] nist_ecb_128_enc_expected1;
+reg [127 : 0] nist_ecb_128_enc_expected2;
+reg [127 : 0] nist_ecb_128_enc_expected3;
+
+
+
+initial                                                
+begin                                                  
+clk = 1'b0;
+config_usual = 1'b1;
+instruction_data = 1'b1;
+rst = 1'b0;
+shakehand_in = 1'b0;
+user_data = 'd0;
+
+#cp;     
+$display("Running testbench");          
+rst = 1'b1;
+
+test();
+
+//$stop;                                               
+end   
+
+always begin #cp_h clk = ~clk; end
+
+
+task write_byte(input [7:0] realwrite); begin
+user_data = realwrite;
+shakehand_in = ~shakehand_in;
+#(5*cp);
+end
+endtask
+
+task in(input [31:0] write_word); begin
+write_byte(write_word[31:24]);
+write_byte(write_word[23:16]);
+write_byte(write_word[15: 8]);
+write_byte(write_word[ 7: 0]);
+end
+endtask
+
+task set_mode(input cu0, input id0); begin
+#(16*cp);
+config_usual = cu0;
+instruction_data = id0;
+#(16*cp);
+end
+endtask
+
+task in_128(input [127:0] txt); begin
+in(txt[127:96]);
+in(txt[ 95:64]);
+in(txt[ 63:32]);
+in(txt[ 31: 0]);
+end
+endtask
+
+
+
+task test(); begin
+
+nist_aes128_key = 128'h2b7e151628aed2a6abf7158809cf4f3c;
+
+nist_plaintext0 = 128'h6bc1bee22e409f96e93d7e117393172a;
+nist_plaintext1 = 128'hae2d8a571e03ac9c9eb76fac45af8e51;
+nist_plaintext2 = 128'h30c81c46a35ce411e5fbc1191a0a52ef;
+nist_plaintext3 = 128'hf69f2445df4f9b17ad2b417be66c3710;
+
+nist_ecb_128_enc_expected0 = 128'h3ad77bb40d7a3660a89ecaf32466ef97;
+nist_ecb_128_enc_expected1 = 128'hf5d3d58503b9699de785895a96fdbaaf;
+nist_ecb_128_enc_expected2 = 128'h43b1cd7f598ece23881b00e3ed030688;
+nist_ecb_128_enc_expected3 = 128'h7b0c785e27e8ad3f8223207104725dd4;
+
+
+//in({KEY,Q});
+//in(32'h09cf4f3c);
+//
+//in({MOD,D});
+//in({SPD,8'h02});
+//set_mode(config_mode,data_mode);
+//in_128(nist_ecb_128_enc_expected1);
+//set_mode(config_mode, instruction_mode);
+//
+//#(80*cp);
+//
+//in({SPD,8'h04});
+//in({MOD,E});
+//set_mode(config_mode,data_mode);
+//in_128(nist_plaintext1);
+//set_mode(config_mode, instruction_mode);
+//
+//in({KEY,F});
+//in_128(128'h19990521);
+//set_mode(config_mode,data_mode);
+//in_128(nist_plaintext0);
+//set_mode(config_mode, instruction_mode);
+//
+//in({KEY,N});
+//set_mode(config_mode,data_mode);
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+//in_128(nist_plaintext2);
+//in_128(nist_plaintext3);
+//set_mode(config_mode, instruction_mode);
+//
+//in({MOD,D});
+//set_mode(config_mode,data_mode);
+//in_128(nist_ecb_128_enc_expected0);
+//in_128(nist_ecb_128_enc_expected1);
+//in_128(nist_ecb_128_enc_expected2);
+//in_128(nist_ecb_128_enc_expected3);
+//set_mode(config_mode, instruction_mode);
+
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+//#(80*cp);
+//set_mode(default_mode, decode_mode);
+//in_128(nist_ecb_128_enc_expected0);
+//in_128(nist_ecb_128_enc_expected1);
+
+in({MOD,E});
+in({SPD,8'h02});
+set_mode(config_mode,data_mode);
+in_128(nist_plaintext0);
+in_128(nist_plaintext1);
+#(30*cp);
+set_mode(config_mode, instruction_mode);
+in({MOD,D});
+set_mode(config_mode, data_mode);
+in_128(nist_ecb_128_enc_expected0);
+in_128(nist_ecb_128_enc_expected1);
+
+
+end
+endtask
+
+
+
+                                                 
+                                 
+                
+endmodule
+
