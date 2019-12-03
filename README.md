@@ -38,7 +38,7 @@ KEY: config a key.
   KEYQ: 32bit key. The higher 96bit key will be configed to default key built in the system.  
   KEYN: default key.  
 SPD: config the speed of outport.  
-  The operation data is a 4bit number between 0x01 to 0x0f. The outport will output one byte data per 2^n clock periods.(n is the operation data)
+  The operation data is a 8bit number between 0x01 to 0x0f. The outport will output one byte data per 2^n clock periods.(n is the operation data)
 
 ### interfaces
 #### in_port & shi
@@ -46,7 +46,7 @@ The in_port will convert 8bit data to 32bit data and output to the instruction s
 The shi is a shakehand signal. You should turn it to (~shi) when you input a new 8bit data.  
 You should hold a data more than 5 clock period.  
 #### out_port
-The out_port will convert 4*32bit result data to 16*8bit output data.  
+The out_port will convert 4\*32bit result data to 16\*8bit output data.  
 The default speed of it is 16 clock periods per 8bit data.  
 #### Tips
 The speed of out_port should faster than the in_port's to ensure the system could work continuously.
