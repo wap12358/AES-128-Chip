@@ -106,7 +106,7 @@ if(!rst) begin
 	state_flag_default_mode <= 2'b00;
 
 	// about key
-	default_key <= 128'h2b7e151628aed2a6abf7158809cf4f3c;
+	default_key <= 128'hab7240f9c5e0bb5eee8e34b6bb84cfb0;
 	keylen_ctrl <= 3'b000;
 
 	// enable signal

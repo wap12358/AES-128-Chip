@@ -21,7 +21,7 @@ When you finish the config process, you could let id<=0 to switch to data mode.
 In instruction mode, your input will be processed as an instruction and used to config the system.  
 In data mode, your data will be input into the AES module. You will get the result after some clocks.  
 #### ed (when usual mode)
-id means encipher_decipher.  
+ed means encipher_decipher.  
 The system will work in encipher mode when ed=1, and work in decipher mode when ed=0.  
 When you select usual mode, the only one thing you could do is select encipher of decipher mode and input your data.  
 The usual mode is dsigned to work with some simple modules.   

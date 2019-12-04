@@ -54,9 +54,9 @@ module aes128only(
   //----------------------------------------------------------------
   // Internal constant and parameter definitions.
   //----------------------------------------------------------------
-//  localparam ADDR_NAME0       = 8'h00;
-//  localparam ADDR_NAME1       = 8'h01;
-//  localparam ADDR_VERSION     = 8'h02;
+  localparam ADDR_NAME0       = 8'h00;
+  localparam ADDR_NAME1       = 8'h01;
+  localparam ADDR_VERSION     = 8'h02;
 
   localparam ADDR_CTRL        = 8'h08;
   localparam CTRL_INIT_BIT    = 0;
@@ -170,10 +170,10 @@ module aes128only(
           for (i = 0 ; i < 4 ; i = i + 1)
             block_reg[i] <= 32'h0;
 
-			 key_reg[0] <= 32'h2b7e1516;
-			 key_reg[1] <= 32'h28aed2a6;
-			 key_reg[2] <= 32'habf71588;
-			 key_reg[3] <= 32'h09cf4f3c;
+			 key_reg[0] <= 32'hab7240f9;
+			 key_reg[1] <= 32'hc5e0bb5e;
+			 key_reg[2] <= 32'hee8e34b6;
+			 key_reg[3] <= 32'hbb84cfb0;
 			 
           init_reg   <= 1'b0;
           next_reg   <= 1'b0;
