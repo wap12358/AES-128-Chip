@@ -16,7 +16,7 @@ output wire out_valid;   //shakehand
 reg [127:0] out_mem;
 reg [1:0] pass_count;
 reg [3:0] out_count;
-reg pass_en;   //indicate the 128 reg has been stored
+//reg pass_en;   //indicate the 128 reg has been stored
  
 reg [7:0] out_reg;
 reg outen_reg;
@@ -27,12 +27,14 @@ assign out_data = out_reg;
 assign out_valid = valid_en;
 
 reg [15:0] clk_count;
+reg flag_en8;
 
 always@(posedge clk or negedge rst) begin
 if(!rst) begin
 pass_count <= 'd0;
-pass_en <= 'd0;
+//pass_en <= 'd0;
 //en_reg <= 1'b0;
+flag_en8 <= 1'b0;
 end
 else begin
 
@@ -40,16 +42,17 @@ else begin
 
 if(aes_en) begin
 	case(pass_count) 
-	2'd0: begin out_mem[127:96] <= pass_data[31:0]; pass_count <= 2'd1; pass_en <= 1'b0; end
-	2'd1: begin out_mem[ 95:64] <= pass_data[31:0]; pass_count <= 2'd2; pass_en <= 1'b0; end	
-	2'd2: begin out_mem[ 63:32] <= pass_data[31:0]; pass_count <= 2'd3; pass_en <= 1'b0; end
-	2'd3: begin out_mem[ 31: 0] <= pass_data[31:0]; pass_count <= 2'd0; pass_en <= 1'b1; end
+	2'd0: begin out_mem[127:96] <= pass_data[31:0]; pass_count <= 2'd1; flag_en8 <= 1'b1; end
+	2'd1: begin out_mem[ 95:64] <= pass_data[31:0]; pass_count <= 2'd2; flag_en8 <= 1'b1; end	
+	2'd2: begin out_mem[ 63:32] <= pass_data[31:0]; pass_count <= 2'd3; flag_en8 <= 1'b1; end
+	2'd3: begin out_mem[ 31: 0] <= pass_data[31:0]; pass_count <= 2'd0; flag_en8 <= 1'b1; end
 	default: begin out_mem <= 'd0; pass_count <= 'd0; end
 	endcase end
 //old_pass_en <= pass_en;
 
-if(clk_count == 'h1 && outen_reg == 1)
-		pass_en <= 1'd0; 
+if(clk_count == 'h1 && outen_reg == 1) begin
+	//pass_en <= 1'd0; 
+	flag_en8 <= 1'b0; end
 
 end //biggest else begin
 end //always begin
@@ -67,7 +70,7 @@ end
 else begin
 
 //out_flag <= 1'b0;
-if(pass_en) begin
+if(flag_en8) begin
 //	out_flag <= 1'b1;
 	clk_count <= clk_count + 1'b1;
 	
