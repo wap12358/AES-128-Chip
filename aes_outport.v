@@ -56,41 +56,26 @@ out <= 'd0;
 valid <= 'd0;
 end
 else begin
-case({clk_count[div_bits+3],clk_count[div_bits+2],clk_count[div_bits+1],clk_count[div_bits],clk_count[div_bits-1]})
-5'b1111_1: begin out <= out_mem[127:120]; valid <= 1'b1; end
-5'b1111_0: begin valid <= 1'b0; end
-5'b1110_1: begin out <= out_mem[119:112]; valid <= 1'b1; end
-5'b1110_0: begin valid <= 1'b0; end
-5'b1101_1: begin out <= out_mem[111:104]; valid <= 1'b1; end
-5'b1101_0: begin valid <= 1'b0; end
-5'b1100_1: begin out <= out_mem[103: 96]; valid <= 1'b1; end
-5'b1100_0: begin valid <= 1'b0; end
-5'b1011_1: begin out <= out_mem[ 95: 88]; valid <= 1'b1; end
-5'b1011_0: begin valid <= 1'b0; end
-5'b1010_1: begin out <= out_mem[ 87: 80]; valid <= 1'b1; end
-5'b1010_0: begin valid <= 1'b0; end
-5'b1001_1: begin out <= out_mem[ 79: 72]; valid <= 1'b1; end
-5'b1001_0: begin valid <= 1'b0; end
-5'b1000_1: begin out <= out_mem[ 71: 64]; valid <= 1'b1; end
-5'b1000_0: begin valid <= 1'b0; end
-5'b0111_1: begin out <= out_mem[ 63: 56]; valid <= 1'b1; end
-5'b0111_0: begin valid <= 1'b0; end
-5'b0110_1: begin out <= out_mem[ 55: 48]; valid <= 1'b1; end
-5'b0110_0: begin valid <= 1'b0; end
-5'b0101_1: begin out <= out_mem[ 47: 40]; valid <= 1'b1; end
-5'b0101_0: begin valid <= 1'b0; end
-5'b0100_1: begin out <= out_mem[ 39: 32]; valid <= 1'b1; end
-5'b0100_0: begin valid <= 1'b0; end
-5'b0011_1: begin out <= out_mem[ 31: 24]; valid <= 1'b1; end
-5'b0011_0: begin valid <= 1'b0; end
-5'b0010_1: begin out <= out_mem[ 23: 16]; valid <= 1'b1; end
-5'b0010_0: begin valid <= 1'b0; end
-5'b0001_1: begin out <= out_mem[ 15:  8]; valid <= 1'b1; end
-5'b0001_0: begin valid <= 1'b0; end
-5'b0000_1: begin out <= out_mem[  7:  0]; valid <= 1'b1; end
-5'b0000_0: begin valid <= 1'b0; end
+case({clk_count[div_bits+3],clk_count[div_bits+2],clk_count[div_bits+1],clk_count[div_bits]})
+4'b1111: begin out <= out_mem[127:120]; end
+4'b1110: begin out <= out_mem[119:112]; end
+4'b1101: begin out <= out_mem[111:104]; end
+4'b1100: begin out <= out_mem[103: 96]; end
+4'b1011: begin out <= out_mem[ 95: 88]; end
+4'b1010: begin out <= out_mem[ 87: 80]; end
+4'b1001: begin out <= out_mem[ 79: 72]; end
+4'b1000: begin out <= out_mem[ 71: 64]; end
+4'b0111: begin out <= out_mem[ 63: 56]; end
+4'b0110: begin out <= out_mem[ 55: 48]; end
+4'b0101: begin out <= out_mem[ 47: 40]; end
+4'b0100: begin out <= out_mem[ 39: 32]; end
+4'b0011: begin out <= out_mem[ 31: 24]; end
+4'b0010: begin out <= out_mem[ 23: 16]; end
+4'b0001: begin out <= out_mem[ 15:  8]; end
+4'b0000: begin out <= out_mem[  7:  0]; end
 default: begin  end
 endcase
+valid <= clk_count[div_bits-1];
 end // end of biggest else
 end // end of always
 
