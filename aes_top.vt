@@ -132,11 +132,19 @@ end
 
 always begin #cp_h clk = ~clk; end
 
+task change_cu(input new_cu); begin
+rst <= 1'b0;
+config_usual <= new_cu;
+#cp;
+rst <= 1'b1;
+
+end
+endtask
 
 task write_byte(input [7:0] realwrite); begin
 user_data = realwrite;
 shakehand_in = ~shakehand_in;
-#(5*cp);
+#(16*cp);
 end
 endtask
 
@@ -227,18 +235,56 @@ nist_ecb_128_enc_expected3 = 128'h7b0c785e27e8ad3f8223207104725dd4;
 //in_128(nist_ecb_128_enc_expected0);
 //in_128(nist_ecb_128_enc_expected1);
 
+//20191205
 in({MOD,E});
-in({SPD,8'h02});
+in({KEY,F});
+in_128(nist_aes128_key);
+//in({KEY,N});
+in({SPD,8'h01});
 set_mode(config_mode,data_mode);
 in_128(nist_plaintext0);
-in_128(nist_plaintext1);
-#(30*cp);
+//in_128(nist_plaintext1);
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+#(80*cp);
 set_mode(config_mode, instruction_mode);
 in({MOD,D});
 set_mode(config_mode, data_mode);
 in_128(nist_ecb_128_enc_expected0);
 in_128(nist_ecb_128_enc_expected1);
 
+//#(200*cp);
+//change_cu(default_mode);
+//set_mode(default_mode,encode_mode);
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+//in_128(nist_plaintext0);
+//in_128(nist_plaintext1);
+//#(80*cp);
+//set_mode(default_mode,decode_mode);
+//in_128(nist_ecb_128_enc_expected0);
+//in_128(nist_ecb_128_enc_expected1);
+
+
+//in({MOD,E});
+//in({KEY,F});
+//in_128(128'd0);
+//set_mode(config_mode,data_mode);
+//in_128(128'd0);
+
+//in_128(128'haa0024fd_d891e228_677801fe_62048ccf);
+
+
+//#(800*cp);
+//$stop;
 
 end
 endtask
