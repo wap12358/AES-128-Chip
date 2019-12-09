@@ -261,7 +261,7 @@ write_128(cipher0_keyn,128'h0);
 
 
 
-@(outport_counter[3:0] == 4'h0 && inport_data_counter == outport_counter)
+wait(outport_counter[3:0] == 4'h0 && inport_data_counter == outport_counter)
 $stop;
 
 
