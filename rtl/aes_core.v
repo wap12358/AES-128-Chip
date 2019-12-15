@@ -2,7 +2,7 @@
 //
 // aes_core.v
 // ----------
-// The AES core. This core supports key size of 128.
+// The AES core. This core supports key size of 128, and 256 bits.
 // Most of the functionality is within the submodules.
 //
 //
@@ -46,7 +46,8 @@ module aes_core(
                 input wire            next,
                 output wire           ready,
 
-                input wire [127 : 0]  key,
+                input wire [255 : 0]  key,
+                input wire [1:0]      keylen,
 
                 input wire [127 : 0]  block,
                 output wire [127 : 0] result,
@@ -118,6 +119,7 @@ module aes_core(
 
                                .next(enc_next),
 
+                               .keylen(keylen),
                                .round(enc_round_nr),
                                .round_key(round_key),
 
@@ -136,6 +138,7 @@ module aes_core(
 
                                .next(dec_next),
 
+                               .keylen(keylen),
                                .round(dec_round_nr),
                                .round_key(round_key),
 
@@ -150,6 +153,7 @@ module aes_core(
                      .reset_n(reset_n),
 
                      .key(key),
+                     .keylen(keylen),
                      .init(init),
 
                      .round(muxed_round_nr),

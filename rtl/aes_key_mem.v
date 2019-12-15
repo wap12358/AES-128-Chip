@@ -40,23 +40,30 @@ module aes_key_mem(
                    input wire            clk,
                    input wire            reset_n,
 
-                   input wire [127 : 0]  key,
+                   input wire  [255 : 0] key,
+                   input wire  [  1 : 0] keylen,
                    input wire            init,
 
-                   input wire    [3 : 0] round,
+                   input wire  [  3 : 0] round,
                    output wire [127 : 0] round_key,
                    output wire           ready,
 
 
-                   output wire [31 : 0]  sboxw,
-                   input wire  [31 : 0]  new_sboxw
+                   output wire  [31 : 0] sboxw,
+                   input wire   [31 : 0] new_sboxw
                   );
 
 
   //----------------------------------------------------------------
   // Parameters.
   //----------------------------------------------------------------
-  localparam AES_128_NUM_ROUNDS = 4'd10;
+  localparam AES_128_BIT_KEY = 2'h00;
+  localparam AES_192_BIT_KEY = 2'h01;
+  localparam AES_256_BIT_KEY = 2'h10;
+
+  localparam AES_128_NUM_ROUNDS = 10;
+  localparam AES_192_NUM_ROUNDS = 12;
+  localparam AES_256_NUM_ROUNDS = 14;
 
   localparam CTRL_IDLE     = 3'h0;
   localparam CTRL_INIT     = 3'h1;
@@ -67,13 +74,14 @@ module aes_key_mem(
   //----------------------------------------------------------------
   // Registers.
   //----------------------------------------------------------------
-  reg [127 : 0] key_mem [0 : AES_128_NUM_ROUNDS];
+  reg [127 : 0] key_mem [0 : 14];
   reg [127 : 0] key_mem_new;
   reg           key_mem_we;
+  reg [191 : 0] key_mem_temp_192;
 
-//  reg [127 : 0] prev_key0_reg;
-//  reg [127 : 0] prev_key0_new;
-//  reg           prev_key0_we;
+  reg [127 : 0] prev_key0_reg;
+  reg [127 : 0] prev_key0_new;
+  reg           prev_key0_we;
 
   reg [127 : 0] prev_key1_reg;
   reg [127 : 0] prev_key1_new;
@@ -129,30 +137,32 @@ module aes_key_mem(
 
       if (!reset_n)
         begin
-          for (i = 0 ; i <= AES_128_NUM_ROUNDS ; i = i + 1)
+          for (i = 0 ; i <= AES_256_NUM_ROUNDS ; i = i + 1)
             key_mem [i] <= 128'h0;
 
-          rcon_reg         <= 8'h0;
           ready_reg        <= 1'b0;
+          rcon_reg         <= 8'h0;
           round_ctr_reg    <= 4'h0;
+          prev_key0_reg    <= 128'h0;
+          prev_key1_reg    <= 128'h0;
           key_mem_ctrl_reg <= CTRL_IDLE;
         end
       else
         begin
-          if (round_ctr_we)
-            round_ctr_reg <= round_ctr_new;
-
           if (ready_we)
             ready_reg <= ready_new;
 
           if (rcon_we)
             rcon_reg <= rcon_new;
 
+          if (round_ctr_we)
+            round_ctr_reg <= round_ctr_new;
+
           if (key_mem_we)
             key_mem[round_ctr_reg] <= key_mem_new;
 
-//          if (prev_key0_we)
-//            prev_key0_reg <= prev_key0_new;
+          if (prev_key0_we)
+            prev_key0_reg <= prev_key0_new;
 
           if (prev_key1_we)
             prev_key1_reg <= prev_key1_new;
@@ -177,19 +187,19 @@ module aes_key_mem(
   //----------------------------------------------------------------
   // round_key_gen
   //
-  // The round key generator logic for AES-128.
+  // The round key generator logic for AES-128 and AES-256.
   //----------------------------------------------------------------
   always @*
     begin: round_key_gen
-      reg [31 : 0] w4, w5, w6, w7;
-      reg [31 : 0] k0, k1, k2, k3;
-      reg [31 : 0] rconw, rotstw, trw;
+      reg [31 : 0] w0, w1, w2, w3, w4, w5, w6, w7;
+      reg [31 : 0] k0, k1, k2, k3, k4, k5;
+      reg [31 : 0] rconw, rotstw, tw, trw;
 
       // Default assignments.
       key_mem_new   = 128'h0;
       key_mem_we    = 1'b0;
-//      prev_key0_new = 128'h0;
-//      prev_key0_we  = 1'b0;
+      prev_key0_new = 128'h0;
+      prev_key0_we  = 1'b0;
       prev_key1_new = 128'h0;
       prev_key1_we  = 1'b0;
 
@@ -197,16 +207,18 @@ module aes_key_mem(
       k1 = 32'h0;
       k2 = 32'h0;
       k3 = 32'h0;
+      k4 = 32'h0;
+      k5 = 32'h0;
 
       rcon_set   = 1'b1;
       rcon_next  = 1'b0;
 
       // Extract words and calculate intermediate values.
       // Perform rotation of sbox word etc.
-//      w0 = prev_key0_reg[127 : 096];
-//      w1 = prev_key0_reg[095 : 064];
-//      w2 = prev_key0_reg[063 : 032];
-//      w3 = prev_key0_reg[031 : 000];
+      w0 = prev_key0_reg[127 : 096];
+      w1 = prev_key0_reg[095 : 064];
+      w2 = prev_key0_reg[063 : 032];
+      w3 = prev_key0_reg[031 : 000];
 
       w4 = prev_key1_reg[127 : 096];
       w5 = prev_key1_reg[095 : 064];
@@ -217,30 +229,155 @@ module aes_key_mem(
       tmp_sboxw = w7;
       rotstw = {new_sboxw[23 : 00], new_sboxw[31 : 24]};
       trw = rotstw ^ rconw;
+      tw = new_sboxw;
 
       // Generate the specific round keys.
       if (round_key_update)
         begin
           rcon_set   = 1'b0;
           key_mem_we = 1'b1;
-          if (round_ctr_reg == 0)
-            begin
-              key_mem_new   = key;
-              prev_key1_new = key;
-              prev_key1_we  = 1'b1;
-              rcon_next     = 1'b1;
-            end
-          else
-            begin
-              k0 = w4 ^ trw; //////////////////////////////////////////////////////////////xiang3 gai3
-              k1 = w5 ^ w4 ^ trw;
-              k2 = w6 ^ w5 ^ w4 ^ trw;
-              k3 = w7 ^ w6 ^ w5 ^ w4 ^ trw;
-              key_mem_new   = {k0, k1, k2, k3};
-              prev_key1_new = {k0, k1, k2, k3};
-              prev_key1_we  = 1'b1;
-              rcon_next     = 1'b1;
-            end
+          case (keylen)
+            AES_128_BIT_KEY:
+              begin
+                if (round_ctr_reg == 0)
+                  begin
+                    key_mem_new   = key[255 : 128];
+                    prev_key1_new = key[255 : 128];
+                    prev_key1_we  = 1'b1;
+                    rcon_next     = 1'b1;
+                  end
+                else
+                  begin
+                    k0 = w4 ^ trw;
+                    k1 = w5 ^ w4 ^ trw;
+                    k2 = w6 ^ w5 ^ w4 ^ trw;
+                    k3 = w7 ^ w6 ^ w5 ^ w4 ^ trw;
+
+                    key_mem_new   = {k0, k1, k2, k3};
+                    prev_key1_new = {k0, k1, k2, k3};
+                    prev_key1_we  = 1'b1;
+                    rcon_next     = 1'b1;
+                  end
+              end
+
+            AES_192_BIT_KEY:
+              begin
+                if (round_ctr_reg == 0)
+                  begin
+                    key_mem_new   = key[255 : 128]; //// new key of this round
+                    prev_key0_new = {64'h0,key[255 : 192]}; 
+                    prev_key1_new = key[191 : 64]; 
+                    key_mem_temp_192[191:128] = key[127:64];
+                    prev_key0_we  = 1'b1;
+                    prev_key1_we  = 1'b1;
+                    rcon_next     = 1'b1; ///// function of this signal is unknown
+                  end
+                else
+                  begin
+                  if(round_ctr_reg % 2'd3 == 0) // this % operation will seriously impact performance of this system, 
+                                                // clk frequency may have to reduce to lower than 50MHz.
+                    begin
+
+                      k0 = w2 ^ trw;
+                      k1 = w3 ^ w2 ^ trw;
+                      k2 = w4 ^ w3 ^ w2 ^ trw;
+                      k3 = w5 ^ w4 ^ w3 ^ w2 ^ trw;
+                      k4 = w6 ^ w5 ^ w4 ^ w3 ^ w2 ^ trw;
+                      k5 = w7 ^ w6 ^ w5 ^ w4 ^ w3 ^ w2 ^ trw;
+                      
+                      key_mem_new = {k0, k1, k2, k3};
+                      key_mem_temp_192[191:128] = {k4, k5};
+
+                      prev_key0_new = {64'h0, k0, k1};
+                      prev_key1_new = {k2, k3, k4, k5};
+                      prev_key0_we  = 1'b1;
+                      prev_key1_we  = 1'b1;
+                      rcon_next     = 1'b1; // function is unknown
+
+                    end
+                  else if(round_ctr_reg % 2'd3 == 1)
+                    begin
+
+                      k0 = w2 ^ trw;
+                      k1 = w3 ^ w2 ^ trw;
+                      k2 = w4 ^ w3 ^ w2 ^ trw;
+                      k3 = w5 ^ w4 ^ w3 ^ w2 ^ trw;
+                      k4 = w6 ^ w5 ^ w4 ^ w3 ^ w2 ^ trw;
+                      k5 = w7 ^ w6 ^ w5 ^ w4 ^ w3 ^ w2 ^ trw;
+                      
+                      key_mem_new = {key_mem_temp_192[191:128], k0, k1};
+                      key_mem_temp_192[127:0] = {k2, k3, k4, k5};
+
+                      prev_key0_new = {64'h0, k0, k1};
+                      prev_key1_new = {k2, k3, k4, k5};
+                      prev_key0_we  = 1'b1;
+                      prev_key1_we  = 1'b1;
+                      rcon_next     = 1'b1; // function is unknown
+
+                    end
+                  else
+                    begin
+                      key_mem_new = key_mem_temp_192[127:0];
+                    end
+
+
+                    //k0 = w4 ^ trw;
+                    //k1 = w5 ^ w4 ^ trw;
+                    //k2 = w6 ^ w5 ^ w4 ^ trw;
+                    //k3 = w7 ^ w6 ^ w5 ^ w4 ^ trw;
+                    //key_mem_new   = {k0, k1, k2, k3};
+                    //prev_key1_new = {k0, k1, k2, k3};
+                    //prev_key1_we  = 1'b1;
+                    //rcon_next     = 1'b1;
+                  end
+              end
+
+            AES_256_BIT_KEY:
+              begin
+                if (round_ctr_reg == 0)
+                  begin
+                    key_mem_new   = key[255 : 128];
+                    prev_key0_new = key[255 : 128];
+                    prev_key0_we  = 1'b1;
+                  end
+                else if (round_ctr_reg == 1)
+                  begin
+                    key_mem_new   = key[127 : 0];
+                    prev_key1_new = key[127 : 0];
+                    prev_key1_we  = 1'b1;
+                    rcon_next     = 1'b1;
+                  end
+                else
+                  begin
+                    if (round_ctr_reg[0] == 0)
+                      begin
+                        k0 = w0 ^ trw;
+                        k1 = w1 ^ w0 ^ trw;
+                        k2 = w2 ^ w1 ^ w0 ^ trw;
+                        k3 = w3 ^ w2 ^ w1 ^ w0 ^ trw;
+                      end
+                    else
+                      begin
+                        k0 = w0 ^ tw;
+                        k1 = w1 ^ w0 ^ tw;
+                        k2 = w2 ^ w1 ^ w0 ^ tw;
+                        k3 = w3 ^ w2 ^ w1 ^ w0 ^ tw;
+                        rcon_next = 1'b1;
+                      end
+
+                    // Store the generated round keys.
+                    key_mem_new   = {k0, k1, k2, k3};
+                    prev_key1_new = {k0, k1, k2, k3};
+                    prev_key1_we  = 1'b1;
+                    prev_key0_new = prev_key1_reg;
+                    prev_key0_we  = 1'b1;
+                  end
+              end
+
+            default:
+              begin
+              end
+          endcase // case (keylen)
         end
     end // round_key_gen
 
@@ -315,7 +452,13 @@ module aes_key_mem(
       round_ctr_inc    = 1'b0;
       key_mem_ctrl_new = CTRL_IDLE;
       key_mem_ctrl_we  = 1'b0;
-      num_rounds = AES_128_NUM_ROUNDS;
+
+      case(keylen)
+      AES_128_BIT_KEY: begin num_rounds = AES_128_NUM_ROUNDS; end
+      AES_192_BIT_KEY: begin num_rounds = AES_192_NUM_ROUNDS; end
+      AES_256_BIT_KEY: begin num_rounds = AES_256_NUM_ROUNDS; end
+      default: begin  end
+      endcase
 
       case(key_mem_ctrl_reg)
         CTRL_IDLE:

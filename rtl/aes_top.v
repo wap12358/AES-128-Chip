@@ -35,7 +35,7 @@ aes_outport aes_outport(  .clk(clk),.rst(rst),
 							.pass_data(aes_outport32),.aes_en(iset_outport_ready32),
 							.out_data(chip_data),.out_valid(sho),.div_bits(iset_outport_speed));
 							
-aes128only aes128only(
+aes aes(
           .clk(clk),
           .reset_n(rst),
           .cs(iset_aes_cs),

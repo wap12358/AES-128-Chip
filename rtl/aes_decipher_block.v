@@ -44,10 +44,11 @@ module aes_decipher_block(
 
                           input wire            next,
 
-                          output wire [3 : 0]   round,
-                          input wire [127 : 0]  round_key,
+                          input wire    [1 : 0] keylen,
+                          output wire   [3 : 0] round,
+                          input wire  [127 : 0] round_key,
 
-                          input wire [127 : 0]  block,
+                          input wire  [127 : 0] block,
                           output wire [127 : 0] new_block,
                           output wire           ready
                          );
@@ -56,7 +57,13 @@ module aes_decipher_block(
   //----------------------------------------------------------------
   // Internal constant and parameter definitions.
   //----------------------------------------------------------------
+  localparam AES_128_BIT_KEY = 2'h00;
+  localparam AES_192_BIT_KEY = 2'h01;
+  localparam AES_256_BIT_KEY = 2'h10;
+
   localparam AES128_ROUNDS = 4'ha;
+  localparam AES192_ROUNDS = 4'hc;
+  localparam AES256_ROUNDS = 4'he;
 
   localparam NO_UPDATE    = 3'h0;
   localparam INIT_UPDATE  = 3'h1;
@@ -199,10 +206,10 @@ module aes_decipher_block(
   reg           round_ctr_dec;
 
   reg [127 : 0] block_new;
-  reg [31 : 0]  block_w0_reg;
-  reg [31 : 0]  block_w1_reg;
-  reg [31 : 0]  block_w2_reg;
-  reg [31 : 0]  block_w3_reg;
+  reg [ 31 : 0] block_w0_reg;
+  reg [ 31 : 0] block_w1_reg;
+  reg [ 31 : 0] block_w2_reg;
+  reg [ 31 : 0] block_w3_reg;
   reg           block_w0_we;
   reg           block_w1_we;
   reg           block_w2_we;
@@ -220,9 +227,9 @@ module aes_decipher_block(
   //----------------------------------------------------------------
   // Wires.
   //----------------------------------------------------------------
-  reg [31 : 0]  tmp_sboxw;
+  reg  [31 : 0] tmp_sboxw;
   wire [31 : 0] new_sboxw;
-  reg [2 : 0]   update_type;
+  reg   [2 : 0] update_type;
 
 
   //----------------------------------------------------------------
@@ -417,13 +424,16 @@ module aes_decipher_block(
       round_ctr_new = 4'h0;
       round_ctr_we  = 1'b0;
 
-      if (round_ctr_set)
-        begin
-          round_ctr_new = AES128_ROUNDS;
+      if (round_ctr_set) begin
+      case(keylen)
+      AES_128_BIT_KEY: begin round_ctr_new = AES128_ROUNDS; end
+      AES_192_BIT_KEY: begin round_ctr_new = AES192_ROUNDS; end
+      AES_256_BIT_KEY: begin round_ctr_new = AES256_ROUNDS; end
+      default: begin  end
+      endcase
           round_ctr_we  = 1'b1;
         end
-      else if (round_ctr_dec)
-        begin
+      else if (round_ctr_dec) begin
           round_ctr_new = round_ctr_reg - 1'b1;
           round_ctr_we  = 1'b1;
         end

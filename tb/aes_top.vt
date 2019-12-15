@@ -30,14 +30,18 @@ aes_top i1 (
 
 // parameter the test need to use
 //config instructions
-parameter MOD = 24'h4D4F44; //config mode
-parameter E = 8'h45; //means encode
-parameter D = 8'h44; //means decode
-parameter KEY = 24'h4B4559; //config key length
-parameter F = 8'h46 ; //means receive 128(full) length 
-parameter Q = 8'h51 ; //means receive 032(quar) length
-parameter N = 8'h4E ; //means receive 000(null) length
-parameter SPD = 24'h535044; // config output speed  
+parameter MOD = 16'd1; //config mode
+parameter E = 16'h1; //means encode
+parameter D = 16'h0; //means decode
+parameter KEY = 16'd2; //config key length
+parameter F = 16'd2; //means receive 128(full) length 
+parameter Q = 16'd1; //means receive 032(quar) length
+parameter N = 16'd0; //means receive 000(null) length
+parameter SPD = 16'd3; // config output speed ensuring data format: 0x01-0x0f
+parameter KLN = 16'd4; // key len select 128/192/256
+parameter S = 16'd0; // short 128
+parameter M = 16'd1; // medium 192
+parameter L = 16'd2; // long 256
 
 //choose mode
 parameter config_mode = 1'b1;
@@ -227,29 +231,32 @@ cipher0_keyn = 128'haa0024fdd891e228677801fe62048ccf;
 // 3. set_mode(cu,id/ed)
 // 4. inport_speed = 16'h5 - 16'hff...ff
 
-
-set_mode(config_mode, data_mode);
-write_128(cipher0_keyn,128'b0);
-write_128(cipher0_keyn,128'b0);
-write_128(cipher0_keyn,128'b0);
-write_128(cipher0_keyn,128'b0);
-
 set_mode(config_mode,instruction_mode);
+write_32({KLN,S});
 write_32({KEY,F});
-write_128(key0,128'h0);
-inport_speed = 'd5;
-write_32({SPD,8'h01});
-write_32({MOD,E});
-set_mode(config_mode,data_mode);
-write_128(plain0_key0,cipher0_key0);
-write_128(plain1_key0,cipher1_key0);
-write_128(plain0_key0,cipher0_key0);
-set_mode(config_mode,instruction_mode);
-write_32({KEY,N});
-write_32({MOD,D});
-set_mode(config_mode,data_mode);
-write_128(cipher0_keyn,128'h0);
-write_128(cipher0_keyn,128'h0);
+write_32(key0[127:96]);
+write_32(key0[ 95:64]);
+write_32(key0[ 63:32]);
+write_32(key0[ 31: 0]);
+write_32({KLN,M});
+write_32({KEY,F});
+write_32(key0[127:96]);
+write_32(key0[ 95:64]);
+write_32(key0[ 63:32]);
+write_32(key0[ 31: 0]);
+write_32(key0[127:96]);
+write_32(key0[ 95:64]);
+write_32({KLN,L});
+write_32({KEY,F});
+write_32(key0[127:96]);
+write_32(key0[ 95:64]);
+write_32(key0[ 63:32]);
+write_32(key0[ 31: 0]);
+write_32(key0[127:96]);
+write_32(key0[ 95:64]);
+write_32(key0[ 63:32]);
+write_32(key0[ 31: 0]);
+
 
 
 

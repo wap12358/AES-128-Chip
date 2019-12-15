@@ -44,13 +44,14 @@ module aes_encipher_block(
 
                           input wire            next,
 
-                          output wire [3 : 0]   round,
-                          input wire [127 : 0]  round_key,
+                          input wire    [1 : 0] keylen,
+                          output wire   [3 : 0] round,
+                          input wire  [127 : 0] round_key,
 
-                          output wire [31 : 0]  sboxw,
-                          input wire  [31 : 0]  new_sboxw,
+                          output wire  [31 : 0] sboxw,
+                          input wire   [31 : 0] new_sboxw,
 
-                          input wire [127 : 0]  block,
+                          input wire  [127 : 0] block,
                           output wire [127 : 0] new_block,
                           output wire           ready
                          );
@@ -59,7 +60,13 @@ module aes_encipher_block(
   //----------------------------------------------------------------
   // Internal constant and parameter definitions.
   //----------------------------------------------------------------
+  localparam AES_128_BIT_KEY = 2'h00;
+  localparam AES_192_BIT_KEY = 2'h01;
+  localparam AES_256_BIT_KEY = 2'h10;
+
   localparam AES128_ROUNDS = 4'ha;
+  localparam AES192_ROUNDS = 4'hc;
+  localparam AES256_ROUNDS = 4'he;
 
   localparam NO_UPDATE    = 3'h0;
   localparam INIT_UPDATE  = 3'h1;
@@ -266,7 +273,7 @@ module aes_encipher_block(
       block_w2_we = 1'b0;
       block_w3_we = 1'b0;
 
-      old_block          = {block_w0_reg, block_w1_reg, block_w2_reg, block_w3_reg};  //old_block is the data before shiftrows, it is not old data  --wyb
+      old_block          = {block_w0_reg, block_w1_reg, block_w2_reg, block_w3_reg};
       shiftrows_block    = shiftrows(old_block);
       mixcolumns_block   = mixcolumns(shiftrows_block);
       addkey_init_block  = addroundkey(block, round_key);
@@ -404,8 +411,13 @@ module aes_encipher_block(
       update_type   = NO_UPDATE;
       enc_ctrl_new  = CTRL_IDLE;
       enc_ctrl_we   = 1'b0;
-      num_rounds = AES128_ROUNDS;
 
+      case(keylen)
+      AES_128_BIT_KEY: begin num_rounds = AES128_ROUNDS; end
+      AES_192_BIT_KEY: begin num_rounds = AES192_ROUNDS; end
+      AES_256_BIT_KEY: begin num_rounds = AES256_ROUNDS; end
+      default: begin  end
+      endcase
 
       case(enc_ctrl_reg)
         CTRL_IDLE:

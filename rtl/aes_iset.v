@@ -42,25 +42,31 @@ assign outport_shakehand_wire = outport_shakehand;
 assign outport_speed_wire = outport_speed;
 
 //config instructions
-parameter MOD = 24'h4D4F44; //config mode
-parameter E = 8'h45; //means encode
-parameter D = 8'h44; //means decode
-parameter KEY = 24'h4B4559; //config key length
-parameter F = 8'h46 ; //means receive 128(full) length 
-parameter Q = 8'h51 ; //means receive 032(quar) length
-parameter N = 8'h4E ; //means receive 000(null) length
-parameter SPD = 24'h535044; /* config output speed  
-										ensuring data format: 0x01-0x0f */
+parameter MOD = 16'd1; //config mode
+parameter E = 16'h1; //means encode
+parameter D = 16'h0; //means decode
+parameter KEY = 16'd2; //config key length
+parameter F = 16'd2; //means receive 128(full) length 
+parameter Q = 16'd1; //means receive 032(quar) length
+parameter N = 16'd0; //means receive 000(null) length
+parameter SPD = 16'd3; // config output speed ensuring data format: 0x01-0x0f
+parameter KLN = 16'd4; // key len select 128/192/256
+parameter S = 16'd0; // short 128
+parameter M = 16'd1; // medium 192
+parameter L = 16'd2; // long 256
+
 
 reg [2:0] data_write_state; // the number of packet has been wrote in
 //reg [1:0] data_mode_read_state;
-reg [5:0] data_ready_count;
+reg [6:0] data_ready_count;
 reg aes_working;
 reg [127:0] data_buffer;
 
 reg [127:0] default_key;
 reg [2:0] keylen_ctrl; // control the length of default part and config part of key, higher 2bit is used to save mode, lower 1bit is a flag
 reg [3:0] div_count;
+
+reg [2:0] aes_mode;
 
 // the FSM of config mode
 reg [7:0] state;
@@ -70,7 +76,12 @@ parameter KEYC1 = {KEYST,4'b0000}; //
 parameter KEYC2 = {KEYST,4'b0001}; //
 parameter KEYC3 = {KEYST,4'b0010}; //
 parameter KEYC4 = {KEYST,4'b0011}; //
-parameter KEYEN = {KEYST,4'b0100}; //
+parameter KEYC5 = {KEYST,4'b0100}; //
+parameter KEYC6 = {KEYST,4'b0101}; //
+parameter KEYC7 = {KEYST,4'b0110}; //
+parameter KEYC8 = {KEYST,4'b0111}; //
+parameter KEYEN = {KEYST,4'b1000}; //
+reg [7:0] key_address_count;
 
 // the FSM of default mode
 reg [1:0] state_flag_default_mode;
@@ -98,9 +109,10 @@ if(!rst) begin
 	// state and counter
 	data_write_state <= 3'd0;
 //	data_mode_read_state <= 2'd0;
-	data_ready_count <= 6'd0;
+	data_ready_count <= 7'd0;
 	aes_working <= 1'b0;
 	state <= ORDER;
+	aes_mode <= 3'b000;
 //	packet_count_default_mode <= 3'b000;
 
 	state_flag_default_mode <= 2'b00;
@@ -108,6 +120,7 @@ if(!rst) begin
 	// about key
 	default_key <= 128'hab7240f9c5e0bb5eee8e34b6bb84cfb0;
 	keylen_ctrl <= 3'b000;
+	key_address_count <= 8'h00;
 
 	// enable signal
 	div_count <= cu ? 4'd0 : 4'd3; // default mode need 3 clocks to initialize encode/decode mode
@@ -136,25 +149,36 @@ if(div_count != 'd0) begin div_count <= div_count - 1'b1; end
 if(cu) begin //config mode
 if(id) begin //instruction mode
 	if(state == ORDER) begin //the next input is an instruction
-		case(in_wire[31:8])
+		case(in_wire[31:16])
 		MOD: begin //config mode
-				case(in_wire[7:0])
-				E: begin waddr <= 8'h0a; wdata <= 32'h0000_0001; wflag <= 1'b1; end
-				D: begin waddr <= 8'h0a; wdata <= 32'h0000_0000; wflag <= 1'b1; end
-				default: begin  end
-				endcase
+				waddr <= 8'h0a; 
+				wdata <= {29'h0,aes_mode[2:1],in_wire[0]}; 
+				aes_mode[0] <= in_wire[0]; 
+				wflag <= 1'b1;
 			end
 		KEY: begin //input KEY
-				state <= KEYC4;
-				case(in_wire[7:0])
-				F: begin keylen_ctrl <= 3'b10_1; div_count <= 4'd0; end
-				Q: begin keylen_ctrl <= 3'b01_0; div_count <= 4'd5; end
-				N: begin keylen_ctrl <= 3'b00_0; div_count <= 4'd9; end
+				case(aes_mode[2:1])
+				2'b00: begin
+					case(in_wire[15:0])
+						F: begin keylen_ctrl <= 3'b10_1; div_count <= 4'd0; state <= KEYC4; key_address_count <= 8'h10; end
+						Q: begin keylen_ctrl <= 3'b01_0; div_count <= 4'd5; state <= KEYC4; key_address_count <= 8'h10; end
+						N: begin keylen_ctrl <= 3'b00_0; div_count <= 4'd9; state <= KEYC4; key_address_count <= 8'h10; end
+						default: begin  end
+					endcase
+					end
+				2'b01: begin if(in_wire[15:0] == F) begin state <= KEYC6; keylen_ctrl <= 3'b11_1; div_count <= 4'd0; state <= KEYC6; key_address_count <= 8'h10; end end
+				2'b10: begin if(in_wire[15:0] == F) begin state <= KEYC8; keylen_ctrl <= 3'b11_1; div_count <= 4'd0; state <= KEYC8; key_address_count <= 8'h10; end end
 				default: begin  end
 				endcase
 			end
 		SPD: begin //config speed
 			outport_speed <= in_wire[3:0];
+			end
+		KLN: begin
+				waddr <= 8'h0a; 
+				wdata <= {29'h0,in_wire[1:0],aes_mode[0]};
+				aes_mode[2:1] <= in_wire[1:0];
+				wflag <= 1'b1;
 			end
 		default: begin  end
 		endcase
@@ -162,71 +186,70 @@ if(id) begin //instruction mode
 	if(state[7:4] == KEYST) begin //config KEY process
 	case(state)
 	KEYC1: begin 
-		if(keylen_ctrl[0]) begin // config key part
-			wflag <= 1'b1;
-			waddr <= 8'h13;
-			wdata <= in_wire;
-			state <= KEYEN;
-			div_count <= 'd2;
+		if((keylen_ctrl[0] == 1'b1) || ((keylen_ctrl[0] == 1'b0) && div_count[0])) begin
+		wflag <= 1'b1;
+		waddr <= key_address_count;
+		wdata <= keylen_ctrl[0] ? in_wire : default_key[31:0];
+		state <= KEYEN;
+		div_count <= 'd2;
 		end
-		else begin // default key part
-		if(div_count[0]) begin
-			wflag <= 1'b1;
-			waddr <= 8'h13;
-			wdata <= default_key[31:0];
-			state <= KEYEN;
-		end // end of div_count[0]
-		end // end of default key part
 	end // end of KEYC1
 	KEYC2: begin 
-		if(keylen_ctrl[0]) begin // config key part
-			wflag <= 1'b1;
-			waddr <= 8'h12;
-			wdata <= in_wire;
-			state <= KEYC1;
+		if((keylen_ctrl[0] == 1'b1) || ((keylen_ctrl[0] == 1'b0) && div_count[0])) begin
+		wflag <= 1'b1;
+		waddr <= key_address_count;
+		wdata <= keylen_ctrl[0] ? in_wire : default_key[63:32];
+		key_address_count <= key_address_count + 1;
+		state <= KEYC1;
 		end
-		else begin // default key part
-		if(div_count[0]) begin
-			wflag <= 1'b1;
-			waddr <= 8'h12;
-			wdata <= default_key[63:32];
-			state <= KEYC1;
-			if(keylen_ctrl == 3'b010) begin
-				keylen_ctrl[0] <= 1'b1;
-			end // end of keylen_ctrl == 3'b010
-		end // end of div_count[0]
-		end // end of default key part
+		if(keylen_ctrl == 3'b010) begin keylen_ctrl[0] <= 1'b1; end
 	end // end of KEYC2
 	KEYC3: begin 
-		if(keylen_ctrl[0]) begin // config key part
-			wflag <= 1'b1;
-			waddr <= 8'h11;
-			wdata <= in_wire;
-			state <= KEYC2;
+		if((keylen_ctrl[0] == 1'b1) || ((keylen_ctrl[0] == 1'b0) && div_count[0])) begin
+		wflag <= 1'b1;
+		waddr <= key_address_count;
+		wdata <= keylen_ctrl[0] ? in_wire : default_key[95:64];
+		key_address_count <= key_address_count + 1;
+		state <= KEYC2;
 		end
-		else begin // default key part
-		if(div_count[0]) begin
-			wflag <= 1'b1;
-			waddr <= 8'h11;
-			wdata <= default_key[95:64];
-			state <= KEYC2;
-		end // end of div_count[0]
-		end // end of default key part
 	end // end of KEYC3
 	KEYC4: begin 
-		if(keylen_ctrl[0]) begin // config key part
-			wflag <= 1'b1;
-			waddr <= 8'h10;
-			wdata <= in_wire;
-			state <= KEYC3;
-		end
-		else begin // default key part
-			wflag <= 1'b1;
-			waddr <= 8'h10;
-			wdata <= default_key[127:96];
-			state <= KEYC3;
+		if((keylen_ctrl[0] == 1'b1) || ((keylen_ctrl[0] == 1'b0) && div_count[0])) begin
+		wflag <= 1'b1;
+		waddr <= key_address_count;
+		wdata <= keylen_ctrl[0] ? in_wire : default_key[127:96];
+		key_address_count <= key_address_count + 1;
+		state <= KEYC3;
 		end
 	end // end of KEYC4
+	KEYC5: begin 
+		wflag <= 1'b1;
+		waddr <= key_address_count;
+		wdata <= in_wire;
+		key_address_count <= key_address_count + 1;
+		state <= KEYC4;
+	end // end of KEYC5
+	KEYC6: begin 
+		wflag <= 1'b1;
+		waddr <= key_address_count;
+		wdata <= in_wire;
+		key_address_count <= key_address_count + 1;
+		state <= KEYC5;
+	end // end of KEYC6
+	KEYC7: begin 
+		wflag <= 1'b1;
+		waddr <= key_address_count;
+		wdata <= in_wire;
+		key_address_count <= key_address_count + 1;
+		state <= KEYC6;
+	end // end of KEYC7
+	KEYC8: begin 
+		wflag <= 1'b1;
+		waddr <= key_address_count;
+		wdata <= in_wire;
+		key_address_count <= key_address_count + 1;
+		state <= KEYC7;
+	end // end of KEYC8
 	KEYEN: begin
 		if(div_count[0])begin
 			wflag <= 1'b1;
@@ -321,7 +344,9 @@ end // end of write_in
 
 //read_out
 if(aes_working && data_ready_count >= 'd54) begin // the compelet data could be read out
-	case(data_ready_count)
+	case(aes_mode[2:1])
+	2'b00: begin
+		case(data_ready_count)
 		'd54: begin 
 			address_reg <= 8'h30;
 			read_en <= 1'b1; 
@@ -347,6 +372,66 @@ if(aes_working && data_ready_count >= 'd54) begin // the compelet data could be 
 			
 		end // end of 'd58
 		default: begin  end
+		endcase 
+		end
+	2'b01: begin
+		case(data_ready_count)
+		'd64: begin 
+			address_reg <= 8'h30;
+			read_en <= 1'b1; 
+			outport_shakehand <= 1'b1;
+			// this signal is used to control cs(chip select)
+		end // end of 'd54
+		'd65: begin 
+			address_reg <= 8'h31;
+		end // end of 'd55
+		'd66: begin 
+			address_reg <= 8'h32;
+		end // end of 'd56
+		'd67: begin 
+			address_reg <= 8'h33;
+		end // end of 'd57
+		'd68: begin 
+			read_en <= 1'b0;
+			outport_shakehand <= 1'b0;
+		end // end of 'd58
+		'd69: begin 
+			aes_working <= 1'b0;
+			data_ready_count <= 'd0;
+			
+		end // end of 'd58
+		default: begin  end
+		endcase 
+		end
+	2'b10: begin 
+		case(data_ready_count)
+		'd74: begin 
+			address_reg <= 8'h30;
+			read_en <= 1'b1; 
+			outport_shakehand <= 1'b1;
+			// this signal is used to control cs(chip select)
+		end // end of 'd54
+		'd75: begin 
+			address_reg <= 8'h31;
+		end // end of 'd55
+		'd76: begin 
+			address_reg <= 8'h32;
+		end // end of 'd56
+		'd77: begin 
+			address_reg <= 8'h33;
+		end // end of 'd57
+		'd78: begin 
+			read_en <= 1'b0;
+			outport_shakehand <= 1'b0;
+		end // end of 'd58
+		'd79: begin 
+			aes_working <= 1'b0;
+			data_ready_count <= 'd0;
+			
+		end // end of 'd58
+		default: begin  end
+		endcase
+		end
 	endcase
 end // end of read_out
 
