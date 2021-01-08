@@ -72,6 +72,7 @@ aes_core core(
 lfsr lfsr(
     .clk(clk),
     .rst_n(rst_n),
+    .require(),
     .random128()
 );
 
