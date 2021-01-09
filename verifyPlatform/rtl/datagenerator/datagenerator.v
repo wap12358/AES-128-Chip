@@ -86,7 +86,7 @@ lfsr lfsr(
     .random128(random128)
 );
 
-FIFO128 datafifo(
+FIFO128 #(.fifo_addr(2)) datafifo(
     .clk(clk),
     .rst_n(rst_n),
     .in_data(random128),
@@ -97,7 +97,7 @@ FIFO128 datafifo(
     .empty(data_empty)
 );
 
-FIFO128 resultfifo(
+FIFO128 #(.fifo_addr(3)) resultfifo(
     .clk(clk),
     .rst_n(rst_n),
     .in_data(result_data),

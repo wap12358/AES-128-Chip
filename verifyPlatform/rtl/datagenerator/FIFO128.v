@@ -2,16 +2,19 @@
 
 //`define fifo_width 128
 //`define fifo_depth 8
-`define fifo_addr 3
+//`define fifo_addr 3
 
-module FIFO128(
+module FIFO128
+#( 
+parameter fifo_addr = 3
+)(
     clk, rst_n,
     in_data, in_require, full,
     out_data, out_require, empty
 );
 
 //Define parameters:
-localparam  fifo_depth = (2 ** `fifo_addr);
+localparam  fifo_depth = (2 ** fifo_addr);
 
 //Define pins:
 input               clk, rst_n;
@@ -24,8 +27,8 @@ output              empty, full;
 reg     [127: 0]    data_out_reg;
 
 reg     [127: 0]            ram [fifo_depth-1:0];
-reg     [`fifo_addr-1:0]    wr_ptr, rd_ptr;
-reg     [`fifo_addr-1:0]    counter;
+reg     [fifo_addr-1:0]     wr_ptr, rd_ptr;
+reg     [fifo_addr-1:0]     counter;
 
 
 //Edit code:
