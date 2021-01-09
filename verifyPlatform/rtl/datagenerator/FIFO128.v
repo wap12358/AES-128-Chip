@@ -1,12 +1,8 @@
 `timescale 1ns/1ps
 
-//`define fifo_width 128
-//`define fifo_depth 8
-//`define fifo_addr 3
-
 module FIFO128
-#( 
-parameter fifo_addr = 3
+#(
+    parameter fifo_addr = 3
 )(
     clk, rst_n,
     in_data, in_require, full,
