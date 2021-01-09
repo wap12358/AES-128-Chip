@@ -107,9 +107,9 @@ end
 
 always @* begin
     if ( current_state == D0 ) begin
-        data_requre = ~full;
+        data_require = ~full;
     end else begin
-        data_requre = 1'b0;
+        data_require = 1'b0;
     end
 end
 
