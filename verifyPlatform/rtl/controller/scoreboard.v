@@ -7,6 +7,8 @@
 
 module scoreboard(
     clk, rst_n,
+    total, correct,
+    chip
 );
 
 //Define pins:
