@@ -15,7 +15,7 @@ module aes_tx(
 input               clk, rst_n;
 input   [31: 0]     data;
 input               empty;
-output              require;
+output reg          require;
 output              shakehand;
 output  [ 7: 0]     tx;
 
