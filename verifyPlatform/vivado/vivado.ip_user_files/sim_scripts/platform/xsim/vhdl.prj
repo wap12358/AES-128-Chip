@@ -1,0 +1,17 @@
+vhdl xil_defaultlib  \
+"../../../bd/platform/ip/platform_axi_gpio_0_0/sim/platform_axi_gpio_0_0.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_conv_funs_pkg.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_proc_common_pkg.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_ipif_pkg.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_family_support.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_family.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_soft_reset.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_pselect_f.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/axi_lite_ipif_v1_01_a/hdl/src/vhdl/platform_clk_wiz_0_0_address_decoder.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/axi_lite_ipif_v1_01_a/hdl/src/vhdl/platform_clk_wiz_0_0_slave_attachment.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/axi_lite_ipif_v1_01_a/hdl/src/vhdl/platform_clk_wiz_0_0_axi_lite_ipif.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd" \
+"../../../bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_axi_clk_config.vhd" \
+"../../../bd/platform/ip/platform_rst_ps7_0_50M_0/sim/platform_rst_ps7_0_50M_0.vhd" \
+
+nosort

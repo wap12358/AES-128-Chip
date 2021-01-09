@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="platform_processing_system7_0_0_synth_1" LaunchDir="F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_processing_system7_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="platform_axi_gpio_0_0_synth_1" LaunchDir="F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_axi_gpio_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="platform_aesVerifyPlatformData_0_0_synth_1" LaunchDir="F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_aesVerifyPlatformData_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="platform_clk_wiz_0_0_synth_1" LaunchDir="F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_clk_wiz_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="platform_xbar_2_synth_1" LaunchDir="F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_xbar_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="platform_rst_ps7_0_50M_2_synth_1" LaunchDir="F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_rst_ps7_0_50M_2_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="platform_auto_pc_0_synth_1" LaunchDir="F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_auto_pc_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+
