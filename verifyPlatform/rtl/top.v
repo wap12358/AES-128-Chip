@@ -7,16 +7,20 @@
 
 module top(
     clk, clk_tx, rst_n,
-    uart_tx, uart_rx,
+    enc, work,
+    key, write_key,
+    total, correct,
     aes_tx, aes_rx
 );
 
 //Define pins:
-input           clk, clk_tx, rst_n;
-output          uart_tx;
-input           uart_rx;
-output  [8:0]   aes_tx;
-input   [8:0]   aes_rx;
+input               clk, clk_tx, rst_n;
+input               enc, work;
+input   [127: 0]    key;
+input               write_key;
+output  [  8: 0]    aes_tx;
+input   [  8: 0]    aes_rx;
+output  [ 31: 0]    total, correct;
 
 
 
@@ -28,26 +32,19 @@ wire                generator_data_fifo_empty;
 wire    [127: 0]    aes_result_data;
 wire                aes_result_en;
 
+wire    [ 31: 0]    aes_tx_data;
+wire                aes_tx_require, aes_tx_empty;
+
 
 //Edit code:
-//always@(posedge clk or negedge rst_n) begin
-//    if(~rst_n) begin
-//
-//    end else begin
-//
-//
-//
-//
-//    end //the end of biggest if
-//end //the end of always
 
 datagenerator datagenerator(
     .clk(clk),
     .rst_n(rst_n),
-    .enc(),
-    .work(),
-    .key(),
-    .write_key(),
+    .enc(enc),
+    .work(work),
+    .key(key),
+    .write_key(write_key),
     .data_require(generator_data_fifo_require),
     .data(generator_data_fifo_data),
     .data_empty(generator_data_fifo_empty),
@@ -56,12 +53,24 @@ datagenerator datagenerator(
     //.result_empty()
 );
 
+asyfifo asyfifo(
+    .clk_wr(clk),
+    .clk_rd(clk_tx),
+    .rst_n(rst_n),
+    .wr_require(),
+    .wr_data(),
+    .full(),
+    .rd_require(aes_tx_require),
+    .rd_data(aes_tx_data),
+    .empty(aes_tx_empty)
+);
+
 aes_tx aes_tx_module(
     .clk(clk_tx),
     .rst_n(rst_n),
-    .data(),
-    .empty(),
-    .require(),
+    .data(aes_tx_data),
+    .empty(aes_tx_empty),
+    .require(aes_tx_require),
     .shakehand(aes_tx[8]),
     .tx(aes_tx[7:0])
 );
@@ -78,8 +87,8 @@ aes_rx aes_rx_module(
 scoreboard scoreboard(
     .clk(clk),
     .rst_n(rst_n),
-    .total(),
-    .correct(),
+    .total(total),
+    .correct(correct),
     .chip_result(aes_result_data),
     .chip_en(aes_result_en),
     .generator_result(generator_result_fifo_data),
