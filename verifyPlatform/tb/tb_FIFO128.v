@@ -1,4 +1,4 @@
-//File name  :    synfifo_tst.v
+//File name  :    tb_FIFO128.v
 //Author     :    xiaocuicui
 //Time       :    2021/01/09 16:11:21
 //Version    :    V1.0
@@ -20,7 +20,7 @@ reg [`fifo_width-1'b1:0] data_in;
 wire empty,full;
 wire [`fifo_width-1'b1:0] data_out;
 
-synfifo i1(
+FIFO128 i1(
     .clk(clk),
     .rst(rst),
     .wr_en(wr_en),
