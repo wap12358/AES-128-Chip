@@ -7,17 +7,20 @@
 
 module top(
     clk, clk_tx, rst_n,
-    enc, work,
+    enc, work, sel,
     key, write_key,
+    cpu_wr_tx_data, cpu_wr_tx_require,
     total, correct,
     aes_tx, aes_rx
 );
 
 //Define pins:
 input               clk, clk_tx, rst_n;
-input               enc, work;
+input               enc, work, sel;
 input   [127: 0]    key;
 input               write_key;
+input   [ 31: 0]    cpu_wr_tx_data;
+input               cpu_wr_tx_require;
 output  [  8: 0]    aes_tx;
 input   [  8: 0]    aes_rx;
 output  [ 31: 0]    total, correct;
@@ -34,6 +37,9 @@ wire                aes_result_en;
 
 wire    [ 31: 0]    aes_tx_data;
 wire                aes_tx_require, aes_tx_empty;
+
+wire                asyfifo_full, asyfifo_wr_require;
+wire    [ 31: 0]    asyfifo_wr_data;
 
 
 //Edit code:
@@ -53,16 +59,30 @@ datagenerator datagenerator(
     //.result_empty()
 );
 
-asyfifo asyfifo(
-    .clk_wr(clk),
-    .clk_rd(clk_tx),
+mux mux(
+    .clk(clk),
     .rst_n(rst_n),
-    .wr_require(),
-    .wr_data(),
-    .full(),
-    .rd_require(aes_tx_require),
-    .rd_data(aes_tx_data),
-    .empty(aes_tx_empty)
+    .sel(sel),
+    .cpu_wr_tx_data(cpu_wr_tx_data),
+    .cpu_wr_tx_require(cpu_wr_tx_require),
+    .data_data(generator_data_fifo_data),
+    .data_require(generator_data_fifo_require),
+    .data_empty(generator_data_fifo_empty),
+    .tx_data(asyfifo_wr_data),
+    .tx_requre(asyfifo_wr_require),
+    .full(asyfifo_full)
+);
+
+asyfifo asyfifo(
+    .wclk(clk),
+    .rclk(clk_tx),
+    .arst_n(rst_n),
+    .wdv(asyfifo_wr_require),
+    .wdata(asyfifo_wr_data),
+    .wfull(asyfifo_full),
+    .rrq(aes_tx_require),
+    .rdata(aes_tx_data),
+    .rempty(aes_tx_empty)
 );
 
 aes_tx aes_tx_module(

@@ -97,7 +97,7 @@ FIFO128 #(.fifo_addr(2)) datafifo(
     .empty(data_empty)
 );
 
-FIFO128 #(.fifo_addr(3)) resultfifo(
+FIFO128 #(.fifo_addr(4)) resultfifo(
     .clk(clk),
     .rst_n(rst_n),
     .in_data(result_data),
