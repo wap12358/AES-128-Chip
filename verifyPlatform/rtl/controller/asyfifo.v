@@ -1,87 +1,144 @@
-module  asyfifo
-#(
-　　parameter WSIZE = 32;
-　　parameter DSIZE = 8;
-)
-(
-　　input wr_clk,
-　　input rst,
-　　input wr_en,
-　　input [WSIZE-1 : 0]din,
-　　input rd_clk,
-　　input rd_en,
-　　output [WSIZE-1 : 0]dout,
-　　output reg rempty,
-　　output reg wfull
-);
+module fifo2 (rdata, wfull, rempty, wdata,winc, wclk, wrst_n, rinc, rclk, rrst_n);
+      parameter DSIZE = 32;
+      parameter ASIZE = 8;
+  output [DSIZE-1:0] rdata;
+  output wfull;
+  output rempty;
+  input [DSIZE-1:0] wdata;
+  input winc, wclk, wrst_n;
+  input rinc, rclk, rrst_n;
+ wire [ASIZE-1:0] wptr, rptr;
+ wire [ASIZE-1:0] waddr, raddr;
 
-//定义变量
-reg [WSIZE-1 :0] mem [DSIZE-1 : 0];
-reg [WSIZE-1 : 0] waddr,raddr;
-reg [WSIZE : 0] wbin,rbin,wbin_next,rbin_next;
-reg [WSIZE : 0] wgray_next,rgray_next;
-reg [WSIZE : 0] wp,rp;
-reg [WSIZE : 0] wr1_rp,wr2_rp,rd1_wp,rd2_wp;
-wire rempty_val,wfull_val;
+ async_cmp #(ASIZE) async_cmp(.aempty_n(aempty_n),
+                                           .afull_n(afull_n),
+                                  .wptr(wptr), .rptr(rptr),
+                                  .wrst_n(wrst_n));
 
-//输出数据
-assign dout = mem[raddr];
+  fifomem2 #(DSIZE, ASIZE) fifomem2(.rdata(rdata),
+                                    .wdata(wdata),
+                                      .waddr(wptr),
+                          .raddr(rptr),
+                                      .wclken(winc),
+                          .wclk(wclk));
 
-//输入数据
-always@(posedge wr_clk)
-　　if(wr_en && !wfull)
-　　　　mem[waddr] <= din;
+  rptr_empty2 #(ASIZE) rptr_empty2(.rempty(rempty),
+                                   .rptr(rptr),
+                                    .aempty_n(aempty_n),
+                         .rinc(rinc),
+                                    .rclk(rclk),
+                         .rrst_n(rrst_n));
 
-//1.产生存储实体的读地址raddr; 2.将普通二进制转化为格雷码，并赋给读指针rp
-always@(posedge rd_clk or negedge rst_n)
-　　if(!rst_n)
-　　　　{rbin,rp} <= 0;
-　　else
-　　　　{rbin,rp} <= {rbin_next,rgray_next};
+ wptr_full2 #(ASIZE) wptr_full2(.wfull(wfull),
+                               .wptr(wptr),
+                                .afull_n(afull_n),
+                     .winc(winc),
+                                 .wclk(wclk),
+                      .wrst_n(wrst_n));
+endmodule
 
-assign raddr = rbin[WSIZE-1 : 0];
-assign rbin_next = rbin + (rd_en & ~rempty);
-assign rgray_next = rbin_next ^ (rbin_next >> 1);
+module fifomem2 (rdata, wdata, waddr, raddr, wclken, wclk);
+parameter DATASIZE = 8; // Memory data word width
+parameter ADDRSIZE = 4; // Number of memory address bits
+parameter DEPTH = 1<<ADDRSIZE; // DEPTH = 2**ADDRSIZE
+output [DATASIZE-1:0] rdata;
+input [DATASIZE-1:0] wdata;
+input [ADDRSIZE-1:0] waddr, raddr;
+input wclken, wclk;
+`ifdef VENDORRAM
+// instantiation of a vendor's dual-port RAM
+ VENDOR_RAM MEM (.dout(rdata), .din(wdata),
+ .waddr(waddr), .raddr(raddr),
+ .wclken(wclken), .clk(wclk));
+`else
+reg [DATASIZE-1:0] MEM [0:DEPTH-1];
+  assign rdata = MEM[raddr];
+ always @(posedge wclk)
+ if (wclken) MEM[waddr] <= wdata;
+`endif
+endmodule
 
-//1.产生存储实体的写地址waddr; 2.将普通二进制转化为格雷码，并赋给写指针wp
-always@(posedge wr_clk or negedge rst_n)
-　　if(!rst_n)
-　　　　{wbin,wp} <= 0;
-　　else
-　　　　{wbin,wp} <= {wbin_next,wgray_next};
+module async_cmp (aempty_n, afull_n, wptr, rptr, wrst_n);
+    parameter ADDRSIZE = 4;
+    parameter N = ADDRSIZE-1;
+    output aempty_n, afull_n;
+    input [N:0] wptr, rptr;
+    input wrst_n;
+    reg direction;
+    wire high = 1'b1;
+    wire dirset_n = ~( (wptr[N]^rptr[N-1]) & ~(wptr[N-1]^rptr[N]));
+    wire dirclr_n = ~((~(wptr[N]^rptr[N-1]) & (wptr[N-1]^rptr[N])) |
+        ~wrst_n);
+  always @(posedge high or negedge dirset_n or negedge dirclr_n)
+     if (!dirclr_n) direction <= 1'b0;
+     else if (!dirset_n) direction <= 1'b1;
+     else direction <= high;
+//always @(negedge dirset_n or negedge dirclr_n)
+//if (!dirclr_n) direction <= 1'b0;
+//else direction <= 1'b1;
+  assign aempty_n = ~((wptr == rptr) && !direction);
+  assign afull_n = ~((wptr == rptr) && direction);
+endmodule
 
-assign waddr = wbin[WSIZE-1 : 0];
-assign wbin_next = wbin + (wr_en & ~wfull);
-assign wgray_next = wbin_next ^ (wbin_next >> 1);
+module rptr_empty2 (rempty, rptr, aempty_n, rinc, rclk, rrst_n);
+  parameter ADDRSIZE = 4;
+  output rempty;
+  output [ADDRSIZE-1:0] rptr;
+  input aempty_n;
+  input rinc, rclk, rrst_n;
+  reg [ADDRSIZE-1:0] rptr, rbin;
+  reg rempty, rempty2;
+  wire [ADDRSIZE-1:0] rgnext, rbnext;
+//---------------------------------------------------------------
+// GRAYSTYLE2 pointer
+//---------------------------------------------------------------
+  always @(posedge rclk or negedge rrst_n)
+   if (!rrst_n) begin
+    rbin <= 0;
+    rptr <= 0;
+    end
+   else begin
+    rbin <= rbnext;
+    rptr <= rgnext;
+    end
+//---------------------------------------------------------------
+// increment the binary count if not empty
+//---------------------------------------------------------------
+  assign rbnext = !rempty ? rbin + rinc : rbin;
+  assign rgnext = (rbnext>>1) ^ rbnext; // binary-to-gray conversion
+  always @(posedge rclk or negedge aempty_n)
+   if (!aempty_n) {rempty,rempty2} <= 2'b11;
+   else {rempty,rempty2} <= {rempty2,~aempty_n};
+endmodule
 
-//将读指针rp同步到写时钟域
-always@(posedge wr_clk or negedge rst_n)
-　　if(!rst_n)
-　　　　{wr2_rp,wr1_rp} <= 0;
-　　else
-　　　　{wr2_rp,wr1_rp} <= {wr1_rp,rp};
-
-//将写指针wp同步到读时钟域
-always@(posedge rd_clk or negedge rst_n)
-　　if(!rst_n)
-　　　　{rd2_wp,rd1_wp} <= 0;
-　　else
-　　　　{rd2_wp,rd1_wp} <= {rd1_wp,wp};
-
-//产生读空信号rempty
-assign rempty_val = (rd2_wp == rgray_next);
-always@(posedge rd_clk or negedge rst_n)
-　　if(rst_n)
-　　　　rempty <= 1'b1;
-　　else
-　　　　rempty <= rempty_val;
-
-//产生写满信号wfull
-assign wfull_val = ((~(wr2_rp[WSIZE : WSIZE-1]),wr2_rp[WSIZE-2 : 0]) == wgray_next);
-always@(posedge wr_clk or negedge rst_n)
-　　if(!rst_n)
-　　　　wfull <= 1'b0;
-　　else
-　　　　wfull <= wfull_val;
-
+module wptr_full2 (wfull, wptr, afull_n, winc, wclk, wrst_n);
+  parameter ADDRSIZE = 4;
+  output wfull;
+  output [ADDRSIZE-1:0] wptr;
+  input afull_n;
+  input winc, wclk, wrst_n;
+  reg [ADDRSIZE-1:0] wptr, wbin;
+  reg wfull, wfull2;
+  wire [ADDRSIZE-1:0] wgnext, wbnext;
+//---------------------------------------------------------------
+// GRAYSTYLE2 pointer
+//---------------------------------------------------------------
+always @(posedge wclk or negedge wrst_n)
+  if (!wrst_n) begin
+   wbin <= 0;
+   wptr <= 0;
+   end
+  else begin
+   wbin <= wbnext;
+   wptr <= wgnext;
+   end
+//---------------------------------------------------------------
+// increment the binary count if not full
+//---------------------------------------------------------------
+  assign wbnext = !wfull ? wbin + winc : wbin;
+  assign wgnext = (wbnext>>1) ^ wbnext; // binary-to-gray conversion
+  always @(posedge wclk or negedge wrst_n or negedge afull_n)
+   if (!wrst_n ) {wfull,wfull2} <= 2'b00;
+   else if (!afull_n) {wfull,wfull2} <= 2'b11;
+   else {wfull,wfull2} <= {wfull2,~afull_n};
 endmodule
