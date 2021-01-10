@@ -1,11 +1,22 @@
-module aes_top(clk,rst,cu,id,
-					user_data,shi,chip_data,sho);
-input clk,rst;
-input cu,id;
-input [7:0] user_data;
-input shi;
-output [7:0] chip_data;
-output sho;
+module aes_top( 
+    clk,
+    config_pin,
+    rx, tx
+);
+input clk;
+input [2:0] config_pin;
+input [8:0] rx;
+output [8:0] tx;
+
+wire rst = config_pin[2];
+wire cu = config_pin[1];
+wire id = config_pin[0];
+
+
+wire [7:0] user_data = rx[7:0];
+wire shi = rx[8];
+wire [7:0] chip_data = tx[7:0];
+wire sho = tx[8];
 
 wire [31:0] inport_iset32;
 wire inport_iset_ready;
