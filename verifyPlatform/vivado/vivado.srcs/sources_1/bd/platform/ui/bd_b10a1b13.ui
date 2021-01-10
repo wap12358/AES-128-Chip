@@ -1,40 +1,43 @@
 {
+   "Display-IntfOthers":"true",
+   "Display-PortTypeClock":"true",
+   "Display-PortTypeOthers":"true",
+   "Display-PortTypeReset":"true",
    "ExpandedHierarchyInLayout":"",
+   "HideIntfVlnv":"",
+   "PinnedBlocks":"",
    "commentid":"",
    "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -y 390 -defaultsOSRD
-preplace port clk_aes_chip -pg 1 -y 520 -defaultsOSRD
-preplace port rst_cu_id -pg 1 -y 80 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 410 -defaultsOSRD
-preplace portBus aes_tx -pg 1 -y 260 -defaultsOSRD
-preplace portBus aes_rx -pg 1 -y 120 -defaultsOSRD
-preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -y 220 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 3 -y 80 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 200 -defaultsOSRD
-preplace inst aesVerifyPlatformData_0 -pg 1 -lvl 3 -y 260 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 3 -y 500 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 430 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 3 NJ 390 NJ 390 NJ
-preplace netloc ps7_0_axi_periph_M02_AXI 1 2 1 N
-preplace netloc aesVerifyPlatformData_0_aes_tx 1 3 1 NJ
-preplace netloc clk_wiz_0_clk_aes_tx 1 2 2 810 160 1050
-preplace netloc aes_rx_1 1 0 3 NJ 120 450J 360 790J
-preplace netloc clk_wiz_0_clk_aes_chip 1 3 1 NJ
+preplace port DDR -pg 1 -y 230 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 250 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -y 470 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 3 -y 440 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 440 -defaultsOSRD
+preplace inst aesVerifyPlatformData_0 -pg 1 -lvl 3 -y 110 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 3 -y 590 -defaultsOSRD
+preplace inst aes_top_0 -pg 1 -lvl 2 -y 110 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y 270 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 1 3 N 230 NJ 230 NJ
+preplace netloc ps7_0_axi_periph_M02_AXI 1 2 1 780
+preplace netloc clk_wiz_0_clk_aes_chip 1 1 3 460 220 NJ 220 1120
+preplace netloc aesVerifyPlatformData_0_aes_tx 1 1 3 470 10 NJ 10 1120
+preplace netloc clk_wiz_0_clk_aes_tx 1 2 2 820 240 1100
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 440
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 330 430
-preplace netloc ps7_0_axi_periph_M01_AXI 1 2 1 770
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 410 NJ 410 NJ
-preplace netloc rst_ps7_0_50M_peripheral_aresetn1 1 1 2 470 380 800
-preplace netloc axi_gpio_0_GPIO 1 3 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 320 460 370 780
-preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 770
-levelinfo -pg 1 0 230 620 930 1070 -top 0 -bot 590
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 20 160 430
+preplace netloc aes_top_0_tx 1 2 1 N
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 1 790
+preplace netloc axi_gpio_0_gpio_io_o 1 1 3 480 210 NJ 210 1110
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 N 250 NJ 250 NJ
+preplace netloc rst_ps7_0_50M_peripheral_aresetn1 1 1 2 480 600 810
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 30 170 450 190 800
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 N
+levelinfo -pg 1 0 230 630 960 1140 -top 0 -bot 680
 "
 }
 {
    "da_axi4_cnt":"20",
-   "da_board_cnt":"7",
-   "da_clkrst_cnt":"2",
+   "da_board_cnt":"8",
+   "da_clkrst_cnt":"8",
    "da_ps7_cnt":"5"
 }

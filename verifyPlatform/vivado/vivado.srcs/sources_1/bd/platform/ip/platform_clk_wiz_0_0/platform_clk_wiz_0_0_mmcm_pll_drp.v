@@ -44,7 +44,7 @@
 
 `timescale 1ps/1ps
 
-module platform_clk_wiz_0_0_pll_drp
+module platform_clk_wiz_0_0_mmcm_drp
    #(
       //***********************************************************************
       // State 1 Parameters - These are for the first reconfiguration state.
@@ -60,8 +60,19 @@ module platform_clk_wiz_0_0_pll_drp
       //    _PHASE: This is the phase multiplied by 1000. For example if
       //          a phase of 24.567 deg was desired the input value would be
       //          24567.  The range for the phase is from -360000 to 360000. 
+      //    _FRAC: This can be from 0 to 875.  This represents the fractional
+      //          divide multiplied by 1000. 
+      //          M = _MULT + _FRAC / 1000
+      //          e.g. M=8.125
+      //               _MULT = 8
+      //               _FRAC = 125
+      //    _FRAC_EN: This indicates fractional divide has been enabled. If 1
+      //          then the fractional divide algorithm will be used to calculate
+      //          register settings. If 0 then default calculation to be used.
       parameter S1_CLKFBOUT_MULT          = 5,
       parameter S1_CLKFBOUT_PHASE         = 0,
+      parameter S1_CLKFBOUT_FRAC          = 125, 
+      parameter S1_CLKFBOUT_FRAC_EN       = 1, 
       
       // The bandwidth parameter effects the phase error and the jitter filter
       // capability of the MMCM.  For more information on this parameter see the
@@ -89,6 +100,8 @@ module platform_clk_wiz_0_0_pll_drp
       parameter S1_CLKOUT0_DIVIDE         = 1,
       parameter S1_CLKOUT0_PHASE          = 0,
       parameter S1_CLKOUT0_DUTY           = 50000,
+      parameter S1_CLKOUT0_FRAC          = 125, 
+      parameter S1_CLKOUT0_FRAC_EN       = 1, 
       
       parameter S1_CLKOUT1_DIVIDE         = 2,
       parameter S1_CLKOUT1_PHASE          = 0,
@@ -108,7 +121,11 @@ module platform_clk_wiz_0_0_pll_drp
       
       parameter S1_CLKOUT5_DIVIDE         = 8,
       parameter S1_CLKOUT5_PHASE          = 0,
-      parameter S1_CLKOUT5_DUTY           = 50000
+      parameter S1_CLKOUT5_DUTY           = 50000,
+      
+      parameter S1_CLKOUT6_DIVIDE         = 4,
+      parameter S1_CLKOUT6_PHASE          = 0,
+      parameter S1_CLKOUT6_DUTY           = 50000
    ) (
       //***********************************************************************
       // State 2 Parameters configured through S2_* ports - These are for the second reconfiguration state.
@@ -135,6 +152,8 @@ module platform_clk_wiz_0_0_pll_drp
       //          register settings. If 0 then default calculation to be used.
       
       input [7:0] S2_CLKFBOUT_MULT  ,//        , // 1,
+      input [9:0] S2_CLKFBOUT_FRAC  ,//        , // 125, 
+      input  S2_CLKFBOUT_FRAC_EN     ,//  , // 1, 
       
       // The bandwidth parameter effects the phase error and the jitter filter
       // capability of the MMCM/PLL.  For more information on this parameter see the
@@ -159,6 +178,8 @@ module platform_clk_wiz_0_0_pll_drp
       //          24567.
       
       input [7:0] S2_CLKOUT0_DIVIDE         , 
+      input [9:0] S2_CLKOUT0_FRAC          , 
+      input        S2_CLKOUT0_FRAC_EN       ,
       
       input [7:0] S2_CLKOUT1_DIVIDE         ,
       
@@ -170,6 +191,7 @@ module platform_clk_wiz_0_0_pll_drp
       
       input [7:0] S2_CLKOUT5_DIVIDE         ,
       
+      input [7:0] S2_CLKOUT6_DIVIDE         ,
       input             LOAD,
       // These signals are controlled by user logic interface and are covered
       // in more detail within the XAPP.
@@ -219,7 +241,7 @@ module platform_clk_wiz_0_0_pll_drp
    // Include the MMCM/PLLreconfiguration functions.  This contains the constant
    // functions that are used in the calculations below.  This file is 
    // required.
-   `include "mmcm_pll_drp_func_7s_pll.vh"
+   `include "mmcm_pll_drp_func_7s_mmcm.vh"
    
    //**************************************************************************
    // State 1 Calculations
@@ -228,6 +250,8 @@ module platform_clk_wiz_0_0_pll_drp
    localparam [37:0] S1_CLKFBOUT       =
       mmcm_pll_count_calc(S1_CLKFBOUT_MULT, S1_CLKFBOUT_PHASE, 50000);
 
+   localparam [37:0] S1_CLKFBOUT_FRAC_CALC       =
+      mmcm_frac_count_calc(S1_CLKFBOUT_MULT, S1_CLKFBOUT_PHASE, 50000, S1_CLKFBOUT_FRAC);
 
    localparam [9:0]  S1_DIGITAL_FILT   = 
       mmcm_pll_filter_lookup(S1_CLKFBOUT_MULT, S1_BANDWIDTH);
@@ -241,6 +265,8 @@ module platform_clk_wiz_0_0_pll_drp
    localparam [37:0] S1_CLKOUT0        =
       mmcm_pll_count_calc(S1_CLKOUT0_DIVIDE, S1_CLKOUT0_PHASE, S1_CLKOUT0_DUTY); 
          
+   localparam [37:0] S1_CLKOUT0_FRAC_CALC        =
+      mmcm_frac_count_calc(S1_CLKOUT0_DIVIDE, S1_CLKOUT0_PHASE, 50000, S1_CLKOUT0_FRAC);
 
    localparam [37:0] S1_CLKOUT1        = 
       mmcm_pll_count_calc(S1_CLKOUT1_DIVIDE, S1_CLKOUT1_PHASE, S1_CLKOUT1_DUTY); 
@@ -257,6 +283,8 @@ module platform_clk_wiz_0_0_pll_drp
    localparam [37:0] S1_CLKOUT5        = 
       mmcm_pll_count_calc(S1_CLKOUT5_DIVIDE, S1_CLKOUT5_PHASE, S1_CLKOUT5_DUTY); 
          
+   localparam [37:0] S1_CLKOUT6        = 
+      mmcm_pll_count_calc(S1_CLKOUT6_DIVIDE, S1_CLKOUT6_PHASE, S1_CLKOUT6_DUTY); 
    
    //**************************************************************************
    // State 2 Calculations
@@ -264,6 +292,8 @@ module platform_clk_wiz_0_0_pll_drp
    wire [37:0] S2_CLKFBOUT       = 
       mmcm_pll_count_calc(S2_CLKFBOUT_MULT, S1_CLKFBOUT_PHASE, 50000);
       
+   wire [37:0] S2_CLKFBOUT_FRAC_CALC       =
+      mmcm_frac_count_calc(S2_CLKFBOUT_MULT, S1_CLKFBOUT_PHASE, 50000, S2_CLKFBOUT_FRAC);
 
    wire [9:0] S2_DIGITAL_FILT    = 
       mmcm_pll_filter_lookup(S2_CLKFBOUT_MULT, S2_BANDWIDTH);
@@ -277,6 +307,8 @@ module platform_clk_wiz_0_0_pll_drp
    wire [37:0] S2_CLKOUT0        = 
       mmcm_pll_count_calc(S2_CLKOUT0_DIVIDE, S1_CLKOUT0_PHASE, S1_CLKOUT0_DUTY);
          
+   wire [37:0] S2_CLKOUT0_FRAC_CALC        =
+      mmcm_frac_count_calc(S2_CLKOUT0_DIVIDE, S1_CLKOUT0_PHASE, 50000, S2_CLKOUT0_FRAC);
          
    wire [37:0] S2_CLKOUT1        = 
       mmcm_pll_count_calc(S2_CLKOUT1_DIVIDE, S1_CLKOUT1_PHASE, S1_CLKOUT1_DUTY);
@@ -293,21 +325,29 @@ module platform_clk_wiz_0_0_pll_drp
    wire [37:0] S2_CLKOUT5        = 
       mmcm_pll_count_calc(S2_CLKOUT5_DIVIDE, S1_CLKOUT5_PHASE, S1_CLKOUT5_DUTY);
          
+   wire [37:0] S2_CLKOUT6        = 
+      mmcm_pll_count_calc(S2_CLKOUT6_DIVIDE, S1_CLKOUT6_PHASE, S1_CLKOUT6_DUTY);
    initial begin
       // ram entries contain (in order) the address, a bitmask, and a bitset
       //***********************************************************************
       // State 1 Initialization
       //***********************************************************************
+      
       // Store the power bits
       ram[0] <= {7'h28, 16'h0000, 16'hFFFF};
+      
       // Store CLKOUT0 divide and phase
-      ram[1]  <= {7'h08, 16'h1000, S1_CLKOUT0[15:0]};
-      ram[2]  <= {7'h09, 16'hFC00, S1_CLKOUT0[31:16]};
+      ram[1]  <= (S1_CLKOUT0_FRAC_EN == 0) ?
+						{7'h09, 16'h8000, S1_CLKOUT0[31:16]}:
+						{7'h09, 16'h8000, S1_CLKOUT0_FRAC_CALC[31:16]};
+      ram[2]  <= (S1_CLKOUT0_FRAC_EN == 0) ?
+						{7'h08, 16'h1000, S1_CLKOUT0[15:0]}:
+						{7'h08, 16'h1000, S1_CLKOUT0_FRAC_CALC[15:0]};
 
       // Store CLKOUT1 divide and phase
       ram[3]  <= {7'h0A, 16'h1000, S1_CLKOUT1[15:0]};
       ram[4]  <= {7'h0B, 16'hFC00, S1_CLKOUT1[31:16]};
-
+      
       // Store CLKOUT2 divide and phase
       ram[5]  <= {7'h0C, 16'h1000, S1_CLKOUT2[15:0]};
       ram[6]  <= {7'h0D, 16'hFC00, S1_CLKOUT2[31:16]};
@@ -322,36 +362,50 @@ module platform_clk_wiz_0_0_pll_drp
       
       // Store CLKOUT5 divide and phase
       ram[11] <= {7'h06, 16'h1000, S1_CLKOUT5[15:0]};
-      ram[12] <= {7'h07, 16'hFC00, S1_CLKOUT5[31:16]};
+      ram[12] <= (S1_CLKOUT0_FRAC_EN == 0) ?
+                {7'h07, 16'hC000, S1_CLKOUT5[31:16]}:
+                {7'h07, 16'hC000, S1_CLKOUT5[31:30], S1_CLKOUT0_FRAC_CALC[35:32], S1_CLKOUT5[25:16]}; 
       
+      // Store CLKOUT6 divide and phase
+      ram[13] <= {7'h12, 16'h1000, S1_CLKOUT6[15:0]};
+      ram[14] <= (S1_CLKFBOUT_FRAC_EN == 0) ?
+                {7'h13, 16'hC000, S1_CLKOUT6[31:16]}:
+                {7'h13, 16'hC000, S1_CLKOUT6[31:30], S1_CLKFBOUT_FRAC_CALC[35:32], S1_CLKOUT6[25:16]};
       
       // Store the input divider
-      ram[13] <= {7'h16, 16'hC000, {2'h0, S1_DIVCLK[23:22], S1_DIVCLK[11:0]} };
+      ram[15] <= {7'h16, 16'hC000, {2'h0, S1_DIVCLK[23:22], S1_DIVCLK[11:0]} };
       
       // Store the feedback divide and phase
-      ram[14] <= {7'h14, 16'h1000, S1_CLKFBOUT[15:0]};
-      ram[15] <= {7'h15, 16'hFC00, S1_CLKFBOUT[31:16]};
+      ram[16] <= (S1_CLKFBOUT_FRAC_EN == 0) ?
+                {7'h14, 16'h1000, S1_CLKFBOUT[15:0]}:
+                {7'h14, 16'h1000, S1_CLKFBOUT_FRAC_CALC[15:0]}; 
+      ram[17] <= (S1_CLKFBOUT_FRAC_EN == 0) ?
+                {7'h15, 16'h8000, S1_CLKFBOUT[31:16]}:
+                {7'h15, 16'h8000, S1_CLKFBOUT_FRAC_CALC[31:16]};
       
+
       // Store the lock settings
-      ram[16] <= {7'h18, 16'hFC00, {6'h00, S1_LOCK[29:20]} };
-      ram[17] <= {7'h19, 16'h8000, {1'b0 , S1_LOCK[34:30], S1_LOCK[9:0]} };
-      ram[18] <= {7'h1A, 16'h8000, {1'b0 , S1_LOCK[39:35], S1_LOCK[19:10]} };
+      ram[18] <= {7'h18, 16'hFC00, {6'h00, S1_LOCK[29:20]} };
+      ram[19] <= {7'h19, 16'h8000, {1'b0 , S1_LOCK[34:30], S1_LOCK[9:0]} };
+      ram[20] <= {7'h1A, 16'h8000, {1'b0 , S1_LOCK[39:35], S1_LOCK[19:10]} };
       
       // Store the filter settings
-      ram[19] <= {7'h4E, 16'h66FF, 
-         S1_DIGITAL_FILT[9], 2'h0, S1_DIGITAL_FILT[8:7], 2'h0, 
-         S1_DIGITAL_FILT[6], 8'h00 };
-      ram[20] <= {7'h4F, 16'h666F, 
-         S1_DIGITAL_FILT[5], 2'h0, S1_DIGITAL_FILT[4:3], 2'h0,
-         S1_DIGITAL_FILT[2:1], 2'h0, S1_DIGITAL_FILT[0], 4'h0 };
-      ram[42] <= {7'h28, 32'h0000_0000};
-      // Initialize the rest of the ROM
-      for(ii = 43; ii < 64; ii = ii +1) begin
+      ram[21] <= {7'h4E, 16'h66FF, 
+                S1_DIGITAL_FILT[9], 2'h0, S1_DIGITAL_FILT[8:7], 2'h0, 
+                S1_DIGITAL_FILT[6], 8'h00 };
+      ram[22] <= {7'h4F, 16'h666F, 
+                S1_DIGITAL_FILT[5], 2'h0, S1_DIGITAL_FILT[4:3], 2'h0,
+                S1_DIGITAL_FILT[2:1], 2'h0, S1_DIGITAL_FILT[0], 4'h0 };
 
+      // Initialize the rest of the ROM
+      ram[46] <= {7'h28,32'h0000_0000};
+      for(ii = 23; ii < 45; ii = ii +1) begin
          ram[ii] <= 0;
       end
-   end
-
+      for(ii = 47; ii < 64; ii = ii +1) begin
+         ram[ii] <= 0;
+      end
+     end
       //***********************************************************************
       // State 2 Initialization
       //***********************************************************************
@@ -359,52 +413,72 @@ module platform_clk_wiz_0_0_pll_drp
    always @(posedge SCLK) begin
    if (LOAD) begin 
       // Store the power bits
-      ram[21] <= {7'h28, 16'h0000, 16'hFFFF};
+      ram[23] <= {7'h28, 16'h0000, 16'hFFFF};
       // Store CLKOUT0 divide and phase
-      ram[22] <= {7'h08, 16'h1000, S2_CLKOUT0[15:0]};
-      ram[23] <= {7'h09, 16'hFC00, S2_CLKOUT0[31:16]};
+      ram[24] <= (S2_CLKOUT0_FRAC_EN == 0) ?
+                {7'h09, 16'h8000, S2_CLKOUT0[31:16]}:
+                {7'h09, 16'h8000, S2_CLKOUT0_FRAC_CALC[31:16]};
+      ram[25] <= (S2_CLKOUT0_FRAC_EN == 0) ?
+                {7'h08, 16'h1000, S2_CLKOUT0[15:0]}:
+                {7'h08, 16'h1000, S2_CLKOUT0_FRAC_CALC[15:0]};
       
       // Store CLKOUT1 divide and phase
-      ram[24] <= {7'h0A, 16'h1000, S2_CLKOUT1[15:0]};
-      ram[25] <= {7'h0B, 16'hFC00, S2_CLKOUT1[31:16]};
+      ram[26] <= {7'h0A, 16'h1000, S2_CLKOUT1[15:0]};
+      ram[27] <= {7'h0B, 16'hFC00, S2_CLKOUT1[31:16]};
      
       // Store CLKOUT2 divide and phase
-      ram[26] <= {7'h0C, 16'h1000, S2_CLKOUT2[15:0]};
-      ram[27] <= {7'h0D, 16'hFC00, S2_CLKOUT2[31:16]};
+      ram[28] <= {7'h0C, 16'h1000, S2_CLKOUT2[15:0]};
+      ram[29] <= {7'h0D, 16'hFC00, S2_CLKOUT2[31:16]};
       
       // Store CLKOUT3 divide and phase
-      ram[28] <= {7'h0E, 16'h1000, S2_CLKOUT3[15:0]};
-      ram[29] <= {7'h0F, 16'hFC00, S2_CLKOUT3[31:16]};
+      ram[30] <= {7'h0E, 16'h1000, S2_CLKOUT3[15:0]};
+      ram[31] <= {7'h0F, 16'hFC00, S2_CLKOUT3[31:16]};
       
       // Store CLKOUT4 divide and phase
-      ram[30] <= {7'h10, 16'h1000, S2_CLKOUT4[15:0]};
-      ram[31] <= {7'h11, 16'hFC00, S2_CLKOUT4[31:16]};
+      ram[32] <= {7'h10, 16'h1000, S2_CLKOUT4[15:0]};
+      ram[33] <= {7'h11, 16'hFC00, S2_CLKOUT4[31:16]};
       
       // Store CLKOUT5 divide and phase
-      ram[32] <= {7'h06, 16'h1000, S2_CLKOUT5[15:0]};
-      ram[33] <= {7'h07, 16'hFC00, S2_CLKOUT5[31:16]};
+      ram[34] <= {7'h06, 16'h1000, S2_CLKOUT5[15:0]};
+      ram[35] <= (S2_CLKOUT0_FRAC_EN == 0) ?
+                {7'h07, 16'hC000, S2_CLKOUT5[31:16]}:
+                {7'h07, 16'hC000, S2_CLKOUT5[31:30], S2_CLKOUT0_FRAC_CALC[35:32], S2_CLKOUT5[25:16]}; 
+      
+      // Store CLKOUT6 divide and phase
+      ram[36] <= {7'h12, 16'h1000, S2_CLKOUT6[15:0]};
+      ram[37] <= (S2_CLKFBOUT_FRAC_EN == 0) ?
+                {7'h13, 16'hC000, S2_CLKOUT6[31:16]}:
+                {7'h13, 16'hC000, S2_CLKOUT6[31:30], S2_CLKFBOUT_FRAC_CALC[35:32], S2_CLKOUT6[25:16]};
       
       // Store the input divider
-      ram[34] <= {7'h16, 16'hC000, {2'h0, S2_DIVCLK[23:22], S2_DIVCLK[11:0]} };
+      ram[38] <= {7'h16, 16'hC000, {2'h0, S2_DIVCLK[23:22], S2_DIVCLK[11:0]} };
       
       // Store the feedback divide and phase
-      ram[35] <= {7'h14, 16'h1000, S2_CLKFBOUT[15:0]};
-      ram[36] <= {7'h15, 16'hFC00, S2_CLKFBOUT[31:16]};
-      
+      ram[39] <= (S2_CLKFBOUT_FRAC_EN == 0) ?
+                {7'h14, 16'h1000, S2_CLKFBOUT[15:0]}:
+                {7'h14, 16'h1000, S2_CLKFBOUT_FRAC_CALC[15:0]}; 
+      ram[40] <= (S2_CLKFBOUT_FRAC_EN == 0) ?
+                {7'h15, 16'h8000, S2_CLKFBOUT[31:16]}:
+                {7'h15, 16'h8000, S2_CLKFBOUT_FRAC_CALC[31:16]};
+ 
+
       // Store the lock settings
-      ram[37] <= {7'h18, 16'hFC00, {6'h00, S2_LOCK[29:20]} };
-      ram[38] <= {7'h19, 16'h8000, {1'b0 , S2_LOCK[34:30], S2_LOCK[9:0]} };
-      ram[39] <= {7'h1A, 16'h8000, {1'b0 , S2_LOCK[39:35], S2_LOCK[19:10]} };
+      ram[41] <= {7'h18, 16'hFC00, {6'h00, S2_LOCK[29:20]} };
+      ram[42] <= {7'h19, 16'h8000, {1'b0 , S2_LOCK[34:30], S2_LOCK[9:0]} };
+      ram[43] <= {7'h1A, 16'h8000, {1'b0 , S2_LOCK[39:35], S2_LOCK[19:10]} };
       
       // Store the filter settings
-      ram[40] <= {7'h4E, 16'h66FF, 
-         S2_DIGITAL_FILT[9], 2'h0, S2_DIGITAL_FILT[8:7], 2'h0, 
-         S2_DIGITAL_FILT[6], 8'h00 };
-      ram[41] <= {7'h4F, 16'h666F, 
-         S2_DIGITAL_FILT[5], 2'h0, S2_DIGITAL_FILT[4:3], 2'h0,
-         S2_DIGITAL_FILT[2:1], 2'h0, S2_DIGITAL_FILT[0], 4'h0 };
-      
-     end
+      ram[44] <= {7'h4E, 16'h66FF, 
+                S2_DIGITAL_FILT[9], 2'h0, S2_DIGITAL_FILT[8:7], 2'h0, 
+                S2_DIGITAL_FILT[6], 8'h00 };
+      ram[45] <= {7'h4F, 16'h666F, 
+                S2_DIGITAL_FILT[5], 2'h0, S2_DIGITAL_FILT[4:3], 2'h0,
+                S2_DIGITAL_FILT[2:1], 2'h0, S2_DIGITAL_FILT[0], 4'h0 };
+      for(ii = 46; ii < 64; ii = ii +1) begin
+
+         ram[ii] <= 0;
+   end
+  end
    end
 
    // Output the initialized ram value based on ram_addr each clock cycle
@@ -436,7 +510,7 @@ module platform_clk_wiz_0_0_pll_drp
    //    each state takes to reconfigure.
    // STATE_COUNT_CONST is used to reset the counters and should match the
    //    number of registers necessary to reconfigure each state.
-   localparam STATE_COUNT_CONST  = 21;
+   localparam STATE_COUNT_CONST  = 23;
    reg [4:0] state_count         = STATE_COUNT_CONST; 
    reg [4:0] next_state_count    = STATE_COUNT_CONST;
    

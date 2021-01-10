@@ -1,0 +1,68 @@
+17:00:06 **** Build of project aes_verify_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:37: xdevcfg_includes] Error 1
+make[1]: Target 'include' not remade because of errors.
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/devcfg_v3_5/src/make.include] Error 2
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:37: xdmaps_includes] Error 1
+make[1]: Target 'include' not remade because of errors.
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/dmaps_v2_4/src/make.include] Error 2
+"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+make -C ps7_cortexa9_0/libsrc/gpio_v4_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:25: include] Error 1
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/gpio_v4_3/src/make.include] Error 2
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_10/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:37: scugic_includes] Error 1
+make[1]: Target 'include' not remade because of errors.
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/scugic_v3_10/src/make.include] Error 2
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:37: scutimer_includes] Error 1
+make[1]: Target 'include' not remade because of errors.
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/scutimer_v2_1/src/make.include] Error 2
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:37: scuwdt_includes] Error 1
+make[1]: Target 'include' not remade because of errors.
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/scuwdt_v2_1/src/make.include] Error 2
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_8/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:75: standalone_includes] Error 1
+cp: target ¡®../../../../include¡¯ is not a directory
+make[2]: *** [Makefile:71: include] Error 1
+make[1]: *** [Makefile:78: profile_includes] Error 2
+make[1]: Target 'include' not remade because of errors.
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/standalone_v6_8/src/make.include] Error 2
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:37: xuartps_includes] Error 1
+make[1]: Target 'include' not remade because of errors.
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/uartps_v3_7/src/make.include] Error 2
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+cp: target ¡®../../../include¡¯ is not a directory
+make[1]: *** [Makefile:37: xadcps_includes] Error 1
+make[1]: Target 'include' not remade because of errors.
+make: *** [Makefile:26: ps7_cortexa9_0/libsrc/xadcps_v2_3/src/make.include] Error 2
+make: Target 'all' not remade because of errors.
+
+17:00:07 Build Finished (took 1s.186ms)
+

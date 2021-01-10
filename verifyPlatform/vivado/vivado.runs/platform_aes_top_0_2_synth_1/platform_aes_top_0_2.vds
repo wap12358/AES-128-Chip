@@ -1,0 +1,890 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Jan 10 14:06:07 2021
+# Process ID: 872
+# Current directory: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_aes_top_0_2_synth_1
+# Command line: vivado.exe -log platform_aes_top_0_2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source platform_aes_top_0_2.tcl
+# Log file: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_aes_top_0_2_synth_1/platform_aes_top_0_2.vds
+# Journal file: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_aes_top_0_2_synth_1\vivado.jou
+#-----------------------------------------------------------
+source platform_aes_top_0_2.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.3/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/ip 
+Command: synth_design -top platform_aes_top_0_2 -part xc7z020clg400-2 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 18224 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 404.703 ; gain = 106.164
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'platform_aes_top_0_2' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_aes_top_0_2/synth/platform_aes_top_0_2.v:58]
+INFO: [Synth 8-6157] synthesizing module 'aes_top' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'aes_inport' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_inport.v:3]
+INFO: [Synth 8-226] default block is never used [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_inport.v:54]
+WARNING: [Synth 8-5788] Register ready_reg1_reg in module aes_inport is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_inport.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'aes_inport' (1#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_inport.v:3]
+INFO: [Synth 8-6157] synthesizing module 'aes_iset' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v:4]
+	Parameter MOD bound to: 24'b010011010100111101000100 
+	Parameter E bound to: 8'b01000101 
+	Parameter D bound to: 8'b01000100 
+	Parameter KEY bound to: 24'b010010110100010101011001 
+	Parameter F bound to: 8'b01000110 
+	Parameter Q bound to: 8'b01010001 
+	Parameter N bound to: 8'b01001110 
+	Parameter SPD bound to: 24'b010100110101000001000100 
+	Parameter ORDER bound to: 8'b00000000 
+	Parameter KEYST bound to: 4'b1001 
+	Parameter KEYC1 bound to: 8'b10010000 
+	Parameter KEYC2 bound to: 8'b10010001 
+	Parameter KEYC3 bound to: 8'b10010010 
+	Parameter KEYC4 bound to: 8'b10010011 
+	Parameter KEYEN bound to: 8'b10010100 
+INFO: [Synth 8-226] default block is never used [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v:245]
+INFO: [Synth 8-226] default block is never used [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v:259]
+INFO: [Synth 8-226] default block is never used [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v:284]
+WARNING: [Synth 8-5788] Register div_count_reg in module aes_iset is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v:80]
+WARNING: [Synth 8-5788] Register data_buffer_reg in module aes_iset is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v:251]
+INFO: [Synth 8-6155] done synthesizing module 'aes_iset' (2#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v:4]
+INFO: [Synth 8-6157] synthesizing module 'aes_outport' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_outport.v:3]
+INFO: [Synth 8-226] default block is never used [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_outport.v:42]
+INFO: [Synth 8-226] default block is never used [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_outport.v:59]
+INFO: [Synth 8-6155] done synthesizing module 'aes_outport' (3#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_outport.v:3]
+INFO: [Synth 8-6157] synthesizing module 'aes128only' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes128only.v:39]
+	Parameter ADDR_NAME0 bound to: 8'b00000000 
+	Parameter ADDR_NAME1 bound to: 8'b00000001 
+	Parameter ADDR_VERSION bound to: 8'b00000010 
+	Parameter ADDR_CTRL bound to: 8'b00001000 
+	Parameter CTRL_INIT_BIT bound to: 0 - type: integer 
+	Parameter CTRL_NEXT_BIT bound to: 1 - type: integer 
+	Parameter ADDR_STATUS bound to: 8'b00001001 
+	Parameter STATUS_READY_BIT bound to: 0 - type: integer 
+	Parameter STATUS_VALID_BIT bound to: 1 - type: integer 
+	Parameter ADDR_CONFIG bound to: 8'b00001010 
+	Parameter CTRL_ENCDEC_BIT bound to: 0 - type: integer 
+	Parameter ADDR_KEY0 bound to: 8'b00010000 
+	Parameter ADDR_KEY3 bound to: 8'b00010011 
+	Parameter ADDR_BLOCK0 bound to: 8'b00100000 
+	Parameter ADDR_BLOCK3 bound to: 8'b00100011 
+	Parameter ADDR_RESULT0 bound to: 8'b00110000 
+	Parameter ADDR_RESULT3 bound to: 8'b00110011 
+INFO: [Synth 8-6157] synthesizing module 'aes_core' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_core.v:40]
+	Parameter CTRL_IDLE bound to: 2'b00 
+	Parameter CTRL_INIT bound to: 2'b01 
+	Parameter CTRL_NEXT bound to: 2'b10 
+INFO: [Synth 8-6157] synthesizing module 'aes_encipher_block' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_encipher_block.v:41]
+	Parameter AES128_ROUNDS bound to: 4'b1010 
+	Parameter NO_UPDATE bound to: 3'b000 
+	Parameter INIT_UPDATE bound to: 3'b001 
+	Parameter SBOX_UPDATE bound to: 3'b010 
+	Parameter MAIN_UPDATE bound to: 3'b011 
+	Parameter FINAL_UPDATE bound to: 3'b100 
+	Parameter CTRL_IDLE bound to: 3'b000 
+	Parameter CTRL_INIT bound to: 3'b001 
+	Parameter CTRL_SBOX bound to: 3'b010 
+	Parameter CTRL_MAIN bound to: 3'b011 
+	Parameter CTRL_FINAL bound to: 3'b100 
+INFO: [Synth 8-6155] done synthesizing module 'aes_encipher_block' (4#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_encipher_block.v:41]
+INFO: [Synth 8-6157] synthesizing module 'aes_decipher_block' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_decipher_block.v:41]
+	Parameter AES128_ROUNDS bound to: 4'b1010 
+	Parameter NO_UPDATE bound to: 3'b000 
+	Parameter INIT_UPDATE bound to: 3'b001 
+	Parameter SBOX_UPDATE bound to: 3'b010 
+	Parameter MAIN_UPDATE bound to: 3'b011 
+	Parameter FINAL_UPDATE bound to: 3'b100 
+	Parameter CTRL_IDLE bound to: 3'b000 
+	Parameter CTRL_INIT bound to: 3'b001 
+	Parameter CTRL_SBOX bound to: 3'b010 
+	Parameter CTRL_MAIN bound to: 3'b011 
+	Parameter CTRL_FINAL bound to: 3'b100 
+INFO: [Synth 8-6157] synthesizing module 'aes_inv_sbox' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_inv_sbox.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'aes_inv_sbox' (5#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_inv_sbox.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'aes_decipher_block' (6#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_decipher_block.v:41]
+INFO: [Synth 8-6157] synthesizing module 'aes_key_mem' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_key_mem.v:39]
+	Parameter AES_128_NUM_ROUNDS bound to: 4'b1010 
+	Parameter CTRL_IDLE bound to: 3'b000 
+	Parameter CTRL_INIT bound to: 3'b001 
+	Parameter CTRL_GENERATE bound to: 3'b010 
+	Parameter CTRL_DONE bound to: 3'b011 
+WARNING: [Synth 8-5788] Register prev_key1_reg_reg in module aes_key_mem is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_key_mem.v:158]
+INFO: [Synth 8-6155] done synthesizing module 'aes_key_mem' (7#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_key_mem.v:39]
+INFO: [Synth 8-6157] synthesizing module 'aes_sbox' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_sbox.v:40]
+INFO: [Synth 8-6155] done synthesizing module 'aes_sbox' (8#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_sbox.v:40]
+INFO: [Synth 8-6155] done synthesizing module 'aes_core' (9#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_core.v:40]
+INFO: [Synth 8-6155] done synthesizing module 'aes128only' (10#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes128only.v:39]
+WARNING: [Synth 8-3848] Net tx in module/entity aes_top does not have driver. [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_top.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'aes_top' (11#1) [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'platform_aes_top_0_2' (12#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_aes_top_0_2/synth/platform_aes_top_0_2.v:58]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 477.383 ; gain = 178.844
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 477.383 ; gain = 178.844
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 477.383 ; gain = 178.844
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 841.180 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 841.180 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.180 . Memory (MB): peak = 843.277 ; gain = 2.098
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 843.277 ; gain = 544.738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 843.277 ; gain = 544.738
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 843.277 ; gain = 544.738
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'part_count_reg' in module 'aes_inport'
+INFO: [Synth 8-5544] ROM "out_reg" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ready_reg" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "part_count" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'outport_shakehand_reg' into 'read_en_reg' [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v:41]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'aes_iset'
+INFO: [Synth 8-5546] ROM "wdata" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "read_en" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "outport_speed" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "keylen_ctrl" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "keylen_ctrl" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'pass_count_reg' in module 'aes_outport'
+INFO: [Synth 8-5544] ROM "out_mem" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pass_count" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'enc_ctrl_reg_reg' in module 'aes_encipher_block'
+INFO: [Synth 8-5544] ROM "enc_ctrl_we" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sword_ctr_inc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "round_ctr_inc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "enc_ctrl_new" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "enc_ctrl_new" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'dec_ctrl_reg_reg' in module 'aes_decipher_block'
+INFO: [Synth 8-5544] ROM "round_ctr_dec" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sword_ctr_inc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sword_ctr_rst" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dec_ctrl_new" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dec_ctrl_new" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'key_mem_ctrl_reg_reg' in module 'aes_key_mem'
+INFO: [Synth 8-5544] ROM "key_mem_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[10]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "round_ctr_rst" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ready_new" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "round_ctr_inc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_ctrl_new" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'aes_core_ctrl_reg_reg' in module 'aes_core'
+INFO: [Synth 8-5544] ROM "aes_core_ctrl_new" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "block_reg_reg[0]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "block_reg_reg[1]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "block_reg_reg[2]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "block_reg_reg[3]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "config_we" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                               00 |                               00
+                 iSTATE0 |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                 iSTATE2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'part_count_reg' using encoding 'sequential' in module 'aes_inport'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              000 |                         00000000
+*
+                   KEYC4 |                              001 |                         10010011
+                   KEYC3 |                              010 |                         10010010
+                   KEYC2 |                              011 |                         10010001
+                   KEYC1 |                              100 |                         10010000
+                   KEYEN |                              101 |                         10010100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'aes_iset'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                               00 |                               00
+                 iSTATE0 |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                 iSTATE2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'pass_count_reg' using encoding 'sequential' in module 'aes_outport'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               CTRL_IDLE |                               00 |                              000
+               CTRL_INIT |                               01 |                              001
+               CTRL_SBOX |                               10 |                              010
+               CTRL_MAIN |                               11 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'enc_ctrl_reg_reg' using encoding 'sequential' in module 'aes_encipher_block'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               CTRL_IDLE |                               00 |                              000
+               CTRL_INIT |                               01 |                              001
+               CTRL_SBOX |                               10 |                              010
+               CTRL_MAIN |                               11 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'dec_ctrl_reg_reg' using encoding 'sequential' in module 'aes_decipher_block'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               CTRL_IDLE |                               00 |                              000
+               CTRL_INIT |                               01 |                              001
+           CTRL_GENERATE |                               10 |                              010
+               CTRL_DONE |                               11 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'key_mem_ctrl_reg_reg' using encoding 'sequential' in module 'aes_key_mem'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               CTRL_IDLE |                               00 |                               00
+               CTRL_INIT |                               01 |                               01
+               CTRL_NEXT |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'aes_core_ctrl_reg_reg' using encoding 'sequential' in module 'aes_core'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 843.277 ; gain = 544.738
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     20 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 5     
+	   2 Input      4 Bit       Adders := 4     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 2     
++---XORs : 
+	   2 Input    128 Bit         XORs := 5     
+	   2 Input     32 Bit         XORs := 4     
+	   3 Input     32 Bit         XORs := 1     
+	   4 Input     32 Bit         XORs := 1     
+	   2 Input      8 Bit         XORs := 91    
+	   4 Input      8 Bit         XORs := 12    
+	   5 Input      8 Bit         XORs := 4     
+	   8 Input      8 Bit         XORs := 8     
+	   9 Input      8 Bit         XORs := 8     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	              128 Bit    Registers := 16    
+	               32 Bit    Registers := 19    
+	               20 Bit    Registers := 1     
+	                8 Bit    Registers := 4     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 5     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 18    
++---Muxes : 
+	   2 Input    128 Bit        Muxes := 10    
+	   4 Input    128 Bit        Muxes := 2     
+	   4 Input     32 Bit        Muxes := 7     
+	   2 Input     32 Bit        Muxes := 22    
+	   6 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 2     
+	   2 Input     20 Bit        Muxes := 2     
+	   4 Input     20 Bit        Muxes := 1     
+	   6 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   7 Input      8 Bit        Muxes := 1     
+	   3 Input      8 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 35    
+	   4 Input      6 Bit        Muxes := 4     
+	   7 Input      6 Bit        Muxes := 1     
+	   6 Input      6 Bit        Muxes := 1     
+	   3 Input      5 Bit        Muxes := 3     
+	   6 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 22    
+	   4 Input      4 Bit        Muxes := 3     
+	   6 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 14    
+	   4 Input      3 Bit        Muxes := 5     
+	  14 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 5     
+	   2 Input      2 Bit        Muxes := 20    
+	   3 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 121   
+	   4 Input      1 Bit        Muxes := 36    
+	   6 Input      1 Bit        Muxes := 6     
+	   7 Input      1 Bit        Muxes := 6     
+	   8 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module aes_inport 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module aes_iset 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	              128 Bit    Registers := 2     
+	               32 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input    128 Bit        Muxes := 7     
+	   4 Input    128 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 17    
+	   6 Input     32 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 4     
+	   6 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   7 Input      8 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 35    
+	   4 Input      6 Bit        Muxes := 4     
+	   7 Input      6 Bit        Muxes := 1     
+	   6 Input      6 Bit        Muxes := 1     
+	   3 Input      5 Bit        Muxes := 3     
+	   6 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 15    
+	   4 Input      4 Bit        Muxes := 3     
+	   6 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 12    
+	   4 Input      3 Bit        Muxes := 3     
+	  14 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 6     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 93    
+	   4 Input      1 Bit        Muxes := 19    
+	   6 Input      1 Bit        Muxes := 6     
+	   7 Input      1 Bit        Muxes := 6     
+Module aes_outport 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     20 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 5     
++---Registers : 
+	              128 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   4 Input    128 Bit        Muxes := 1     
+	   2 Input    128 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 2     
+	   4 Input     20 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+Module aes_encipher_block 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	   2 Input    128 Bit         XORs := 3     
+	   2 Input      8 Bit         XORs := 22    
+	   4 Input      8 Bit         XORs := 12    
+	   5 Input      8 Bit         XORs := 4     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 5     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 5     
+	   8 Input      1 Bit        Muxes := 4     
+Module aes_decipher_block 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	   2 Input    128 Bit         XORs := 2     
+	   2 Input      8 Bit         XORs := 68    
+	   8 Input      8 Bit         XORs := 8     
+	   9 Input      8 Bit         XORs := 8     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 5     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 6     
+	   8 Input      1 Bit        Muxes := 4     
+Module aes_key_mem 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 4     
+	   3 Input     32 Bit         XORs := 1     
+	   4 Input     32 Bit         XORs := 1     
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	              128 Bit    Registers := 12    
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input    128 Bit        Muxes := 1     
+	   3 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 12    
+	   4 Input      1 Bit        Muxes := 5     
+Module aes_core 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    128 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 5     
+Module aes128only 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	              128 Bit    Registers := 1     
+	               32 Bit    Registers := 8     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 7     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5544] ROM "read_en" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "outport_speed" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "enc_ctrl_we" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "enc_ctrl_new" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "round_ctr_dec" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dec_ctrl_new" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_ctrl_new" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "key_mem_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "inst/aes128only/config_we" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[38] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[70] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[102] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[6] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[37] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[69] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[101] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[36] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[68] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[100] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[35] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[67] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[99] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[34] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[66] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[98] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[33] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[65] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[97] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[63] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[95] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[127] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[31] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[62] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[94] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[126] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[30] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[61] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[93] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[125] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[60] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[92] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[124] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[28] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[59] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[91] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[123] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[27] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[58] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[90] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[122] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[26] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[57] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[89] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[121] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[56] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[88] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[120] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[24] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[55] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[87] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[119] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[54] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[86] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[118] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[53] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[85] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[117] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[52] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[84] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[116] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[20] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[51] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[83] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[115] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[19] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[50] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[82] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[114] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[18] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[49] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[81] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[113] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[48] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[80] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[112] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[47] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[79] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[111] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[46] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[78] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[110] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[14] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[45] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\inst/aes_iset/default_key_reg[77] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[109] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inst/aes_iset/default_key_reg[13] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'inst/aes_iset/waddr_reg[2]' (FDCE) to 'inst/aes_iset/waddr_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/aes_iset/waddr_reg[6]' (FDCE) to 'inst/aes_iset/waddr_reg[7]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:01:09 . Memory (MB): peak = 892.512 ; gain = 593.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------+------------+---------------+----------------+
+|Module Name  | RTL Object | Depth x Width | Implemented As | 
++-------------+------------+---------------+----------------+
+|aes_inv_sbox | inv_sbox   | 256x8         | LUT            | 
+|aes_inv_sbox | inv_sbox   | 256x8         | LUT            | 
+|aes_inv_sbox | inv_sbox   | 256x8         | LUT            | 
+|aes_inv_sbox | inv_sbox   | 256x8         | LUT            | 
+|aes_sbox     | sbox       | 256x8         | LUT            | 
+|aes_sbox     | sbox       | 256x8         | LUT            | 
+|aes_sbox     | sbox       | 256x8         | LUT            | 
+|aes_sbox     | sbox       | 256x8         | LUT            | 
+|aes_inv_sbox | inv_sbox   | 256x8         | LUT            | 
+|aes_inv_sbox | inv_sbox   | 256x8         | LUT            | 
+|aes_inv_sbox | inv_sbox   | 256x8         | LUT            | 
+|aes_sbox     | sbox       | 256x8         | LUT            | 
+|aes_sbox     | sbox       | 256x8         | LUT            | 
+|aes_sbox     | sbox       | 256x8         | LUT            | 
+|aes_sbox     | sbox       | 256x8         | LUT            | 
++-------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 892.512 ; gain = 593.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:18 ; elapsed = 00:01:20 . Memory (MB): peak = 892.512 ; gain = 593.973
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:21 ; elapsed = 00:01:22 . Memory (MB): peak = 919.824 ; gain = 621.285
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:22 ; elapsed = 00:01:24 . Memory (MB): peak = 919.824 ; gain = 621.285
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:22 ; elapsed = 00:01:24 . Memory (MB): peak = 919.824 ; gain = 621.285
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 919.824 ; gain = 621.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 919.824 ; gain = 621.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 919.824 ; gain = 621.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 919.824 ; gain = 621.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |     5|
+|2     |LUT1   |    39|
+|3     |LUT2   |   237|
+|4     |LUT3   |   426|
+|5     |LUT4   |   244|
+|6     |LUT5   |   409|
+|7     |LUT6   |  1662|
+|8     |MUXF7  |   112|
+|9     |MUXF8  |    33|
+|10    |FDCE   |  2313|
+|11    |FDPE   |    77|
+|12    |FDRE   |   257|
+|13    |LDC    |     1|
++------+-------+------+
+
+Report Instance Areas: 
++------+------------------------+-------------------+------+
+|      |Instance                |Module             |Cells |
++------+------------------------+-------------------+------+
+|1     |top                     |                   |  5815|
+|2     |  inst                  |aes_top            |  5815|
+|3     |    aes128only          |aes128only         |  4852|
+|4     |      core              |aes_core           |  4356|
+|5     |        dec_block       |aes_decipher_block |   828|
+|6     |          inv_sbox_inst |aes_inv_sbox       |    32|
+|7     |        enc_block       |aes_encipher_block |   915|
+|8     |        keymem          |aes_key_mem        |  2515|
+|9     |        sbox_inst       |aes_sbox           |    96|
+|10    |    aes_inport          |aes_inport         |    87|
+|11    |    aes_iset            |aes_iset           |   553|
+|12    |    aes_outport         |aes_outport        |   323|
++------+------------------------+-------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 919.824 ; gain = 621.285
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:02 ; elapsed = 00:01:13 . Memory (MB): peak = 919.824 ; gain = 255.391
+Synthesis Optimization Complete : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 919.824 ; gain = 621.285
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 151 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 919.824 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  LDC => LDCE: 1 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+228 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:26 ; elapsed = 00:01:29 . Memory (MB): peak = 919.824 ; gain = 634.578
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 919.824 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_aes_top_0_2_synth_1/platform_aes_top_0_2.dcp' has been generated.
+INFO: [Coretcl 2-1174] Renamed 11 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 919.824 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_aes_top_0_2_synth_1/platform_aes_top_0_2.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file platform_aes_top_0_2_utilization_synth.rpt -pb platform_aes_top_0_2_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jan 10 14:07:50 2021...

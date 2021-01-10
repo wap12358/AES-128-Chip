@@ -2,10 +2,10 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun Jan 10 02:12:01 2021
-# Process ID: 26616
+# Start of session at: Sun Jan 10 13:28:35 2021
+# Process ID: 20204
 # Current directory: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14500 F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3092 F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.xpr
 # Log file: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.log
 # Journal file: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado\vivado.jou
 #-----------------------------------------------------------
@@ -18,12 +18,608 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128
 WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.3/data/ip'.
-open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:08 . Memory (MB): peak = 763.551 ; gain = 149.777
+open_project: Time (s): cpu = 00:00:24 ; elapsed = 00:00:10 . Memory (MB): peak = 757.105 ; gain = 150.676
 update_compile_order -fileset sources_1
-generate_target all [get_files  F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd]
-INFO: [BD 41-1637] Generated targets are already up-to-date for bd-design 'platform' - hence not re-generating.
-export_ip_user_files -of_objects [get_files F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd]
-export_simulation -of_objects [get_files F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd] -directory F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.ip_user_files/sim_scripts -ip_user_files_dir F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.ip_user_files -ipstatic_source_dir F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.ip_user_files/ipstatic -lib_map_path [list {modelsim=F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/compile_simlib/modelsim} {questa=F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/compile_simlib/questa} {riviera=F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/compile_simlib/riviera} {activehdl=F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+ipx::infer_core -vendor xilinx.com -library user -taxonomy /UserIP F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/hdl/aes_verify_platform_data_v1_0.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/hdl/aes_verify_platform_data_v1_0_S00_AXI.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/src/mux.v:]
+WARNING: [IP_Flow 19-5101] Packaging a component with a SystemVerilog top file is not fully supported. Please refer to UG1118 'Creating and Packaging Custom IP'.
+CRITICAL WARNING: [HDL 9-3342] cannot open include file 'aes_verify_platform_data_v1_0_tb_include.svh' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo\aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:3]
+CRITICAL WARNING: [HDL 9-3952] use of undefined macro 'BD_WRAPPER' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo\aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:109]
+CRITICAL WARNING: [HDL 9-3952] use of undefined macro 'BD_INST_NAME' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo\aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:115]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ".". [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo\aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:115]
+CRITICAL WARNING: [HDL 9-3342] cannot open include file 'aes_verify_platform_data_v1_0_tb_include.svh' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:3]
+CRITICAL WARNING: [HDL 9-3952] use of undefined macro 'BD_WRAPPER' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:109]
+CRITICAL WARNING: [HDL 9-3952] use of undefined macro 'BD_INST_NAME' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:115]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ".". [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv:115]
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file 'aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0/example_designs/bfm_design/aes_verify_platform_data_v1_0_tb.sv'.
+ERROR: [Common 17-39] 'ipx::infer_core' failed due to earlier errors.
+add_files -norecurse {F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_sbox.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_core.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_inv_sbox.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_encipher_block.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_iset.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_inport.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_key_mem.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_decipher_block.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_top.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes128only.v F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_outport.v}
+update_compile_order -fileset sources_1
+open_bd_design {F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding cell -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding cell -- xilinx.com:user:aesVerifyPlatformData:1.0 - aesVerifyPlatformData_0
+Adding cell -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_50M
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_aes_tx(clk) and /aesVerifyPlatformData_0/clk_tx(undef)
+Successfully read diagram <platform> from BD file <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd>
+create_bd_cell -type module -reference aes_top aes_top_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+set_property location {4 1238 -182} [get_bd_cells aes_top_0]
+delete_bd_objs [get_bd_nets aesVerifyPlatformData_0_aes_tx] [get_bd_ports aes_tx]
+set_property location {3.5 1672 263} [get_bd_cells aes_top_0]
+connect_bd_net [get_bd_pins aesVerifyPlatformData_0/aes_tx] [get_bd_pins aes_top_0/user_data]
+delete_bd_objs [get_bd_nets aesVerifyPlatformData_0_aes_tx]
+delete_bd_objs [get_bd_cells aes_top_0]
+create_bd_cell -type module -reference aes_top aes_top_0
+delete_bd_objs [get_bd_cells aes_top_0]
+save_bd_design
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+Wrote  : <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ui/bd_b10a1b13.ui> 
+open_bd_design {F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd}
+create_bd_cell -type module -reference aes_top aes_top_0
+update_module_reference platform_aes_top_0_2
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+Upgrading 'F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd'
+INFO: [IP_Flow 19-1972] Upgraded platform_aes_top_0_2 from aes_top_v1_0 1.0 to aes_top_v1_0 1.0
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'chip_data'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'shi'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'sho'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'user_data'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'rx'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'tx'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'platform_aes_top_0_2'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'platform_aes_top_0_2' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+Wrote  : <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ui/bd_b10a1b13.ui> 
+update_compile_order -fileset sources_1
+update_module_reference platform_aes_top_0_2
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+Upgrading 'F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd'
+INFO: [IP_Flow 19-1972] Upgraded platform_aes_top_0_2 from aes_top_v1_0 1.0 to aes_top_v1_0 1.0
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+set_property location {4.5 1547 243} [get_bd_cells aes_top_0]
+connect_bd_net [get_bd_pins aesVerifyPlatformData_0/aes_tx] [get_bd_pins aes_top_0/rx]
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_aes_chip] [get_bd_ports clk_aes_chip]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_aes_chip] [get_bd_pins aes_top_0/clk]
+delete_bd_objs [get_bd_intf_nets axi_gpio_0_GPIO]
+delete_bd_objs [get_bd_intf_ports rst_cu_id]
+delete_bd_objs [get_bd_nets aes_rx_1]
+connect_bd_net [get_bd_pins aes_top_0/tx] [get_bd_pins aesVerifyPlatformData_0/aes_rx]
+delete_bd_objs [get_bd_ports aes_rx]
+connect_bd_net [get_bd_pins axi_gpio_0/gpio_io_o] [get_bd_pins aes_top_0/rst]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_0/gpio_io_o is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+WARNING: [BD 41-1731] Type mismatch between connected pins: /axi_gpio_0/gpio_io_o(undef) and /aes_top_0/rst(rst)
+delete_bd_objs [get_bd_nets axi_gpio_0_gpio_io_o]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "config". [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_top.v:1]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "config". [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/rtl/aes_top.v:1]
+update_compile_order -fileset sources_1
+save_bd_design
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+Wrote  : <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ui/bd_b10a1b13.ui> 
+ERROR: [BD 5-373] This block /aes_top_0 is associated with a 'Unknown' type reference module. Cannot invoke 'Refresh Module' on it. Only RTL type reference-modules are supported in this release.
+update_compile_order -fileset sources_1
+open_bd_design {F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd}
+update_module_reference platform_aes_top_0_2
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+Upgrading 'F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd'
+INFO: [IP_Flow 19-1972] Upgraded platform_aes_top_0_2 from aes_top_v1_0 1.0 to aes_top_v1_0 1.0
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'rst'
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'platform_aes_top_0_2'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'cu'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'id'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'rst'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'config_pin'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'platform_aes_top_0_2'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'platform_aes_top_0_2' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+Wrote  : <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ui/bd_b10a1b13.ui> 
+connect_bd_net [get_bd_pins axi_gpio_0/gpio_io_o] [get_bd_pins aes_top_0/config_pin]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_0/gpio_io_o is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+update_module_reference platform_aes_top_0_2
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+Upgrading 'F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd'
+INFO: [IP_Flow 19-1972] Upgraded platform_aes_top_0_2 from aes_top_v1_0 1.0 to aes_top_v1_0 1.0
+WARNING: [IP_Flow 19-4706] Upgraded port 'config_pin' width 3 differs from original width 2
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'platform_aes_top_0_2'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'platform_aes_top_0_2' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+Wrote  : <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ui/bd_b10a1b13.ui> 
+delete_bd_objs [get_bd_nets axi_gpio_0_gpio_io_o]
+connect_bd_net [get_bd_pins axi_gpio_0/gpio_io_o] [get_bd_pins aes_top_0/config_pin]
+WARNING: [BD 41-1306] The connection to interface pin /axi_gpio_0/gpio_io_o is being overridden by the user. This pin will not be connected as a part of interface connection GPIO
+update_module_reference {platform_aes_top_0_0 platform_aes_top_0_1}
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [Coretcl 2-176] No IPs found
+ERROR: [Common 17-69] Command failed: No IP specified.  Please specify IP with 'objects'
+regenerate_bd_layout
+validate_bd_design
+WARNING: [BD 41-927] Following properties on pin /aes_top_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_0_clk_out1 
+save_bd_design
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+Wrote  : <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ui/bd_b10a1b13.ui> 
+reset_run platform_processing_system7_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [BD 41-1662] The design 'platform.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/synth/platform.v
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/sim/platform.v
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hdl/platform_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block aesVerifyPlatformData_0 .
+WARNING: [IP_Flow 19-3452] Invalid long/float value '5e+07' specified for parameter 'FREQ_HZ(CLKIF)' for platform_xbar_0.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+WARNING: [IP_Flow 19-3452] Invalid long/float value '5e+07' specified for parameter 'FREQ_HZ(clock)' for platform_rst_ps7_0_50M_0.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_50M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block aes_top_0 .
+WARNING: [IP_Flow 19-3452] Invalid long/float value '5e+07' specified for parameter 'FREQ_HZ(CLK)' for platform_auto_pc_0.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hw_handoff/platform.hwh
+Generated Block Design Tcl file F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hw_handoff/platform_bd.tcl
+Generated Hardware Definition File F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/synth/platform.hwdef
+[Sun Jan 10 14:06:04 2021] Launched platform_processing_system7_0_0_synth_1, platform_rst_ps7_0_50M_0_synth_1, platform_xbar_0_synth_1, platform_aes_top_0_2_synth_1, platform_auto_pc_0_synth_1, synth_1...
+Run output will be captured here:
+platform_processing_system7_0_0_synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_processing_system7_0_0_synth_1/runme.log
+platform_rst_ps7_0_50M_0_synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_rst_ps7_0_50M_0_synth_1/runme.log
+platform_xbar_0_synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_xbar_0_synth_1/runme.log
+platform_aes_top_0_2_synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_aes_top_0_2_synth_1/runme.log
+platform_auto_pc_0_synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_auto_pc_0_synth_1/runme.log
+synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/synth_1/runme.log
+[Sun Jan 10 14:06:04 2021] Launched impl_1...
+Run output will be captured here: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:23 ; elapsed = 00:00:30 . Memory (MB): peak = 1223.973 ; gain = 131.059
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_aes_chip]
+connect_bd_net [get_bd_pins aes_top_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+save_bd_design
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+Wrote  : <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ui/bd_b10a1b13.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+WARNING: [BD 41-927] Following properties on pin /aes_top_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=platform_processing_system7_0_0_FCLK_CLK0 
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/synth/platform.v
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/sim/platform.v
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hdl/platform_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block aesVerifyPlatformData_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_50M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block aes_top_0 .
+WARNING: [IP_Flow 19-3452] Invalid long/float value '5e+07' specified for parameter 'FREQ_HZ(CLK)' for platform_auto_pc_0.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hw_handoff/platform.hwh
+Generated Block Design Tcl file F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hw_handoff/platform_bd.tcl
+Generated Hardware Definition File F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/synth/platform.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP platform_auto_pc_0, cache-ID = fa2783ed73ac7082; cache size = 12.819 MB.
+[Sun Jan 10 14:11:59 2021] Launched synth_1...
+Run output will be captured here: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/synth_1/runme.log
+[Sun Jan 10 14:11:59 2021] Launched impl_1...
+Run output will be captured here: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1500.863 ; gain = 44.328
+delete_bd_objs [get_bd_nets processing_system7_0_FCLK_CLK0]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_aes_chip] [get_bd_pins aes_top_0/clk]
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+WARNING: [BD 5-232] No interface pins matched 'get_bd_intf_pins /clk_wiz_0/clk_in1'
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins axi_gpio_0/s_axi_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins clk_wiz_0/s_axi_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Clk {/processing_system7_0/FCLK_CLK0 (50 MHz)} Manual_Source {Auto}}  [get_bd_pins clk_wiz_0/clk_in1]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins aesVerifyPlatformData_0/s00_axi_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins ps7_0_axi_periph/ACLK]
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/S00_ACLK' will not be run, since it is obsolete due to previously run automations
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/M00_ACLK' will not be run, since it is obsolete due to previously run automations
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/M01_ACLK' will not be run, since it is obsolete due to previously run automations
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/M02_ACLK' will not be run, since it is obsolete due to previously run automations
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (50 MHz)" }  [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
+endgroup
+regenerate_bd_layout
+validate_bd_design
+WARNING: [BD 41-927] Following properties on pin /aes_top_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_0_clk_out1 
+WARNING: [IP_Flow 19-4684] Expected long value for param s_axi_lite.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param s_axi_aclk.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param clock_CLK_IN1.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param s_axi_lite.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param s_axi_aclk.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param clock_CLK_IN1.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+startgroup
+set_property -dict [list CONFIG.PRIM_SOURCE {Global_buffer}] [get_bd_cells clk_wiz_0]
+endgroup
+validate_bd_design
+WARNING: [BD 41-927] Following properties on pin /aes_top_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_0_clk_out1 
+save_bd_design
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+Wrote  : <F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ui/bd_b10a1b13.ui> 
+reset_run synth_1
+reset_run platform_clk_wiz_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+INFO: [BD 41-1662] The design 'platform.bd' is already validated. Therefore parameter propagation will not be re-run.
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/synth/platform.v
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/sim/platform.v
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hdl/platform_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block aesVerifyPlatformData_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_50M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block aes_top_0 .
+WARNING: [IP_Flow 19-3452] Invalid long/float value '5e+07' specified for parameter 'FREQ_HZ(CLK)' for platform_auto_pc_0.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hw_handoff/platform.hwh
+Generated Block Design Tcl file F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hw_handoff/platform_bd.tcl
+Generated Hardware Definition File F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/synth/platform.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP platform_auto_pc_0, cache-ID = fa2783ed73ac7082; cache size = 12.819 MB.
+[Sun Jan 10 14:27:46 2021] Launched platform_clk_wiz_0_0_synth_1, synth_1...
+Run output will be captured here:
+platform_clk_wiz_0_0_synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_clk_wiz_0_0_synth_1/runme.log
+synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/synth_1/runme.log
+[Sun Jan 10 14:27:46 2021] Launched impl_1...
+Run output will be captured here: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 1742.312 ; gain = 32.875
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 909 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2500.375 ; gain = 12.680
+Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2500.375 ; gain = 12.680
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2500.375 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+WARNING: [Designutils 20-3303] unexpected site type 'IOPAD' in HDPYFinalizeIO
+INFO: [Common 17-14] Message 'Designutils 20-3303' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+open_run: Time (s): cpu = 00:00:38 ; elapsed = 00:00:25 . Memory (MB): peak = 2631.730 ; gain = 863.207
+open_report: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 2681.156 ; gain = 47.723
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 2816.504 ; gain = 18.574
+file mkdir F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk
+file copy -force F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/platform_wrapper.sysdef F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk/platform_wrapper.hdf
+
+launch_sdk -workspace F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk -hwspec F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk/platform_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk -hwspec F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk/platform_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+open_bd_design {F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd}
+WARNING: [IP_Flow 19-4684] Expected long value for param s_axi_lite.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param s_axi_aclk.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param clock_CLK_IN1.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+$
+invalid character "$"
+in expression "$ * 20.0"
+invalid character "$"
+in expression "$ * 20.0"
+expected floating-point number but got "$"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.0"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+invalid character "$"
+in expression "$ * 20.000 * 1000.000"
+startgroup
+set_property -dict [list CONFIG.PRIMITIVE {MMCM} CONFIG.USE_PHASE_ALIGNMENT {false} CONFIG.USE_DYN_RECONFIG {true} CONFIG.JITTER_OPTIONS {UI} CONFIG.CLKIN1_UI_JITTER {0} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {5} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {30} CONFIG.OVERRIDE_MMCM {false} CONFIG.AXI_DRP {false} CONFIG.PHASE_DUTY_CONFIG {false} CONFIG.PRIM_SOURCE {Global_buffer} CONFIG.SECONDARY_SOURCE {Single_ended_clock_capable_pin} CONFIG.CLKIN2_UI_JITTER {100.000} CONFIG.CLKIN1_JITTER_PS {0.0} CONFIG.CLKIN2_JITTER_PS {1000000.0} CONFIG.CLKOUT1_DRIVES {BUFG} CONFIG.CLKOUT2_DRIVES {BUFG} CONFIG.CLKOUT3_DRIVES {BUFG} CONFIG.CLKOUT4_DRIVES {BUFG} CONFIG.CLKOUT5_DRIVES {BUFG} CONFIG.CLKOUT6_DRIVES {BUFG} CONFIG.CLKOUT7_DRIVES {BUFG} CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {63.000} CONFIG.MMCM_CLKIN2_PERIOD {10.000} CONFIG.MMCM_COMPENSATION {ZHOLD} CONFIG.MMCM_REF_JITTER1 {0.000} CONFIG.MMCM_REF_JITTER2 {100.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {126.000} CONFIG.MMCM_CLKOUT1_DIVIDE {21} CONFIG.CLKOUT1_JITTER {950.584} CONFIG.CLKOUT1_PHASE_ERROR {908.603} CONFIG.CLKOUT2_JITTER {729.250} CONFIG.CLKOUT2_PHASE_ERROR {908.603}] [get_bd_cells clk_wiz_0]
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'CLKIN2_UI_JITTER' from '0.010' to '100.000' has been ignored for IP 'clk_wiz_0'
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'MMCM_REF_JITTER2' from '0.010' to '100.000' has been ignored for IP 'clk_wiz_0'
+endgroup
+save_bd_design
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+reset_run synth_1
+reset_run platform_clk_wiz_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+WARNING: [BD 41-927] Following properties on pin /aes_top_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_0_clk_out1 
+Wrote  : <F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.srcs\sources_1\bd\platform\platform.bd> 
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/synth/platform.v
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/sim/platform.v
+VHDL Output written to : F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hdl/platform_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block aesVerifyPlatformData_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_50M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block aes_top_0 .
+WARNING: [IP_Flow 19-3452] Invalid long/float value '5e+07' specified for parameter 'FREQ_HZ(CLK)' for platform_auto_pc_0.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hw_handoff/platform.hwh
+Generated Block Design Tcl file F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/hw_handoff/platform_bd.tcl
+Generated Hardware Definition File F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/synth/platform.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP platform_auto_pc_0, cache-ID = fa2783ed73ac7082; cache size = 14.998 MB.
+[Sun Jan 10 16:31:14 2021] Launched platform_clk_wiz_0_0_synth_1, synth_1...
+Run output will be captured here:
+platform_clk_wiz_0_0_synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_clk_wiz_0_0_synth_1/runme.log
+synth_1: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/synth_1/runme.log
+[Sun Jan 10 16:31:14 2021] Launched impl_1...
+Run output will be captured here: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 3584.582 ; gain = 0.000
+WARNING: [IP_Flow 19-4684] Expected long value for param s_axi_lite.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param s_axi_aclk.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+WARNING: [IP_Flow 19-4684] Expected long value for param clock_CLK_IN1.FREQ_HZ but, float/scientific notation value 5e+07 is provided. The value is converted to long type(50000000)
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+open_hw_target: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 4094.508 ; gain = 509.926
+set_property PROGRAM.FILE {F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/platform_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+file copy -force F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/platform_wrapper.sysdef F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk/platform_wrapper.hdf
+
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+file copy -force F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/platform_wrapper.sysdef F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk/platform_wrapper.hdf
+
+file copy -force F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/impl_1/platform_wrapper.sysdef F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk/platform_wrapper.hdf
+
+launch_sdk -workspace F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk -hwspec F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk/platform_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk -hwspec F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.sdk/platform_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun Jan 10 02:15:39 2021...
+INFO: [Common 17-206] Exiting Vivado at Sun Jan 10 18:07:24 2021...

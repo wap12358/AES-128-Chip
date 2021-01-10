@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sun Jan 10 02:01:54 2021
+//Date        : Sun Jan 10 16:31:04 2021
 //Host        : MSI running 64-bit major release  (build 9200)
 //Command     : generate_target platform_wrapper.bd
 //Design      : platform_wrapper
@@ -30,11 +30,7 @@ module platform_wrapper
     FIXED_IO_mio,
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
-    FIXED_IO_ps_srstb,
-    aes_rx,
-    aes_tx,
-    clk_aes_chip,
-    rst_cu_id_tri_o);
+    FIXED_IO_ps_srstb);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -56,10 +52,6 @@ module platform_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  input [8:0]aes_rx;
-  output [8:0]aes_tx;
-  output clk_aes_chip;
-  output [2:0]rst_cu_id_tri_o;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -82,10 +74,6 @@ module platform_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-  wire [8:0]aes_rx;
-  wire [8:0]aes_tx;
-  wire clk_aes_chip;
-  wire [2:0]rst_cu_id_tri_o;
 
   platform platform_i
        (.DDR_addr(DDR_addr),
@@ -108,9 +96,5 @@ module platform_wrapper
         .FIXED_IO_mio(FIXED_IO_mio),
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
-        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .aes_rx(aes_rx),
-        .aes_tx(aes_tx),
-        .clk_aes_chip(clk_aes_chip),
-        .rst_cu_id_tri_o(rst_cu_id_tri_o));
+        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb));
 endmodule

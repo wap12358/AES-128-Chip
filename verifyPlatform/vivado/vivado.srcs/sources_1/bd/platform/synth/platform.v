@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sun Jan 10 02:01:54 2021
+//Date        : Sun Jan 10 16:31:03 2021
 //Host        : MSI running 64-bit major release  (build 9200)
 //Command     : generate_target platform.bd
 //Design      : platform
@@ -419,7 +419,7 @@ module m02_couplers_imp_1MTK4RC
   assign m02_couplers_to_m02_couplers_WVALID = S_AXI_wvalid[0];
 endmodule
 
-(* CORE_GENERATION_INFO = "platform,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=platform,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=20,da_board_cnt=7,da_clkrst_cnt=2,da_ps7_cnt=5,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "platform.hwdef" *) 
+(* CORE_GENERATION_INFO = "platform,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=platform,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=20,da_board_cnt=8,da_clkrst_cnt=8,da_ps7_cnt=5,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "platform.hwdef" *) 
 module platform
    (DDR_addr,
     DDR_ba,
@@ -441,11 +441,7 @@ module platform
     FIXED_IO_mio,
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
-    FIXED_IO_ps_srstb,
-    aes_rx,
-    aes_tx,
-    clk_aes_chip,
-    rst_cu_id_tri_o);
+    FIXED_IO_ps_srstb);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_cas_n;
@@ -467,14 +463,10 @@ module platform
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK" *) inout FIXED_IO_ps_clk;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.AES_RX DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.AES_RX, LAYERED_METADATA undef" *) input [8:0]aes_rx;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.AES_TX DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.AES_TX, LAYERED_METADATA undef" *) output [8:0]aes_tx;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_AES_CHIP CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_AES_CHIP, CLK_DOMAIN /clk_wiz_0_clk_out1, FREQ_HZ 50000000, INSERT_VIP 0, PHASE 0.0" *) output clk_aes_chip;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 rst_cu_id TRI_O" *) output [2:0]rst_cu_id_tri_o;
 
   wire [8:0]aesVerifyPlatformData_0_aes_tx;
-  wire [8:0]aes_rx_1;
-  wire [2:0]axi_gpio_0_GPIO_TRI_O;
+  wire [8:0]aes_top_0_tx;
+  wire [2:0]axi_gpio_0_gpio_io_o;
   wire clk_wiz_0_clk_aes_chip;
   wire clk_wiz_0_clk_aes_tx;
   wire [14:0]processing_system7_0_DDR_ADDR;
@@ -593,12 +585,8 @@ module platform
   wire [0:0]ps7_0_axi_periph_M02_AXI_WVALID;
   wire [0:0]rst_ps7_0_50M_peripheral_aresetn1;
 
-  assign aes_rx_1 = aes_rx[8:0];
-  assign aes_tx[8:0] = aesVerifyPlatformData_0_aes_tx;
-  assign clk_aes_chip = clk_wiz_0_clk_aes_chip;
-  assign rst_cu_id_tri_o[2:0] = axi_gpio_0_GPIO_TRI_O;
   platform_aesVerifyPlatformData_0_1 aesVerifyPlatformData_0
-       (.aes_rx(aes_rx_1),
+       (.aes_rx(aes_top_0_tx),
         .aes_tx(aesVerifyPlatformData_0_aes_tx),
         .clk_tx(clk_wiz_0_clk_aes_tx),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
@@ -622,8 +610,13 @@ module platform
         .s00_axi_wready(ps7_0_axi_periph_M02_AXI_WREADY),
         .s00_axi_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
         .s00_axi_wvalid(ps7_0_axi_periph_M02_AXI_WVALID));
+  platform_aes_top_0_2 aes_top_0
+       (.clk(clk_wiz_0_clk_aes_chip),
+        .config_pin(axi_gpio_0_gpio_io_o),
+        .rx(aesVerifyPlatformData_0_aes_tx),
+        .tx(aes_top_0_tx));
   platform_axi_gpio_0_0 axi_gpio_0
-       (.gpio_io_o(axi_gpio_0_GPIO_TRI_O),
+       (.gpio_io_o(axi_gpio_0_gpio_io_o),
         .s_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_araddr(ps7_0_axi_periph_M00_AXI_ARADDR[8:0]),
         .s_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn1),
@@ -1774,7 +1767,7 @@ module s00_couplers_imp_D29A6X
   assign s00_couplers_to_auto_pc_WLAST = S_AXI_wlast;
   assign s00_couplers_to_auto_pc_WSTRB = S_AXI_wstrb[3:0];
   assign s00_couplers_to_auto_pc_WVALID = S_AXI_wvalid;
-  platform_auto_pc_1 auto_pc
+  platform_auto_pc_0 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_s00_couplers_ARADDR),

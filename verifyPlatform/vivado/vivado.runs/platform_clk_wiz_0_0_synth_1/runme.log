@@ -21,9 +21,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 12488 
+INFO: Helper process launched with PID 16240 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 405.500 ; gain = 98.516
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 406.332 ; gain = 101.434
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'platform_clk_wiz_0_0' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0.v:71]
 INFO: [Synth 8-638] synthesizing module 'platform_clk_wiz_0_0_axi_clk_config' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_axi_clk_config.vhd:178]
@@ -127,59 +127,73 @@ INFO: [Synth 8-638] synthesizing module 'platform_clk_wiz_0_0_clk_wiz_drp' [f:/O
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_FAMILY bound to: virtex7 - type: string 
 	Parameter CE_NUMBERS bound to: 9 - type: integer 
-INFO: [Synth 8-3491] module 'platform_clk_wiz_0_0_clk_wiz' declared at 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz.v:69' bound to instance 'clk_inst' of component 'platform_clk_wiz_0_0_clk_wiz' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:542]
+INFO: [Synth 8-3491] module 'platform_clk_wiz_0_0_clk_wiz' declared at 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz.v:69' bound to instance 'clk_inst' of component 'platform_clk_wiz_0_0_clk_wiz' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:555]
 INFO: [Synth 8-6157] synthesizing module 'platform_clk_wiz_0_0_clk_wiz' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz.v:69]
-INFO: [Synth 8-6157] synthesizing module 'IBUF' [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:20408]
-	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
-	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
-	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
-	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
-	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'IBUF' (5#1) [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:20408]
-INFO: [Synth 8-6157] synthesizing module 'PLLE2_ADV' [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:41045]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:609]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (5#1) [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:609]
+INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26717]
 	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
-	Parameter CLKFBOUT_MULT bound to: 17 - type: integer 
+	Parameter CLKFBOUT_MULT_F bound to: 63.000000 - type: float 
 	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKFBOUT_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKIN1_PERIOD bound to: 20.000000 - type: float 
 	Parameter CLKIN2_PERIOD bound to: 0.000000 - type: float 
-	Parameter CLKOUT0_DIVIDE bound to: 85 - type: integer 
+	Parameter CLKOUT0_DIVIDE_F bound to: 126.000000 - type: float 
 	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: float 
-	Parameter CLKOUT1_DIVIDE bound to: 17 - type: integer 
+	Parameter CLKOUT0_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT1_DIVIDE bound to: 21 - type: integer 
 	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT1_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKOUT2_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT2_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT2_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT2_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKOUT3_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT3_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT3_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT3_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT4_CASCADE bound to: FALSE - type: string 
 	Parameter CLKOUT4_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT4_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT4_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT4_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter CLKOUT5_DIVIDE bound to: 1 - type: integer 
 	Parameter CLKOUT5_DUTY_CYCLE bound to: 0.500000 - type: float 
 	Parameter CLKOUT5_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT5_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT6_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT6_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT6_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT6_USE_FINE_PS bound to: FALSE - type: string 
 	Parameter COMPENSATION bound to: ZHOLD - type: string 
-	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter DIVCLK_DIVIDE bound to: 5 - type: integer 
 	Parameter IS_CLKINSEL_INVERTED bound to: 1'b0 
+	Parameter IS_PSEN_INVERTED bound to: 1'b0 
+	Parameter IS_PSINCDEC_INVERTED bound to: 1'b0 
 	Parameter IS_PWRDWN_INVERTED bound to: 1'b0 
 	Parameter IS_RST_INVERTED bound to: 1'b0 
 	Parameter REF_JITTER1 bound to: 0.010000 - type: float 
 	Parameter REF_JITTER2 bound to: 0.010000 - type: float 
+	Parameter SS_EN bound to: FALSE - type: string 
+	Parameter SS_MODE bound to: CENTER_HIGH - type: string 
+	Parameter SS_MOD_PERIOD bound to: 10000 - type: integer 
 	Parameter STARTUP_WAIT bound to: FALSE - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'PLLE2_ADV' (6#1) [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:41045]
-INFO: [Synth 8-6157] synthesizing module 'BUFG' [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:609]
-INFO: [Synth 8-6155] done synthesizing module 'BUFG' (7#1) [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:609]
-INFO: [Synth 8-6155] done synthesizing module 'platform_clk_wiz_0_0_clk_wiz' (8#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz.v:69]
-	Parameter S1_CLKFBOUT_MULT bound to: 17 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (6#1) [D:/Xilinx/Vivado/2018.3/scripts/rt/data/unisim_comp.v:26717]
+INFO: [Synth 8-6155] done synthesizing module 'platform_clk_wiz_0_0_clk_wiz' (7#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz.v:69]
+	Parameter S1_CLKFBOUT_MULT bound to: 63 - type: integer 
 	Parameter S1_CLKFBOUT_PHASE bound to: 0 - type: integer 
+	Parameter S1_CLKFBOUT_FRAC bound to: 0 - type: integer 
+	Parameter S1_CLKFBOUT_FRAC_EN bound to: 0 - type: integer 
 	Parameter S1_BANDWIDTH bound to: OPTIMIZED - type: string 
-	Parameter S1_DIVCLK_DIVIDE bound to: 1 - type: integer 
-	Parameter S1_CLKOUT0_DIVIDE bound to: 85 - type: integer 
+	Parameter S1_DIVCLK_DIVIDE bound to: 5 - type: integer 
+	Parameter S1_CLKOUT0_DIVIDE bound to: 126 - type: integer 
 	Parameter S1_CLKOUT0_PHASE bound to: 0 - type: integer 
 	Parameter S1_CLKOUT0_DUTY bound to: 50000 - type: integer 
-	Parameter S1_CLKOUT1_DIVIDE bound to: 17 - type: integer 
+	Parameter S1_CLKOUT0_FRAC bound to: 0 - type: integer 
+	Parameter S1_CLKOUT0_FRAC_EN bound to: 0 - type: integer 
+	Parameter S1_CLKOUT1_DIVIDE bound to: 21 - type: integer 
 	Parameter S1_CLKOUT1_PHASE bound to: 0 - type: integer 
 	Parameter S1_CLKOUT1_DUTY bound to: 50000 - type: integer 
 	Parameter S1_CLKOUT2_DIVIDE bound to: 1 - type: integer 
@@ -194,16 +208,23 @@ INFO: [Synth 8-6155] done synthesizing module 'platform_clk_wiz_0_0_clk_wiz' (8#
 	Parameter S1_CLKOUT5_DIVIDE bound to: 1 - type: integer 
 	Parameter S1_CLKOUT5_PHASE bound to: 0 - type: integer 
 	Parameter S1_CLKOUT5_DUTY bound to: 50000 - type: integer 
-INFO: [Synth 8-3491] module 'platform_clk_wiz_0_0_pll_drp' declared at 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:47' bound to instance 'pll_drp_inst' of component 'platform_clk_wiz_0_0_pll_drp' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:561]
-INFO: [Synth 8-6157] synthesizing module 'platform_clk_wiz_0_0_pll_drp' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:47]
-	Parameter S1_CLKFBOUT_MULT bound to: 17 - type: integer 
+	Parameter S1_CLKOUT6_DIVIDE bound to: 1 - type: integer 
+	Parameter S1_CLKOUT6_PHASE bound to: 0 - type: integer 
+	Parameter S1_CLKOUT6_DUTY bound to: 50000 - type: integer 
+INFO: [Synth 8-3491] module 'platform_clk_wiz_0_0_mmcm_drp' declared at 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:47' bound to instance 'mmcm_drp_inst' of component 'platform_clk_wiz_0_0_mmcm_drp' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:574]
+INFO: [Synth 8-6157] synthesizing module 'platform_clk_wiz_0_0_mmcm_drp' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:47]
+	Parameter S1_CLKFBOUT_MULT bound to: 63 - type: integer 
 	Parameter S1_CLKFBOUT_PHASE bound to: 0 - type: integer 
+	Parameter S1_CLKFBOUT_FRAC bound to: 0 - type: integer 
+	Parameter S1_CLKFBOUT_FRAC_EN bound to: 0 - type: integer 
 	Parameter S1_BANDWIDTH bound to: OPTIMIZED - type: string 
-	Parameter S1_DIVCLK_DIVIDE bound to: 1 - type: integer 
-	Parameter S1_CLKOUT0_DIVIDE bound to: 85 - type: integer 
+	Parameter S1_DIVCLK_DIVIDE bound to: 5 - type: integer 
+	Parameter S1_CLKOUT0_DIVIDE bound to: 126 - type: integer 
 	Parameter S1_CLKOUT0_PHASE bound to: 0 - type: integer 
 	Parameter S1_CLKOUT0_DUTY bound to: 50000 - type: integer 
-	Parameter S1_CLKOUT1_DIVIDE bound to: 17 - type: integer 
+	Parameter S1_CLKOUT0_FRAC bound to: 0 - type: integer 
+	Parameter S1_CLKOUT0_FRAC_EN bound to: 0 - type: integer 
+	Parameter S1_CLKOUT1_DIVIDE bound to: 21 - type: integer 
 	Parameter S1_CLKOUT1_PHASE bound to: 0 - type: integer 
 	Parameter S1_CLKOUT1_DUTY bound to: 50000 - type: integer 
 	Parameter S1_CLKOUT2_DIVIDE bound to: 1 - type: integer 
@@ -218,18 +239,24 @@ INFO: [Synth 8-6157] synthesizing module 'platform_clk_wiz_0_0_pll_drp' [f:/OneD
 	Parameter S1_CLKOUT5_DIVIDE bound to: 1 - type: integer 
 	Parameter S1_CLKOUT5_PHASE bound to: 0 - type: integer 
 	Parameter S1_CLKOUT5_DUTY bound to: 50000 - type: integer 
+	Parameter S1_CLKOUT6_DIVIDE bound to: 1 - type: integer 
+	Parameter S1_CLKOUT6_PHASE bound to: 0 - type: integer 
+	Parameter S1_CLKOUT6_DUTY bound to: 50000 - type: integer 
 	Parameter TCQ bound to: 100 - type: integer 
 	Parameter S2_BANDWIDTH bound to: LOW - type: string 
-	Parameter S1_CLKFBOUT bound to: 38'b00000000000000100000000000001000001001 
-	Parameter S1_DIGITAL_FILT bound to: 10'b1111010100 
-	Parameter S1_LOCK bound to: 40'b1111111111100011111111111010010000000001 
-	Parameter S1_DIVCLK bound to: 38'b00000000000000010000000000000001000001 
-	Parameter S1_CLKOUT0 bound to: 38'b00000000000000100000000000101010101011 
-	Parameter S1_CLKOUT1 bound to: 38'b00000000000000100000000000001000001001 
+	Parameter S1_CLKFBOUT bound to: 38'b00000000000000100000000000011111100000 
+	Parameter S1_CLKFBOUT_FRAC_CALC bound to: 38'b00100100001100100000000000011110011110 
+	Parameter S1_DIGITAL_FILT bound to: 10'b0011110000 
+	Parameter S1_LOCK bound to: 40'b1111111111001111101011111010010000000001 
+	Parameter S1_DIVCLK bound to: 38'b00000000000000100000000000000010000011 
+	Parameter S1_CLKOUT0 bound to: 38'b00000000000000000000000000111111111111 
+	Parameter S1_CLKOUT0_FRAC_CALC bound to: 38'b00000000001000000000000000111110111110 
+	Parameter S1_CLKOUT1 bound to: 38'b00000000000000100000000000001010001011 
 	Parameter S1_CLKOUT2 bound to: 38'b00000000000000010000000000000001000001 
 	Parameter S1_CLKOUT3 bound to: 38'b00000000000000010000000000000001000001 
 	Parameter S1_CLKOUT4 bound to: 38'b00000000000000010000000000000001000001 
 	Parameter S1_CLKOUT5 bound to: 38'b00000000000000010000000000000001000001 
+	Parameter S1_CLKOUT6 bound to: 38'b00000000000000010000000000000001000001 
 	Parameter RESTART bound to: 4'b0001 
 	Parameter WAIT_LOCK bound to: 4'b0010 
 	Parameter WAIT_SEN bound to: 4'b0011 
@@ -239,12 +266,12 @@ INFO: [Synth 8-6157] synthesizing module 'platform_clk_wiz_0_0_pll_drp' [f:/OneD
 	Parameter BITSET bound to: 4'b0111 
 	Parameter WRITE bound to: 4'b1000 
 	Parameter WAIT_DRDY bound to: 4'b1001 
-	Parameter STATE_COUNT_CONST bound to: 21 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:201]
-INFO: [Synth 8-6155] done synthesizing module 'platform_clk_wiz_0_0_pll_drp' (9#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:47]
-INFO: [Synth 8-4471] merging register 'clk_mon_error_reg_sig_reg[15:0]' into 'clk_mon_error_reg_reg[15:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:499]
-WARNING: [Synth 8-6014] Unused sequential element clk_mon_error_reg_sig_reg was removed.  [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:499]
-INFO: [Synth 8-256] done synthesizing module 'platform_clk_wiz_0_0_clk_wiz_drp' (10#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:154]
+	Parameter STATE_COUNT_CONST bound to: 23 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:223]
+INFO: [Synth 8-6155] done synthesizing module 'platform_clk_wiz_0_0_mmcm_drp' (8#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:47]
+INFO: [Synth 8-4471] merging register 'clk_mon_error_reg_sig_reg[15:0]' into 'clk_mon_error_reg_reg[15:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:512]
+WARNING: [Synth 8-6014] Unused sequential element clk_mon_error_reg_sig_reg was removed.  [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:512]
+INFO: [Synth 8-256] done synthesizing module 'platform_clk_wiz_0_0_clk_wiz_drp' (9#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:154]
 INFO: [Synth 8-638] synthesizing module 'platform_clk_wiz_0_0_soft_reset' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_soft_reset.vhd:142]
 	Parameter C_SIPIF_DWIDTH bound to: 32 - type: integer 
 	Parameter C_RESET_WIDTH bound to: 16 - type: integer 
@@ -367,9 +394,9 @@ INFO: [Synth 8-113] binding component instance 'RST_FLOPS' to cell 'FDRSE' [f:/O
 	Parameter IS_R_INVERTED bound to: 1'b0 
 	Parameter IS_S_INVERTED bound to: 1'b0 
 INFO: [Synth 8-113] binding component instance 'FF_WRACK' to cell 'FDRSE' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_soft_reset.vhd:296]
-INFO: [Synth 8-256] done synthesizing module 'platform_clk_wiz_0_0_soft_reset' (11#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_soft_reset.vhd:142]
-INFO: [Synth 8-256] done synthesizing module 'platform_clk_wiz_0_0_axi_clk_config' (12#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_axi_clk_config.vhd:178]
-INFO: [Synth 8-6155] done synthesizing module 'platform_clk_wiz_0_0' (13#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0.v:71]
+INFO: [Synth 8-256] done synthesizing module 'platform_clk_wiz_0_0_soft_reset' (10#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/proc_common_v3_00_a/hdl/src/vhdl/platform_clk_wiz_0_0_soft_reset.vhd:142]
+INFO: [Synth 8-256] done synthesizing module 'platform_clk_wiz_0_0_axi_clk_config' (11#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_axi_clk_config.vhd:178]
+INFO: [Synth 8-6155] done synthesizing module 'platform_clk_wiz_0_0' (12#1) [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0.v:71]
 WARNING: [Synth 8-3331] design platform_clk_wiz_0_0_soft_reset has unconnected port Bus2IP_Data[0]
 WARNING: [Synth 8-3331] design platform_clk_wiz_0_0_soft_reset has unconnected port Bus2IP_Data[1]
 WARNING: [Synth 8-3331] design platform_clk_wiz_0_0_soft_reset has unconnected port Bus2IP_Data[2]
@@ -426,7 +453,7 @@ WARNING: [Synth 8-3331] design platform_clk_wiz_0_0_pselect_f has unconnected po
 WARNING: [Synth 8-3331] design platform_clk_wiz_0_0_pselect_f has unconnected port A[10]
 WARNING: [Synth 8-3331] design platform_clk_wiz_0_0_address_decoder has unconnected port Bus_RNW
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 475.059 ; gain = 168.074
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 476.074 ; gain = 171.176
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -439,10 +466,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 475.059 ; gain = 168.074
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 476.074 ; gain = 171.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 475.059 ; gain = 168.074
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 476.074 ; gain = 171.176
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -457,37 +484,34 @@ Parsing XDC File [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPl
 Finished Parsing XDC File [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_board.xdc] for cell 'inst'
 Parsing XDC File [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0.xdc] for cell 'inst'
 Finished Parsing XDC File [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0.xdc] for cell 'inst'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/platform_clk_wiz_0_0_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/platform_clk_wiz_0_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-INFO: [Timing 38-2] Deriving generated clocks
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 842.160 ; gain = 0.000
 Parsing XDC File [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_clk_wiz_0_0_synth_1/dont_touch.xdc]
 Finished Parsing XDC File [F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_clk_wiz_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 842.191 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 850.258 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 17 instances were transformed.
   FDRSE => FDRSE (FDRE, LUT4, VCC): 17 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 842.191 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.166 . Memory (MB): peak = 842.191 ; gain = 0.000
+INFO: [Timing 38-2] Deriving generated clocks
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 853.246 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.145 . Memory (MB): peak = 853.246 ; gain = 2.988
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 842.191 ; gain = 535.207
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 853.246 ; gain = 548.348
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 842.191 ; gain = 535.207
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 853.246 ; gain = 548.348
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for inst. (constraint file  F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_clk_wiz_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 842.191 ; gain = 535.207
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 853.246 ; gain = 548.348
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'platform_clk_wiz_0_0_slave_attachment'
 INFO: [Synth 8-5544] ROM "s_axi_rresp_i" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
@@ -498,6 +522,22 @@ INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address si
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'ram_reg[62][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[61][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[60][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[59][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[58][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[57][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[56][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[55][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[54][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[53][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[52][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[51][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[50][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[49][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[48][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
+INFO: [Synth 8-4471] merging register 'ram_reg[47][38:0]' into 'ram_reg[63][38:0]' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_mmcm_pll_drp.v:416]
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
@@ -506,8 +546,9 @@ INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too spa
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-3936] Found unconnected internal register 'clkout0_reg_reg' and it is trimmed from '32' to '18' bits. [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:408]
-WARNING: [Synth 8-3936] Found unconnected internal register 'clkfbout_reg_reg' and it is trimmed from '32' to '26' bits. [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:405]
+INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3936] Found unconnected internal register 'clkout0_reg_reg' and it is trimmed from '32' to '18' bits. [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:421]
+WARNING: [Synth 8-3936] Found unconnected internal register 'clkfbout_reg_reg' and it is trimmed from '32' to '26' bits. [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_clk_wiz_drp.vhd:418]
 INFO: [Synth 8-5546] ROM "ram_clk_config_reg[0]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ram_clk_config_reg[1]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ram_clk_config_reg[2]" won't be mapped to RAM because it is too sparse
@@ -553,31 +594,31 @@ INFO: [Synth 8-5546] ROM "clk_mon_error_reg_d" won't be mapped to RAM because it
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'platform_clk_wiz_0_0_slave_attachment'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 842.191 ; gain = 535.207
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 853.246 ; gain = 548.348
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+------------------------------------------+------------+----------+
-|      |RTL Partition                             |Replication |Instances |
-+------+------------------------------------------+------------+----------+
-|1     |platform_clk_wiz_0_0_clk_wiz__GC0         |           1|         4|
-|2     |case__51_platform_clk_wiz_0_0_pll_drp__GD |           1|     54847|
-|3     |platform_clk_wiz_0_0_pll_drp__GB1         |           1|      8983|
-|4     |platform_clk_wiz_0_0_clk_wiz_drp__GC0     |           1|      3709|
-|5     |platform_clk_wiz_0_0_axi_clk_config__GC0  |           1|       282|
-+------+------------------------------------------+------------+----------+
++------+-------------------------------------------+------------+----------+
+|      |RTL Partition                              |Replication |Instances |
++------+-------------------------------------------+------------+----------+
+|1     |case__51_platform_clk_wiz_0_0_mmcm_drp__GD |           1|     54847|
+|2     |platform_clk_wiz_0_0_mmcm_drp__GB1         |           1|     10302|
+|3     |platform_clk_wiz_0_0_clk_wiz_drp__GC0      |           1|      3713|
+|4     |platform_clk_wiz_0_0_axi_clk_config__GC0   |           1|       282|
++------+-------------------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
+	   4 Input      8 Bit       Adders := 2     
 	   2 Input      7 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 9     
-	   3 Input      6 Bit       Adders := 8     
+	   3 Input      6 Bit       Adders := 13    
+	   2 Input      6 Bit       Adders := 10    
 	   2 Input      5 Bit       Adders := 1     
 +---Registers : 
-	               39 Bit    Registers := 22    
+	               39 Bit    Registers := 26    
 	               32 Bit    Registers := 34    
 	               26 Bit    Registers := 1     
 	               18 Bit    Registers := 1     
@@ -593,12 +634,14 @@ Detailed RTL Component Info :
 	                 4x32  Multipliers := 1     
 	                 6x32  Multipliers := 1     
 +---Muxes : 
+	   2 Input     39 Bit        Muxes := 8     
+	   3 Input     39 Bit        Muxes := 2     
 	   2 Input     32 Bit        Muxes := 4     
 	   7 Input     32 Bit        Muxes := 1     
 	  10 Input     16 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
 	  10 Input      7 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 24    
+	   2 Input      6 Bit        Muxes := 27    
 	  10 Input      6 Bit        Muxes := 1     
 	  10 Input      5 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
@@ -609,7 +652,7 @@ Detailed RTL Component Info :
 	   7 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 2     
 	  10 Input      1 Bit        Muxes := 9     
-	   2 Input      1 Bit        Muxes := 119   
+	   2 Input      1 Bit        Muxes := 123   
 	   5 Input      1 Bit        Muxes := 37    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -618,15 +661,16 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module platform_clk_wiz_0_0_pll_drp 
+Module platform_clk_wiz_0_0_mmcm_drp 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 9     
-	   3 Input      6 Bit       Adders := 8     
+	   4 Input      8 Bit       Adders := 2     
+	   3 Input      6 Bit       Adders := 13    
+	   2 Input      6 Bit       Adders := 10    
 	   2 Input      5 Bit       Adders := 1     
 +---Registers : 
-	               39 Bit    Registers := 22    
+	               39 Bit    Registers := 26    
 	               16 Bit    Registers := 1     
 	                7 Bit    Registers := 1     
 	                6 Bit    Registers := 1     
@@ -637,16 +681,18 @@ Detailed RTL Component Info :
 	                 4x32  Multipliers := 1     
 	                 6x32  Multipliers := 1     
 +---Muxes : 
+	   2 Input     39 Bit        Muxes := 8     
+	   3 Input     39 Bit        Muxes := 2     
 	  10 Input     16 Bit        Muxes := 1     
 	  10 Input      7 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 24    
+	   2 Input      6 Bit        Muxes := 27    
 	  10 Input      6 Bit        Muxes := 1     
 	  10 Input      5 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 3     
 	  10 Input      1 Bit        Muxes := 9     
-	   2 Input      1 Bit        Muxes := 32    
+	   2 Input      1 Bit        Muxes := 36    
 Module platform_clk_wiz_0_0_clk_wiz_drp 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -750,172 +796,250 @@ INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too spa
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "no_count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "clk_mon_error_reg_d" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-4471] merging register 'bus2ip_reset_active_high_reg' into 'AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/rst_reg' [f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_clk_wiz_0_0/platform_clk_wiz_0_0_axi_clk_config.vhd:425]
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[41][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[40][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[36][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[33][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[31][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[29][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[27][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[25][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[23][0]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[21][0]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[21][1]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[41][16]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[22][35]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[40][16]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[22][35]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[39][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[38][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[37][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[36][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[35][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[34][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[33][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[32][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[31][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[30][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[29][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[28][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[27][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[26][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[25][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[24][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[23][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[22][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[21][16]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[21][17]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[41][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[40][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[36][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[33][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[31][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[29][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[27][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[25][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[23][1]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[21][1]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[21][2]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[41][17]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[22][35]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[40][17]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[22][35]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[39][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[38][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[37][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[36][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[35][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[34][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[33][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[32][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[31][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[30][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[29][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[28][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[27][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[26][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[25][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[24][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[23][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[22][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[21][17]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[21][18]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[41][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[40][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[36][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[33][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[31][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[29][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[27][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[25][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[23][2]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[21][2]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[21][3]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[41][18]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[22][35]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[40][18]' (FDSE) to 'inst/pll_drp_insti_3/ram_reg[22][35]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[39][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[38][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[37][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[36][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[35][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[34][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[33][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[32][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[31][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[30][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[29][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[28][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[27][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[26][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[25][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[24][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[23][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[22][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[21][18]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[21][19]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[41][3]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[40][3]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[36][3]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[33][3]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[31][3]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[29][3]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
-INFO: [Synth 8-3886] merging instance 'inst/pll_drp_insti_3/ram_reg[27][3]' (FDRE) to 'inst/pll_drp_insti_3/ram_reg[22][38]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[63][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[46][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[45][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[44][0] )
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][0]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][0]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][0]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][1]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][0]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[33][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[31][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[29][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[27][0] )
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[24][0]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[63][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[46][16] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[45][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[43][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[42][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[41][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[40][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[39][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[38][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[37][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[36][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[35][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[34][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[33][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[32][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[31][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[30][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[29][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[28][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[27][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[26][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[25][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[24][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[23][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[63][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[46][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[45][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[44][1] )
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][1]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][1]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][1]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][2]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][1]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[33][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[31][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[29][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[27][1] )
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[24][1]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[63][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[46][17] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[45][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[43][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[42][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[41][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[40][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[39][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[38][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[37][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[36][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[35][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[34][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[33][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[32][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[31][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[30][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[29][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[28][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[27][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[26][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[25][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[24][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[23][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[63][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[46][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[45][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[44][2] )
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][2]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][2]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][2]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][3]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][2]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[33][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[31][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[29][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[27][2] )
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[24][2]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[63][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[46][18] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[45][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[43][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[42][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[41][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[40][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[39][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[38][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[37][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[36][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[35][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[34][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[33][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[32][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[31][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[30][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[29][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[28][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[27][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[26][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[25][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[24][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[23][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[63][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[46][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[45][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/mmcm_drp_insti_2/\ram_reg[44][3] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][3]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][3]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][3]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][4]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][3]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][3]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[24][3]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][4]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][4]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][4]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][4]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][5]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][4]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][4]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[24][4]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][5]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][5]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][5]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][5]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][8]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][5]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][5]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[24][5]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][8]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][8]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][8]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][8]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][9]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][8]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][8]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[24][8]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][9]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][9]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][9]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][9]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][14]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][9]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][9]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[24][9]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[35][14]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[39][13]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[39][14]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[25][13]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[25][14]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[39][14]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[39][15]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][14]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[40][15]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][14]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[35][15]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[25][14]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[25][15]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[40][15]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[37][15]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][15]' (FDRE) to 'inst/mmcm_drp_insti_2/ram_reg[24][15]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][0]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][16]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][1]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][17]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][2]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][18]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][3]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][19]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][4]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][20]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][5]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][21]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][6]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][22]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][7]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][23]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][8]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][9]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][25]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][10]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][26]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[41][26]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[33][26]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[31][26]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[29][26]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[27][26]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][11]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[41][27]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[33][27]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[31][27]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[29][27]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[27][27]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][12]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[41][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[39][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[36][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[34][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[33][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[32][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[31][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[30][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[29][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[28][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[27][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[26][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[25][28]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][13]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][29]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[41][29]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[33][29]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[31][29]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[29][29]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[27][29]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[23][14]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[23][37]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[44][30]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[41][30]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[38][30]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[37][30]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[35][30]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
+INFO: [Synth 8-3886] merging instance 'inst/mmcm_drp_insti_2/ram_reg[33][30]' (FDSE) to 'inst/mmcm_drp_insti_2/ram_reg[39][36]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/pll_drp_insti_3/\ram_reg[21][37] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/pll_drp_insti_3/\ram_reg[40][38] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/pll_drp_insti_3/\ram_reg[22][38] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/pll_drp_insti_3/\ram_reg[21][38] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/pll_drp_insti_3/\ram_do_reg[24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/CLK_CORE_DRP_Ii_4/\clk_mon_error_reg_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/i_0/\AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_rresp_i_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/i_0/\AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_bresp_i_reg[0] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:43 ; elapsed = 00:01:52 . Memory (MB): peak = 842.191 ; gain = 535.207
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+------+------------------------------------------+------------+----------+
-|      |RTL Partition                             |Replication |Instances |
-+------+------------------------------------------+------------+----------+
-|1     |platform_clk_wiz_0_0_clk_wiz__GC0         |           1|         4|
-|2     |case__51_platform_clk_wiz_0_0_pll_drp__GD |           1|       615|
-|3     |platform_clk_wiz_0_0_pll_drp__GB1         |           1|      1625|
-|4     |platform_clk_wiz_0_0_clk_wiz_drp__GC0     |           1|      2607|
-|5     |platform_clk_wiz_0_0_axi_clk_config__GC0  |           1|       291|
-+------+------------------------------------------+------------+----------+
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:58 ; elapsed = 00:02:08 . Memory (MB): peak = 842.191 ; gain = 535.207
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:15 ; elapsed = 00:02:25 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 853.246 ; gain = 548.348
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-------------------------------------------+------------+----------+
 |      |RTL Partition                              |Replication |Instances |
 +------+-------------------------------------------+------------+----------+
-|1     |case__51_platform_clk_wiz_0_0_pll_drp__GD  |           1|       615|
-|2     |platform_clk_wiz_0_0_axi_clk_config_GT0    |           1|      2898|
-|3     |platform_clk_wiz_0_0_axi_clk_config_GT0__1 |           1|      1629|
+|1     |case__51_platform_clk_wiz_0_0_mmcm_drp__GD |           1|       615|
+|2     |platform_clk_wiz_0_0_mmcm_drp__GB1         |           1|      1788|
+|3     |platform_clk_wiz_0_0_clk_wiz_drp__GC0      |           1|      2611|
+|4     |platform_clk_wiz_0_0_axi_clk_config__GC0   |           1|       291|
++------+-------------------------------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 853.246 ; gain = 548.348
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:28 ; elapsed = 00:01:30 . Memory (MB): peak = 912.496 ; gain = 607.598
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+-------------------------------------------+------------+----------+
+|      |RTL Partition                              |Replication |Instances |
++------+-------------------------------------------+------------+----------+
+|1     |case__51_platform_clk_wiz_0_0_mmcm_drp__GD |           1|       615|
+|2     |platform_clk_wiz_0_0_mmcm_drp__GB1         |           1|      1788|
+|3     |platform_clk_wiz_0_0_axi_clk_config_GT0    |           1|      2902|
 +------+-------------------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:17 ; elapsed = 00:02:27 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished Technology Mapping : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 919.910 ; gain = 615.012
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -939,7 +1063,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:18 ; elapsed = 00:02:29 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished IO Insertion : Time (s): cpu = 00:01:32 ; elapsed = 00:01:33 . Memory (MB): peak = 919.910 ; gain = 615.012
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -952,7 +1076,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:18 ; elapsed = 00:02:29 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:32 ; elapsed = 00:01:33 . Memory (MB): peak = 919.910 ; gain = 615.012
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -964,25 +1088,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:18 ; elapsed = 00:02:29 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:32 ; elapsed = 00:01:34 . Memory (MB): peak = 919.910 ; gain = 615.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:18 ; elapsed = 00:02:29 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:32 ; elapsed = 00:01:34 . Memory (MB): peak = 919.910 ; gain = 615.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:19 ; elapsed = 00:02:29 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:32 ; elapsed = 00:01:34 . Memory (MB): peak = 919.910 ; gain = 615.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:19 ; elapsed = 00:02:29 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:32 ; elapsed = 00:01:34 . Memory (MB): peak = 919.910 ; gain = 615.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -995,67 +1119,66 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+----------+------+
-|      |Cell      |Count |
-+------+----------+------+
-|1     |BUFG      |     3|
-|2     |CARRY4    |    20|
-|3     |LUT1      |     2|
-|4     |LUT2      |   130|
-|5     |LUT3      |   156|
-|6     |LUT4      |    39|
-|7     |LUT5      |   122|
-|8     |LUT6      |   665|
-|9     |MUXF7     |   128|
-|10    |MUXF8     |     2|
-|11    |PLLE2_ADV |     1|
-|12    |FDRE      |  1400|
-|13    |FDSE      |    58|
-|14    |IBUF      |     1|
-+------+----------+------+
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     3|
+|2     |CARRY4     |    34|
+|3     |LUT1       |     3|
+|4     |LUT2       |   181|
+|5     |LUT3       |   170|
+|6     |LUT4       |    82|
+|7     |LUT5       |   158|
+|8     |LUT6       |   692|
+|9     |MMCME2_ADV |     1|
+|10    |MUXF7      |   151|
+|11    |MUXF8      |     2|
+|12    |FDRE       |  1419|
+|13    |FDSE       |    70|
++------+-----------+------+
 
 Report Instance Areas: 
 +------+-------------------------+--------------------------------------+------+
 |      |Instance                 |Module                                |Cells |
 +------+-------------------------+--------------------------------------+------+
-|1     |top                      |                                      |  2727|
-|2     |  inst                   |platform_clk_wiz_0_0_axi_clk_config   |  2727|
+|1     |top                      |                                      |  2966|
+|2     |  inst                   |platform_clk_wiz_0_0_axi_clk_config   |  2966|
 |3     |    AXI_LITE_IPIF_I      |platform_clk_wiz_0_0_axi_lite_ipif    |   285|
 |4     |      I_SLAVE_ATTACHMENT |platform_clk_wiz_0_0_slave_attachment |   285|
 |5     |        I_DECODER        |platform_clk_wiz_0_0_address_decoder  |   132|
-|6     |    CLK_CORE_DRP_I       |platform_clk_wiz_0_0_clk_wiz_drp      |  2398|
-|7     |      clk_inst           |platform_clk_wiz_0_0_clk_wiz          |     6|
-|8     |      pll_drp_inst       |platform_clk_wiz_0_0_pll_drp          |   791|
+|6     |    CLK_CORE_DRP_I       |platform_clk_wiz_0_0_clk_wiz_drp      |  2637|
+|7     |      clk_inst           |platform_clk_wiz_0_0_clk_wiz          |     5|
+|8     |      mmcm_drp_inst      |platform_clk_wiz_0_0_mmcm_drp         |  1030|
 |9     |    SOFT_RESET_I         |platform_clk_wiz_0_0_soft_reset       |    35|
 +------+-------------------------+--------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:19 ; elapsed = 00:02:29 . Memory (MB): peak = 899.512 ; gain = 592.527
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:32 ; elapsed = 00:01:34 . Memory (MB): peak = 919.910 ; gain = 615.012
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:52 ; elapsed = 00:02:11 . Memory (MB): peak = 899.512 ; gain = 225.395
-Synthesis Optimization Complete : Time (s): cpu = 00:02:19 ; elapsed = 00:02:29 . Memory (MB): peak = 899.512 ; gain = 592.527
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:20 ; elapsed = 00:01:27 . Memory (MB): peak = 919.910 ; gain = 237.840
+Synthesis Optimization Complete : Time (s): cpu = 00:01:32 ; elapsed = 00:01:34 . Memory (MB): peak = 919.910 ; gain = 615.012
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 151 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 188 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 899.512 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 919.910 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-273 Infos, 60 Warnings, 0 Critical Warnings and 0 Errors encountered.
+366 Infos, 60 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:22 ; elapsed = 00:02:33 . Memory (MB): peak = 899.512 ; gain = 602.938
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 899.512 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:35 ; elapsed = 00:01:37 . Memory (MB): peak = 919.910 ; gain = 623.023
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 919.910 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_clk_wiz_0_0_synth_1/platform_clk_wiz_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP platform_clk_wiz_0_0, cache-ID = 7378f4c764b5dc29
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP platform_clk_wiz_0_0, cache-ID = 54708bdd3418aed9
 INFO: [Coretcl 2-1174] Renamed 8 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 899.512 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 919.910 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.runs/platform_clk_wiz_0_0_synth_1/platform_clk_wiz_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file platform_clk_wiz_0_0_utilization_synth.rpt -pb platform_clk_wiz_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jan 10 01:41:02 2021...
+INFO: [Common 17-206] Exiting Vivado at Sun Jan 10 16:32:59 2021...

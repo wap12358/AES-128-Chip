@@ -37,6 +37,13 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 # To test this script, run the following commands from Vivado Tcl console:
 # source platform_script.tcl
 
+
+# The design that will be created by this Tcl script contains the following 
+# module references:
+# aes_top
+
+# Please add the sources of those modules before sourcing this Tcl script.
+
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
 # <./myproj/project_1.xpr> in the current working folder.
@@ -157,16 +164,23 @@ proc create_root_design { parentCell } {
   # Create interface ports
   set DDR [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR ]
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
-  set rst_cu_id [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 rst_cu_id ]
 
   # Create ports
-  set aes_rx [ create_bd_port -dir I -from 8 -to 0 -type data aes_rx ]
-  set aes_tx [ create_bd_port -dir O -from 8 -to 0 -type data aes_tx ]
-  set clk_aes_chip [ create_bd_port -dir O -type clk clk_aes_chip ]
 
   # Create instance: aesVerifyPlatformData_0, and set properties
   set aesVerifyPlatformData_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:aesVerifyPlatformData:1.0 aesVerifyPlatformData_0 ]
 
+  # Create instance: aes_top_0, and set properties
+  set block_name aes_top
+  set block_cell_name aes_top_0
+  if { [catch {set aes_top_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $aes_top_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: axi_gpio_0, and set properties
   set axi_gpio_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0 ]
   set_property -dict [ list \
@@ -178,14 +192,18 @@ proc create_root_design { parentCell } {
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
    CONFIG.AXI_DRP {false} \
+   CONFIG.CLKIN1_JITTER_PS {0.0} \
+   CONFIG.CLKIN1_UI_JITTER {0} \
+   CONFIG.CLKIN2_JITTER_PS {1000000.0} \
+   CONFIG.CLKIN2_UI_JITTER {0.010} \
    CONFIG.CLKOUT1_DRIVES {BUFG} \
-   CONFIG.CLKOUT1_JITTER {302.332} \
-   CONFIG.CLKOUT1_PHASE_ERROR {155.540} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {10} \
+   CONFIG.CLKOUT1_JITTER {950.584} \
+   CONFIG.CLKOUT1_PHASE_ERROR {908.603} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {5} \
    CONFIG.CLKOUT2_DRIVES {BUFG} \
-   CONFIG.CLKOUT2_JITTER {213.504} \
-   CONFIG.CLKOUT2_PHASE_ERROR {155.540} \
-   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {50} \
+   CONFIG.CLKOUT2_JITTER {729.250} \
+   CONFIG.CLKOUT2_PHASE_ERROR {908.603} \
+   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {30} \
    CONFIG.CLKOUT2_USED {true} \
    CONFIG.CLKOUT3_DRIVES {BUFG} \
    CONFIG.CLKOUT4_DRIVES {BUFG} \
@@ -196,16 +214,24 @@ proc create_root_design { parentCell } {
    CONFIG.CLK_OUT2_PORT {clk_aes_chip} \
    CONFIG.ENABLE_CLOCK_MONITOR {false} \
    CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {17} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {85} \
-   CONFIG.MMCM_CLKOUT1_DIVIDE {17} \
+   CONFIG.JITTER_OPTIONS {UI} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {63.000} \
+   CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {126.000} \
+   CONFIG.MMCM_CLKOUT1_DIVIDE {21} \
    CONFIG.MMCM_COMPENSATION {ZHOLD} \
-   CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+   CONFIG.MMCM_REF_JITTER1 {0.000} \
+   CONFIG.MMCM_REF_JITTER2 {0.010} \
    CONFIG.NUM_OUT_CLKS {2} \
+   CONFIG.OVERRIDE_MMCM {false} \
    CONFIG.PHASE_DUTY_CONFIG {false} \
-   CONFIG.PRIMITIVE {PLL} \
+   CONFIG.PRIMITIVE {MMCM} \
+   CONFIG.PRIM_SOURCE {Global_buffer} \
+   CONFIG.SECONDARY_SOURCE {Single_ended_clock_capable_pin} \
    CONFIG.USE_DYN_RECONFIG {true} \
    CONFIG.USE_FREQ_SYNTH {true} \
+   CONFIG.USE_PHASE_ALIGNMENT {false} \
    CONFIG.USE_SAFE_CLOCK_STARTUP {false} \
  ] $clk_wiz_0
 
@@ -322,7 +348,6 @@ proc create_root_design { parentCell } {
   set rst_ps7_0_50M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_50M ]
 
   # Create interface connections
-  connect_bd_intf_net -intf_net axi_gpio_0_GPIO [get_bd_intf_ports rst_cu_id] [get_bd_intf_pins axi_gpio_0/GPIO]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
@@ -331,9 +356,10 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins aesVerifyPlatformData_0/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
 
   # Create port connections
-  connect_bd_net -net aesVerifyPlatformData_0_aes_tx [get_bd_ports aes_tx] [get_bd_pins aesVerifyPlatformData_0/aes_tx]
-  connect_bd_net -net aes_rx_1 [get_bd_ports aes_rx] [get_bd_pins aesVerifyPlatformData_0/aes_rx]
-  connect_bd_net -net clk_wiz_0_clk_aes_chip [get_bd_ports clk_aes_chip] [get_bd_pins clk_wiz_0/clk_aes_chip]
+  connect_bd_net -net aesVerifyPlatformData_0_aes_tx [get_bd_pins aesVerifyPlatformData_0/aes_tx] [get_bd_pins aes_top_0/rx]
+  connect_bd_net -net aes_top_0_tx [get_bd_pins aesVerifyPlatformData_0/aes_rx] [get_bd_pins aes_top_0/tx]
+  connect_bd_net -net axi_gpio_0_gpio_io_o [get_bd_pins aes_top_0/config_pin] [get_bd_pins axi_gpio_0/gpio_io_o]
+  connect_bd_net -net clk_wiz_0_clk_aes_chip [get_bd_pins aes_top_0/clk] [get_bd_pins clk_wiz_0/clk_aes_chip]
   connect_bd_net -net clk_wiz_0_clk_aes_tx [get_bd_pins aesVerifyPlatformData_0/clk_tx] [get_bd_pins clk_wiz_0/clk_aes_tx]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins aesVerifyPlatformData_0/s00_axi_aclk] [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins clk_wiz_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in]

@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sun Jan 10 01:39:42 2021
+// Date        : Sun Jan 10 14:07:10 2021
 // Host        : MSI running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_processing_system7_0_0/platform_processing_system7_0_0_stub.v

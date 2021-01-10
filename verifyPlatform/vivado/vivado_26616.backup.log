@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Jan 10 02:12:01 2021
+# Process ID: 26616
+# Current directory: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14500 F:\OneDrive\Study\IC2\AES-128-with-an-Instruction-Set\verifyPlatform\vivado\vivado.xpr
+# Log file: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.log
+# Journal file: F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+WARNING: [IP_Flow 19-2207] Repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0' already exists; ignoring attempt to add it again.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/ip_repo/aes_verify_platform_data_1.0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:08 . Memory (MB): peak = 763.551 ; gain = 149.777
+update_compile_order -fileset sources_1
+generate_target all [get_files  F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd]
+INFO: [BD 41-1637] Generated targets are already up-to-date for bd-design 'platform' - hence not re-generating.
+export_ip_user_files -of_objects [get_files F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd]
+export_simulation -of_objects [get_files F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/platform.bd] -directory F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.ip_user_files/sim_scripts -ip_user_files_dir F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.ip_user_files -ipstatic_source_dir F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.ip_user_files/ipstatic -lib_map_path [list {modelsim=F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/compile_simlib/modelsim} {questa=F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/compile_simlib/questa} {riviera=F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/compile_simlib/riviera} {activehdl=F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Jan 10 02:15:39 2021...

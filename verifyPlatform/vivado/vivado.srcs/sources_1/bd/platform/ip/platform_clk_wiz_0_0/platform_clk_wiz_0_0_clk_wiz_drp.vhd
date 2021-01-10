@@ -175,15 +175,19 @@ port
  );
 end component;
 
-  component platform_clk_wiz_0_0_pll_drp 
+  component platform_clk_wiz_0_0_mmcm_drp 
   generic (
   S1_CLKFBOUT_MULT          : integer := 5;
   S1_CLKFBOUT_PHASE         : integer := 0;
+  S1_CLKFBOUT_FRAC          : integer := 125; 
+  S1_CLKFBOUT_FRAC_EN       : integer := 1; 
   S1_BANDWIDTH              : string := "LOW";
   S1_DIVCLK_DIVIDE          : integer := 1;
   S1_CLKOUT0_DIVIDE         : integer := 1;
   S1_CLKOUT0_PHASE          : integer := 0;
   S1_CLKOUT0_DUTY           : integer := 50000;
+  S1_CLKOUT0_FRAC           : integer := 125; 
+  S1_CLKOUT0_FRAC_EN        : integer := 1; 
   
   S1_CLKOUT1_DIVIDE         : integer := 1;
   S1_CLKOUT1_PHASE          : integer := 0;
@@ -203,17 +207,26 @@ end component;
   
   S1_CLKOUT5_DIVIDE         : integer := 1;
   S1_CLKOUT5_PHASE          : integer := 0;
-  S1_CLKOUT5_DUTY           : integer := 50000
+  S1_CLKOUT5_DUTY           : integer := 50000;
+  
+  S1_CLKOUT6_DIVIDE         : integer := 1;
+  S1_CLKOUT6_PHASE          : integer := 0;
+  S1_CLKOUT6_DUTY           : integer := 50000
   );
   port (
   S2_CLKFBOUT_MULT : in std_logic_vector( 7 downto 0);
+  S2_CLKFBOUT_FRAC: in std_logic_vector( 9 downto 0);     
+  S2_CLKFBOUT_FRAC_EN: in std_logic;
   S2_DIVCLK_DIVIDE: in std_logic_vector( 7 downto 0);     
   S2_CLKOUT0_DIVIDE: in std_logic_vector( 7 downto 0);    
+  S2_CLKOUT0_FRAC: in std_logic_vector( 9 downto 0);      
+  S2_CLKOUT0_FRAC_EN: in std_logic;
   S2_CLKOUT1_DIVIDE: in std_logic_vector( 7 downto 0);    
   S2_CLKOUT2_DIVIDE: in std_logic_vector( 7 downto 0);    
   S2_CLKOUT3_DIVIDE: in std_logic_vector( 7 downto 0);    
   S2_CLKOUT4_DIVIDE: in std_logic_vector( 7 downto 0);    
   S2_CLKOUT5_DIVIDE: in std_logic_vector( 7 downto 0);    
+  S2_CLKOUT6_DIVIDE: in std_logic_vector( 7 downto 0);    
   LOAD : in std_logic;
   SADDR: in std_logic;
   SEN  : in std_logic;
@@ -242,12 +255,12 @@ type mem_type is array (0 to 31) of std_logic_vector(31 downto 0);
 
 signal ram_clk_config : mem_type := (
 -- initialize memory with valid clock configuration
-   X"00001101", 
+   X"00003F05", 
    X"00000000",
-   X"00000055", 
+   X"0000007E", 
    X"00000000",
    X"0000C350",
-   X"00000011",
+   X"00000015",
    X"00000000",
    X"0000C350",
    X"00000001",
@@ -310,8 +323,8 @@ signal load_enable_reg_actual         :std_logic;
 signal SEN         :std_logic;
 signal Reset_axi         :std_logic;
 signal load_enable_reg           :std_logic_vector(0 to 31);
-signal clkfbout_reg           :std_logic_vector(0 to 31) := X"00001101";
-signal clkout0_reg           :std_logic_vector(0 to 31) := X"00000055" ;
+signal clkfbout_reg           :std_logic_vector(0 to 31) := X"00003F05";
+signal clkout0_reg           :std_logic_vector(0 to 31) := X"0000007E" ;
 signal config_reg           :std_logic_vector(0 to 31);
 begin
 
@@ -361,12 +374,12 @@ begin
     if (Bus2IP_Clk'event and Bus2IP_Clk='1') then
       if(Bus2IP_Rst = RESET_ACTIVE) then
        -- reset values
-	    ram_clk_config(0)  <=    X"00001101";
+	    ram_clk_config(0)  <=    X"00003F05";
 	    ram_clk_config(1)  <=    X"00000000";
-	    ram_clk_config(2)  <=    X"00000055";
+	    ram_clk_config(2)  <=    X"0000007E";
 	    ram_clk_config(3)  <=    X"00000000";
 	    ram_clk_config(4)  <=    X"0000C350";
-	    ram_clk_config(5)  <=    X"00000011";
+	    ram_clk_config(5)  <=    X"00000015";
 	    ram_clk_config(6)  <=    X"00000000";
 	    ram_clk_config(7)  <=    X"0000C350";
 	    ram_clk_config(8)  <=    X"00000001";
@@ -558,16 +571,20 @@ config_reg <= load_enable_reg(0 to 30) & load_enable_reg_d;
    -- Clock in ports
    clk_in1 => clk_in1
  );
-pll_drp_inst: platform_clk_wiz_0_0_pll_drp generic map (
-  S1_CLKFBOUT_MULT          =>  17,
+mmcm_drp_inst: platform_clk_wiz_0_0_mmcm_drp generic map (
+  S1_CLKFBOUT_MULT          =>  63,
   S1_CLKFBOUT_PHASE         =>  0,
+  S1_CLKFBOUT_FRAC          =>  0,
+  S1_CLKFBOUT_FRAC_EN       =>  0, 
   S1_BANDWIDTH              => "OPTIMIZED",
-  S1_DIVCLK_DIVIDE          =>  1,
-  S1_CLKOUT0_DIVIDE         =>  85,
+  S1_DIVCLK_DIVIDE          =>  5,
+  S1_CLKOUT0_DIVIDE         =>  126,
   S1_CLKOUT0_PHASE          =>  0,
   S1_CLKOUT0_DUTY           =>  50000, 
+  S1_CLKOUT0_FRAC           =>  0, 
+  S1_CLKOUT0_FRAC_EN        =>  0,  
   
-  S1_CLKOUT1_DIVIDE         =>  17,
+  S1_CLKOUT1_DIVIDE         =>  21,
   S1_CLKOUT1_PHASE          =>  0,
   S1_CLKOUT1_DUTY           =>  50000,
   
@@ -585,17 +602,27 @@ pll_drp_inst: platform_clk_wiz_0_0_pll_drp generic map (
   
   S1_CLKOUT5_DIVIDE         =>  1,         
   S1_CLKOUT5_PHASE          =>  0,          
-  S1_CLKOUT5_DUTY           =>  50000
+ 
+  S1_CLKOUT5_DUTY           =>  50000,
+  
+  S1_CLKOUT6_DIVIDE         =>  1,     
+  S1_CLKOUT6_PHASE          =>  0,      
+  S1_CLKOUT6_DUTY           =>  50000
   )
   port map (
   S2_CLKFBOUT_MULT => ram_clk_config(0)(15 downto 8),
+  S2_CLKFBOUT_FRAC => ram_clk_config(0)(25 downto 16),     
+  S2_CLKFBOUT_FRAC_EN => ram_clk_config(0)(26),  
   S2_DIVCLK_DIVIDE => ram_clk_config(0)(7 downto 0),     
   S2_CLKOUT0_DIVIDE => ram_clk_config(2)(7 downto 0),    
+  S2_CLKOUT0_FRAC => ram_clk_config(2)(17 downto 8),      
+  S2_CLKOUT0_FRAC_EN => ram_clk_config(2)(18),   
   S2_CLKOUT1_DIVIDE => ram_clk_config(5)(7 downto 0),    
   S2_CLKOUT2_DIVIDE => ram_clk_config(8)(7 downto 0),    
   S2_CLKOUT3_DIVIDE => ram_clk_config(11)(7 downto 0),    
   S2_CLKOUT4_DIVIDE => ram_clk_config(14)(7 downto 0),    
   S2_CLKOUT5_DIVIDE => ram_clk_config(17)(7 downto 0),    
+  S2_CLKOUT6_DIVIDE => ram_clk_config(20)(7 downto 0),    
   LOAD => SEN,                 
   SADDR => config_reg(30), 
   SEN   => SEN,

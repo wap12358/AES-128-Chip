@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Sun Jan 10 01:50:30 2021
+-- Date        : Sun Jan 10 14:07:20 2021
 -- Host        : MSI running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top platform_xbar_0 -prefix
---               platform_xbar_0_ platform_xbar_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               F:/OneDrive/Study/IC2/AES-128-with-an-Instruction-Set/verifyPlatform/vivado/vivado.srcs/sources_1/bd/platform/ip/platform_xbar_0/platform_xbar_0_sim_netlist.vhdl
 -- Design      : platform_xbar_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -71,6 +71,8 @@ entity platform_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd is
     mi_wready : in STD_LOGIC_VECTOR ( 0 to 0 );
     mi_bvalid : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of platform_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd : entity is "axi_crossbar_v2_1_19_addr_arbiter_sasd";
 end platform_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd;
 
 architecture STRUCTURE of platform_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd is
@@ -106,35 +108,35 @@ architecture STRUCTURE of platform_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
   signal s_axi_wvalid_0_sn_1 : STD_LOGIC;
   signal s_ready_i : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \gen_axilite.s_axi_awready_i_i_2\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \gen_axilite.s_axi_bvalid_i_i_2\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \gen_axilite.s_axi_bvalid_i_i_3\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \gen_axilite.s_axi_rvalid_i_i_2\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \gen_no_arbiter.m_grant_hot_i[0]_i_2\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \gen_no_arbiter.m_grant_hot_i[0]_i_4\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \gen_no_arbiter.s_ready_i[0]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \m_atarget_enc[1]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \m_atarget_hot[0]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \m_atarget_hot[1]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \m_atarget_hot[2]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \m_atarget_hot[3]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \m_axi_arvalid[0]_INST_0\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \m_axi_arvalid[1]_INST_0\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \m_axi_arvalid[2]_INST_0\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \m_axi_awvalid[0]_INST_0\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \gen_axilite.s_axi_awready_i_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \gen_axilite.s_axi_bvalid_i_i_2\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \gen_axilite.s_axi_bvalid_i_i_3\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \gen_axilite.s_axi_rvalid_i_i_2\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \gen_no_arbiter.m_grant_hot_i[0]_i_2\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \gen_no_arbiter.m_grant_hot_i[0]_i_4\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \gen_no_arbiter.s_ready_i[0]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \m_atarget_enc[1]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \m_atarget_hot[0]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \m_atarget_hot[1]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \m_atarget_hot[2]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \m_atarget_hot[3]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \m_axi_arvalid[0]_INST_0\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \m_axi_arvalid[1]_INST_0\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \m_axi_arvalid[2]_INST_0\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \m_axi_awvalid[0]_INST_0\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \m_axi_awvalid[1]_INST_0\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \m_axi_awvalid[2]_INST_0\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \m_axi_wvalid[1]_INST_0\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \m_axi_wvalid[2]_INST_0\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \m_axi_awvalid[2]_INST_0\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \m_axi_wvalid[2]_INST_0\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \m_payload_i[34]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \m_ready_d[2]_i_2\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \m_ready_d[2]_i_3\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \m_ready_d[2]_i_4\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \m_ready_d[2]_i_2\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \m_ready_d[2]_i_3\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \m_ready_d[2]_i_4\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of m_valid_i_i_1 : label is "soft_lutpair14";
   attribute SOFT_HLUTNM of m_valid_i_i_2 : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \s_arvalid_reg[0]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \s_axi_awready[0]_INST_0\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \s_axi_rvalid[0]_INST_0\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \s_arvalid_reg[0]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \s_axi_awready[0]_INST_0\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \s_axi_rvalid[0]_INST_0\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \s_axi_wready[0]_INST_0\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of s_ready_i_i_1 : label is "soft_lutpair14";
 begin
   Q(34 downto 0) <= \^q\(34 downto 0);
@@ -1471,6 +1473,8 @@ entity platform_xbar_0_axi_crossbar_v2_1_19_decerr_slave is
     m_axi_arready : in STD_LOGIC_VECTOR ( 2 downto 0 );
     aa_rready : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of platform_xbar_0_axi_crossbar_v2_1_19_decerr_slave : entity is "axi_crossbar_v2_1_19_decerr_slave";
 end platform_xbar_0_axi_crossbar_v2_1_19_decerr_slave;
 
 architecture STRUCTURE of platform_xbar_0_axi_crossbar_v2_1_19_decerr_slave is
@@ -1654,6 +1658,8 @@ entity platform_xbar_0_axi_crossbar_v2_1_19_splitter is
     aresetn_d : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of platform_xbar_0_axi_crossbar_v2_1_19_splitter : entity is "axi_crossbar_v2_1_19_splitter";
 end platform_xbar_0_axi_crossbar_v2_1_19_splitter;
 
 architecture STRUCTURE of platform_xbar_0_axi_crossbar_v2_1_19_splitter is
@@ -1835,6 +1841,8 @@ entity platform_xbar_0_axi_register_slice_v2_1_18_axic_register_slice is
     SR : in STD_LOGIC_VECTOR ( 0 to 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of platform_xbar_0_axi_register_slice_v2_1_18_axic_register_slice : entity is "axi_register_slice_v2_1_18_axic_register_slice";
 end platform_xbar_0_axi_register_slice_v2_1_18_axic_register_slice;
 
 architecture STRUCTURE of platform_xbar_0_axi_register_slice_v2_1_18_axic_register_slice is
@@ -1914,7 +1922,7 @@ architecture STRUCTURE of platform_xbar_0_axi_register_slice_v2_1_18_axic_regist
   signal \^sr_rvalid\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \m_axi_rready[0]_INST_0\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \m_axi_rready[1]_INST_0\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \m_axi_rready[1]_INST_0\ : label is "soft_lutpair32";
   attribute SOFT_HLUTNM of \m_axi_rready[2]_INST_0\ : label is "soft_lutpair32";
   attribute SOFT_HLUTNM of \m_payload_i[10]_i_1\ : label is "soft_lutpair21";
   attribute SOFT_HLUTNM of \m_payload_i[11]_i_1\ : label is "soft_lutpair18";
@@ -1950,7 +1958,7 @@ architecture STRUCTURE of platform_xbar_0_axi_register_slice_v2_1_18_axic_regist
   attribute SOFT_HLUTNM of \m_payload_i[7]_i_1\ : label is "soft_lutpair21";
   attribute SOFT_HLUTNM of \m_payload_i[8]_i_1\ : label is "soft_lutpair17";
   attribute SOFT_HLUTNM of \m_payload_i[9]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \skid_buffer[0]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \skid_buffer[0]_i_1\ : label is "soft_lutpair33";
 begin
   aa_rready <= \^aa_rready\;
   \aresetn_d_reg[1]_0\(1 downto 0) <= \^aresetn_d_reg[1]_0\(1 downto 0);
@@ -3382,7 +3390,8 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity platform_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd is
   port (
-    Q : out STD_LOGIC_VECTOR ( 34 downto 0 );
+    M_AXI_AWADDR : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    Q : out STD_LOGIC_VECTOR ( 2 downto 0 );
     \m_payload_i_reg[34]\ : out STD_LOGIC_VECTOR ( 33 downto 0 );
     s_axi_bvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_bready : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -3415,10 +3424,12 @@ entity platform_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of platform_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd : entity is "axi_crossbar_v2_1_19_crossbar_sasd";
 end platform_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd;
 
 architecture STRUCTURE of platform_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd is
-  signal \^q\ : STD_LOGIC_VECTOR ( 34 downto 0 );
+  signal \^m_axi_awaddr\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal aa_grant_rnw : STD_LOGIC;
   signal aa_rready : STD_LOGIC;
   signal addr_arbiter_inst_n_3 : STD_LOGIC;
@@ -3459,7 +3470,7 @@ architecture STRUCTURE of platform_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd is
   signal reset : STD_LOGIC;
   signal sr_rvalid : STD_LOGIC;
 begin
-  Q(34 downto 0) <= \^q\(34 downto 0);
+  M_AXI_AWADDR(31 downto 0) <= \^m_axi_awaddr\(31 downto 0);
 addr_arbiter_inst: entity work.platform_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
      port map (
       D(3) => addr_arbiter_inst_n_3,
@@ -3467,7 +3478,8 @@ addr_arbiter_inst: entity work.platform_xbar_0_axi_crossbar_v2_1_19_addr_arbiter
       D(1) => addr_arbiter_inst_n_5,
       D(0) => m_atarget_hot0(0),
       E(0) => p_1_in,
-      Q(34 downto 0) => \^q\(34 downto 0),
+      Q(34 downto 32) => Q(2 downto 0),
+      Q(31 downto 0) => \^m_axi_awaddr\(31 downto 0),
       SR(0) => reset,
       aa_grant_rnw => aa_grant_rnw,
       aa_rready => aa_rready,
@@ -3567,7 +3579,7 @@ aresetn_d_reg: unisim.vcomponents.FDRE
         port map (
       I0 => addr_arbiter_inst_n_7,
       I1 => addr_arbiter_inst_n_8,
-      I2 => \^q\(16),
+      I2 => \^m_axi_awaddr\(16),
       I3 => addr_arbiter_inst_n_44,
       O => \m_atarget_enc[0]_i_1_n_0\
     );
@@ -3711,422 +3723,49 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar is
   port (
-    aclk : in STD_LOGIC;
-    aresetn : in STD_LOGIC;
-    s_axi_awid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    s_axi_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s_axi_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axi_awlock : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_awcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s_axi_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s_axi_awuser : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_awvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_awready : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_wid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s_axi_wlast : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_wuser : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_wvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_wready : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_bid : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axi_buser : out STD_LOGIC_VECTOR ( 0 to 0 );
+    Q : out STD_LOGIC_VECTOR ( 34 downto 0 );
+    \m_payload_i_reg[34]\ : out STD_LOGIC_VECTOR ( 33 downto 0 );
     s_axi_bvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_bready : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_arid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    s_axi_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s_axi_arburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axi_arlock : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_arcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s_axi_arqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s_axi_aruser : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_arvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_arready : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_rid : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axi_rlast : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_ruser : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_rvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_rready : in STD_LOGIC_VECTOR ( 0 to 0 );
-    m_axi_awid : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_awaddr : out STD_LOGIC_VECTOR ( 95 downto 0 );
-    m_axi_awlen : out STD_LOGIC_VECTOR ( 23 downto 0 );
-    m_axi_awsize : out STD_LOGIC_VECTOR ( 8 downto 0 );
-    m_axi_awburst : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    m_axi_awlock : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_awcache : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    m_axi_awprot : out STD_LOGIC_VECTOR ( 8 downto 0 );
-    m_axi_awregion : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    m_axi_awqos : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    m_axi_awuser : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_awvalid : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_awready : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_wid : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_wdata : out STD_LOGIC_VECTOR ( 95 downto 0 );
-    m_axi_wstrb : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    m_axi_wlast : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_wuser : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_wvalid : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_wready : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_bid : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_bresp : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    m_axi_buser : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_bvalid : in STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_bready : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_arid : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_araddr : out STD_LOGIC_VECTOR ( 95 downto 0 );
-    m_axi_arlen : out STD_LOGIC_VECTOR ( 23 downto 0 );
-    m_axi_arsize : out STD_LOGIC_VECTOR ( 8 downto 0 );
-    m_axi_arburst : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    m_axi_arlock : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_arcache : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    m_axi_arprot : out STD_LOGIC_VECTOR ( 8 downto 0 );
-    m_axi_arregion : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    m_axi_arqos : out STD_LOGIC_VECTOR ( 11 downto 0 );
-    m_axi_aruser : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    s_axi_wready : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_wvalid : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m_axi_awvalid : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_arvalid : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_arready : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_rid : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_rdata : in STD_LOGIC_VECTOR ( 95 downto 0 );
+    s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s_axi_awready : out STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_arready : out STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_rvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m_axi_rready : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    aresetn : in STD_LOGIC;
+    aclk : in STD_LOGIC;
+    s_axi_arvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_awvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_wvalid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_bready : in STD_LOGIC_VECTOR ( 0 to 0 );
+    s_axi_rready : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_rresp : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    m_axi_rlast : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_ruser : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    m_axi_rdata : in STD_LOGIC_VECTOR ( 95 downto 0 );
     m_axi_rvalid : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    m_axi_rready : out STD_LOGIC_VECTOR ( 2 downto 0 )
+    m_axi_awready : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    m_axi_wready : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    m_axi_bvalid : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    m_axi_arready : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    m_axi_bresp : in STD_LOGIC_VECTOR ( 5 downto 0 );
+    s_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute C_AXI_ADDR_WIDTH : integer;
-  attribute C_AXI_ADDR_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 32;
-  attribute C_AXI_ARUSER_WIDTH : integer;
-  attribute C_AXI_ARUSER_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_AXI_AWUSER_WIDTH : integer;
-  attribute C_AXI_AWUSER_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_AXI_BUSER_WIDTH : integer;
-  attribute C_AXI_BUSER_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_AXI_DATA_WIDTH : integer;
-  attribute C_AXI_DATA_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 32;
-  attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_AXI_PROTOCOL : integer;
-  attribute C_AXI_PROTOCOL of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 2;
-  attribute C_AXI_RUSER_WIDTH : integer;
-  attribute C_AXI_RUSER_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_AXI_SUPPORTS_USER_SIGNALS : integer;
-  attribute C_AXI_SUPPORTS_USER_SIGNALS of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 0;
-  attribute C_AXI_WUSER_WIDTH : integer;
-  attribute C_AXI_WUSER_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_CONNECTIVITY_MODE : integer;
-  attribute C_CONNECTIVITY_MODE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 0;
-  attribute C_DEBUG : integer;
-  attribute C_DEBUG of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_FAMILY : string;
-  attribute C_FAMILY of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "zynq";
-  attribute C_M_AXI_ADDR_WIDTH : string;
-  attribute C_M_AXI_ADDR_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "96'b000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000";
-  attribute C_M_AXI_BASE_ADDR : string;
-  attribute C_M_AXI_BASE_ADDR of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "192'b000000000000000000000000000000000100001111000000000000000000000000000000000000000000000000000000010000111100000100000000000000000000000000000000000000000000000001000001001000000000000000000000";
-  attribute C_M_AXI_READ_CONNECTIVITY : string;
-  attribute C_M_AXI_READ_CONNECTIVITY of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "96'b000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001";
-  attribute C_M_AXI_READ_ISSUING : string;
-  attribute C_M_AXI_READ_ISSUING of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "96'b000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001";
-  attribute C_M_AXI_SECURE : string;
-  attribute C_M_AXI_SECURE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "96'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  attribute C_M_AXI_WRITE_CONNECTIVITY : string;
-  attribute C_M_AXI_WRITE_CONNECTIVITY of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "96'b000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001";
-  attribute C_M_AXI_WRITE_ISSUING : string;
-  attribute C_M_AXI_WRITE_ISSUING of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "96'b000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001";
-  attribute C_NUM_ADDR_RANGES : integer;
-  attribute C_NUM_ADDR_RANGES of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_NUM_MASTER_SLOTS : integer;
-  attribute C_NUM_MASTER_SLOTS of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 3;
-  attribute C_NUM_SLAVE_SLOTS : integer;
-  attribute C_NUM_SLAVE_SLOTS of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_R_REGISTER : integer;
-  attribute C_R_REGISTER of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_S_AXI_ARB_PRIORITY : integer;
-  attribute C_S_AXI_ARB_PRIORITY of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 0;
-  attribute C_S_AXI_BASE_ID : integer;
-  attribute C_S_AXI_BASE_ID of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 0;
-  attribute C_S_AXI_READ_ACCEPTANCE : integer;
-  attribute C_S_AXI_READ_ACCEPTANCE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_S_AXI_SINGLE_THREAD : integer;
-  attribute C_S_AXI_SINGLE_THREAD of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute C_S_AXI_THREAD_ID_WIDTH : integer;
-  attribute C_S_AXI_THREAD_ID_WIDTH of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 0;
-  attribute C_S_AXI_WRITE_ACCEPTANCE : integer;
-  attribute C_S_AXI_WRITE_ACCEPTANCE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute DowngradeIPIdentifiedWarnings : string;
-  attribute DowngradeIPIdentifiedWarnings of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "yes";
-  attribute P_ADDR_DECODE : integer;
-  attribute P_ADDR_DECODE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute P_AXI3 : integer;
-  attribute P_AXI3 of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute P_AXI4 : integer;
-  attribute P_AXI4 of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 0;
-  attribute P_AXILITE : integer;
-  attribute P_AXILITE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 2;
-  attribute P_AXILITE_SIZE : string;
-  attribute P_AXILITE_SIZE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "3'b010";
-  attribute P_FAMILY : string;
-  attribute P_FAMILY of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "zynq";
-  attribute P_INCR : string;
-  attribute P_INCR of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "2'b01";
-  attribute P_LEN : integer;
-  attribute P_LEN of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 8;
-  attribute P_LOCK : integer;
-  attribute P_LOCK of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute P_M_AXI_ERR_MODE : string;
-  attribute P_M_AXI_ERR_MODE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "96'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  attribute P_M_AXI_SUPPORTS_READ : string;
-  attribute P_M_AXI_SUPPORTS_READ of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "3'b111";
-  attribute P_M_AXI_SUPPORTS_WRITE : string;
-  attribute P_M_AXI_SUPPORTS_WRITE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "3'b111";
-  attribute P_ONES : string;
-  attribute P_ONES of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "65'b11111111111111111111111111111111111111111111111111111111111111111";
-  attribute P_RANGE_CHECK : integer;
-  attribute P_RANGE_CHECK of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is 1;
-  attribute P_S_AXI_BASE_ID : string;
-  attribute P_S_AXI_BASE_ID of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "64'b0000000000000000000000000000000000000000000000000000000000000000";
-  attribute P_S_AXI_HIGH_ID : string;
-  attribute P_S_AXI_HIGH_ID of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "64'b0000000000000000000000000000000000000000000000000000000000000000";
-  attribute P_S_AXI_SUPPORTS_READ : string;
-  attribute P_S_AXI_SUPPORTS_READ of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "1'b1";
-  attribute P_S_AXI_SUPPORTS_WRITE : string;
-  attribute P_S_AXI_SUPPORTS_WRITE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "1'b1";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "axi_crossbar_v2_1_19_axi_crossbar";
 end platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar;
 
 architecture STRUCTURE of platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar is
-  signal \<const0>\ : STD_LOGIC;
-  signal \^m_axi_araddr\ : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal \^m_axi_arprot\ : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal \^m_axi_awaddr\ : STD_LOGIC_VECTOR ( 95 downto 80 );
-  signal \^s_axi_wdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal \^s_axi_wstrb\ : STD_LOGIC_VECTOR ( 3 downto 0 );
 begin
-  \^s_axi_wdata\(31 downto 0) <= s_axi_wdata(31 downto 0);
-  \^s_axi_wstrb\(3 downto 0) <= s_axi_wstrb(3 downto 0);
-  m_axi_araddr(95 downto 80) <= \^m_axi_awaddr\(95 downto 80);
-  m_axi_araddr(79 downto 64) <= \^m_axi_araddr\(15 downto 0);
-  m_axi_araddr(63 downto 48) <= \^m_axi_awaddr\(95 downto 80);
-  m_axi_araddr(47 downto 32) <= \^m_axi_araddr\(15 downto 0);
-  m_axi_araddr(31 downto 16) <= \^m_axi_awaddr\(95 downto 80);
-  m_axi_araddr(15 downto 0) <= \^m_axi_araddr\(15 downto 0);
-  m_axi_arburst(5) <= \<const0>\;
-  m_axi_arburst(4) <= \<const0>\;
-  m_axi_arburst(3) <= \<const0>\;
-  m_axi_arburst(2) <= \<const0>\;
-  m_axi_arburst(1) <= \<const0>\;
-  m_axi_arburst(0) <= \<const0>\;
-  m_axi_arcache(11) <= \<const0>\;
-  m_axi_arcache(10) <= \<const0>\;
-  m_axi_arcache(9) <= \<const0>\;
-  m_axi_arcache(8) <= \<const0>\;
-  m_axi_arcache(7) <= \<const0>\;
-  m_axi_arcache(6) <= \<const0>\;
-  m_axi_arcache(5) <= \<const0>\;
-  m_axi_arcache(4) <= \<const0>\;
-  m_axi_arcache(3) <= \<const0>\;
-  m_axi_arcache(2) <= \<const0>\;
-  m_axi_arcache(1) <= \<const0>\;
-  m_axi_arcache(0) <= \<const0>\;
-  m_axi_arid(2) <= \<const0>\;
-  m_axi_arid(1) <= \<const0>\;
-  m_axi_arid(0) <= \<const0>\;
-  m_axi_arlen(23) <= \<const0>\;
-  m_axi_arlen(22) <= \<const0>\;
-  m_axi_arlen(21) <= \<const0>\;
-  m_axi_arlen(20) <= \<const0>\;
-  m_axi_arlen(19) <= \<const0>\;
-  m_axi_arlen(18) <= \<const0>\;
-  m_axi_arlen(17) <= \<const0>\;
-  m_axi_arlen(16) <= \<const0>\;
-  m_axi_arlen(15) <= \<const0>\;
-  m_axi_arlen(14) <= \<const0>\;
-  m_axi_arlen(13) <= \<const0>\;
-  m_axi_arlen(12) <= \<const0>\;
-  m_axi_arlen(11) <= \<const0>\;
-  m_axi_arlen(10) <= \<const0>\;
-  m_axi_arlen(9) <= \<const0>\;
-  m_axi_arlen(8) <= \<const0>\;
-  m_axi_arlen(7) <= \<const0>\;
-  m_axi_arlen(6) <= \<const0>\;
-  m_axi_arlen(5) <= \<const0>\;
-  m_axi_arlen(4) <= \<const0>\;
-  m_axi_arlen(3) <= \<const0>\;
-  m_axi_arlen(2) <= \<const0>\;
-  m_axi_arlen(1) <= \<const0>\;
-  m_axi_arlen(0) <= \<const0>\;
-  m_axi_arlock(2) <= \<const0>\;
-  m_axi_arlock(1) <= \<const0>\;
-  m_axi_arlock(0) <= \<const0>\;
-  m_axi_arprot(8 downto 6) <= \^m_axi_arprot\(2 downto 0);
-  m_axi_arprot(5 downto 3) <= \^m_axi_arprot\(2 downto 0);
-  m_axi_arprot(2 downto 0) <= \^m_axi_arprot\(2 downto 0);
-  m_axi_arqos(11) <= \<const0>\;
-  m_axi_arqos(10) <= \<const0>\;
-  m_axi_arqos(9) <= \<const0>\;
-  m_axi_arqos(8) <= \<const0>\;
-  m_axi_arqos(7) <= \<const0>\;
-  m_axi_arqos(6) <= \<const0>\;
-  m_axi_arqos(5) <= \<const0>\;
-  m_axi_arqos(4) <= \<const0>\;
-  m_axi_arqos(3) <= \<const0>\;
-  m_axi_arqos(2) <= \<const0>\;
-  m_axi_arqos(1) <= \<const0>\;
-  m_axi_arqos(0) <= \<const0>\;
-  m_axi_arregion(11) <= \<const0>\;
-  m_axi_arregion(10) <= \<const0>\;
-  m_axi_arregion(9) <= \<const0>\;
-  m_axi_arregion(8) <= \<const0>\;
-  m_axi_arregion(7) <= \<const0>\;
-  m_axi_arregion(6) <= \<const0>\;
-  m_axi_arregion(5) <= \<const0>\;
-  m_axi_arregion(4) <= \<const0>\;
-  m_axi_arregion(3) <= \<const0>\;
-  m_axi_arregion(2) <= \<const0>\;
-  m_axi_arregion(1) <= \<const0>\;
-  m_axi_arregion(0) <= \<const0>\;
-  m_axi_arsize(8) <= \<const0>\;
-  m_axi_arsize(7) <= \<const0>\;
-  m_axi_arsize(6) <= \<const0>\;
-  m_axi_arsize(5) <= \<const0>\;
-  m_axi_arsize(4) <= \<const0>\;
-  m_axi_arsize(3) <= \<const0>\;
-  m_axi_arsize(2) <= \<const0>\;
-  m_axi_arsize(1) <= \<const0>\;
-  m_axi_arsize(0) <= \<const0>\;
-  m_axi_aruser(2) <= \<const0>\;
-  m_axi_aruser(1) <= \<const0>\;
-  m_axi_aruser(0) <= \<const0>\;
-  m_axi_awaddr(95 downto 80) <= \^m_axi_awaddr\(95 downto 80);
-  m_axi_awaddr(79 downto 64) <= \^m_axi_araddr\(15 downto 0);
-  m_axi_awaddr(63 downto 48) <= \^m_axi_awaddr\(95 downto 80);
-  m_axi_awaddr(47 downto 32) <= \^m_axi_araddr\(15 downto 0);
-  m_axi_awaddr(31 downto 16) <= \^m_axi_awaddr\(95 downto 80);
-  m_axi_awaddr(15 downto 0) <= \^m_axi_araddr\(15 downto 0);
-  m_axi_awburst(5) <= \<const0>\;
-  m_axi_awburst(4) <= \<const0>\;
-  m_axi_awburst(3) <= \<const0>\;
-  m_axi_awburst(2) <= \<const0>\;
-  m_axi_awburst(1) <= \<const0>\;
-  m_axi_awburst(0) <= \<const0>\;
-  m_axi_awcache(11) <= \<const0>\;
-  m_axi_awcache(10) <= \<const0>\;
-  m_axi_awcache(9) <= \<const0>\;
-  m_axi_awcache(8) <= \<const0>\;
-  m_axi_awcache(7) <= \<const0>\;
-  m_axi_awcache(6) <= \<const0>\;
-  m_axi_awcache(5) <= \<const0>\;
-  m_axi_awcache(4) <= \<const0>\;
-  m_axi_awcache(3) <= \<const0>\;
-  m_axi_awcache(2) <= \<const0>\;
-  m_axi_awcache(1) <= \<const0>\;
-  m_axi_awcache(0) <= \<const0>\;
-  m_axi_awid(2) <= \<const0>\;
-  m_axi_awid(1) <= \<const0>\;
-  m_axi_awid(0) <= \<const0>\;
-  m_axi_awlen(23) <= \<const0>\;
-  m_axi_awlen(22) <= \<const0>\;
-  m_axi_awlen(21) <= \<const0>\;
-  m_axi_awlen(20) <= \<const0>\;
-  m_axi_awlen(19) <= \<const0>\;
-  m_axi_awlen(18) <= \<const0>\;
-  m_axi_awlen(17) <= \<const0>\;
-  m_axi_awlen(16) <= \<const0>\;
-  m_axi_awlen(15) <= \<const0>\;
-  m_axi_awlen(14) <= \<const0>\;
-  m_axi_awlen(13) <= \<const0>\;
-  m_axi_awlen(12) <= \<const0>\;
-  m_axi_awlen(11) <= \<const0>\;
-  m_axi_awlen(10) <= \<const0>\;
-  m_axi_awlen(9) <= \<const0>\;
-  m_axi_awlen(8) <= \<const0>\;
-  m_axi_awlen(7) <= \<const0>\;
-  m_axi_awlen(6) <= \<const0>\;
-  m_axi_awlen(5) <= \<const0>\;
-  m_axi_awlen(4) <= \<const0>\;
-  m_axi_awlen(3) <= \<const0>\;
-  m_axi_awlen(2) <= \<const0>\;
-  m_axi_awlen(1) <= \<const0>\;
-  m_axi_awlen(0) <= \<const0>\;
-  m_axi_awlock(2) <= \<const0>\;
-  m_axi_awlock(1) <= \<const0>\;
-  m_axi_awlock(0) <= \<const0>\;
-  m_axi_awprot(8 downto 6) <= \^m_axi_arprot\(2 downto 0);
-  m_axi_awprot(5 downto 3) <= \^m_axi_arprot\(2 downto 0);
-  m_axi_awprot(2 downto 0) <= \^m_axi_arprot\(2 downto 0);
-  m_axi_awqos(11) <= \<const0>\;
-  m_axi_awqos(10) <= \<const0>\;
-  m_axi_awqos(9) <= \<const0>\;
-  m_axi_awqos(8) <= \<const0>\;
-  m_axi_awqos(7) <= \<const0>\;
-  m_axi_awqos(6) <= \<const0>\;
-  m_axi_awqos(5) <= \<const0>\;
-  m_axi_awqos(4) <= \<const0>\;
-  m_axi_awqos(3) <= \<const0>\;
-  m_axi_awqos(2) <= \<const0>\;
-  m_axi_awqos(1) <= \<const0>\;
-  m_axi_awqos(0) <= \<const0>\;
-  m_axi_awregion(11) <= \<const0>\;
-  m_axi_awregion(10) <= \<const0>\;
-  m_axi_awregion(9) <= \<const0>\;
-  m_axi_awregion(8) <= \<const0>\;
-  m_axi_awregion(7) <= \<const0>\;
-  m_axi_awregion(6) <= \<const0>\;
-  m_axi_awregion(5) <= \<const0>\;
-  m_axi_awregion(4) <= \<const0>\;
-  m_axi_awregion(3) <= \<const0>\;
-  m_axi_awregion(2) <= \<const0>\;
-  m_axi_awregion(1) <= \<const0>\;
-  m_axi_awregion(0) <= \<const0>\;
-  m_axi_awsize(8) <= \<const0>\;
-  m_axi_awsize(7) <= \<const0>\;
-  m_axi_awsize(6) <= \<const0>\;
-  m_axi_awsize(5) <= \<const0>\;
-  m_axi_awsize(4) <= \<const0>\;
-  m_axi_awsize(3) <= \<const0>\;
-  m_axi_awsize(2) <= \<const0>\;
-  m_axi_awsize(1) <= \<const0>\;
-  m_axi_awsize(0) <= \<const0>\;
-  m_axi_awuser(2) <= \<const0>\;
-  m_axi_awuser(1) <= \<const0>\;
-  m_axi_awuser(0) <= \<const0>\;
-  m_axi_wdata(95 downto 64) <= \^s_axi_wdata\(31 downto 0);
-  m_axi_wdata(63 downto 32) <= \^s_axi_wdata\(31 downto 0);
-  m_axi_wdata(31 downto 0) <= \^s_axi_wdata\(31 downto 0);
-  m_axi_wid(2) <= \<const0>\;
-  m_axi_wid(1) <= \<const0>\;
-  m_axi_wid(0) <= \<const0>\;
-  m_axi_wlast(2) <= \<const0>\;
-  m_axi_wlast(1) <= \<const0>\;
-  m_axi_wlast(0) <= \<const0>\;
-  m_axi_wstrb(11 downto 8) <= \^s_axi_wstrb\(3 downto 0);
-  m_axi_wstrb(7 downto 4) <= \^s_axi_wstrb\(3 downto 0);
-  m_axi_wstrb(3 downto 0) <= \^s_axi_wstrb\(3 downto 0);
-  m_axi_wuser(2) <= \<const0>\;
-  m_axi_wuser(1) <= \<const0>\;
-  m_axi_wuser(0) <= \<const0>\;
-  s_axi_bid(0) <= \<const0>\;
-  s_axi_buser(0) <= \<const0>\;
-  s_axi_rid(0) <= \<const0>\;
-  s_axi_rlast(0) <= \<const0>\;
-  s_axi_ruser(0) <= \<const0>\;
-GND: unisim.vcomponents.GND
-     port map (
-      G => \<const0>\
-    );
 \gen_sasd.crossbar_sasd_0\: entity work.platform_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd
      port map (
-      Q(34 downto 32) => \^m_axi_arprot\(2 downto 0),
-      Q(31 downto 16) => \^m_axi_awaddr\(95 downto 80),
-      Q(15 downto 0) => \^m_axi_araddr\(15 downto 0),
+      M_AXI_AWADDR(31 downto 0) => Q(31 downto 0),
+      Q(2 downto 0) => Q(34 downto 32),
       aclk => aclk,
       aresetn => aresetn,
       m_axi_arready(2 downto 0) => m_axi_arready(2 downto 0),
@@ -4142,8 +3781,7 @@ GND: unisim.vcomponents.GND
       m_axi_rvalid(2 downto 0) => m_axi_rvalid(2 downto 0),
       m_axi_wready(2 downto 0) => m_axi_wready(2 downto 0),
       m_axi_wvalid(2 downto 0) => m_axi_wvalid(2 downto 0),
-      \m_payload_i_reg[34]\(33 downto 2) => s_axi_rdata(31 downto 0),
-      \m_payload_i_reg[34]\(1 downto 0) => s_axi_rresp(1 downto 0),
+      \m_payload_i_reg[34]\(33 downto 0) => \m_payload_i_reg[34]\(33 downto 0),
       s_axi_araddr(31 downto 0) => s_axi_araddr(31 downto 0),
       s_axi_arprot(2 downto 0) => s_axi_arprot(2 downto 0),
       s_axi_arready(0) => s_axi_arready(0),
@@ -4219,133 +3857,15 @@ entity platform_xbar_0 is
 end platform_xbar_0;
 
 architecture STRUCTURE of platform_xbar_0 is
-  signal NLW_inst_m_axi_arburst_UNCONNECTED : STD_LOGIC_VECTOR ( 5 downto 0 );
-  signal NLW_inst_m_axi_arcache_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal NLW_inst_m_axi_arid_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_m_axi_arlen_UNCONNECTED : STD_LOGIC_VECTOR ( 23 downto 0 );
-  signal NLW_inst_m_axi_arlock_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_m_axi_arqos_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal NLW_inst_m_axi_arregion_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal NLW_inst_m_axi_arsize_UNCONNECTED : STD_LOGIC_VECTOR ( 8 downto 0 );
-  signal NLW_inst_m_axi_aruser_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_m_axi_awburst_UNCONNECTED : STD_LOGIC_VECTOR ( 5 downto 0 );
-  signal NLW_inst_m_axi_awcache_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal NLW_inst_m_axi_awid_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_m_axi_awlen_UNCONNECTED : STD_LOGIC_VECTOR ( 23 downto 0 );
-  signal NLW_inst_m_axi_awlock_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_m_axi_awqos_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal NLW_inst_m_axi_awregion_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal NLW_inst_m_axi_awsize_UNCONNECTED : STD_LOGIC_VECTOR ( 8 downto 0 );
-  signal NLW_inst_m_axi_awuser_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_m_axi_wid_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_m_axi_wlast_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_m_axi_wuser_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_inst_s_axi_bid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_inst_s_axi_buser_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_inst_s_axi_rid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_inst_s_axi_rlast_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_inst_s_axi_ruser_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  attribute C_AXI_ADDR_WIDTH : integer;
-  attribute C_AXI_ADDR_WIDTH of inst : label is 32;
-  attribute C_AXI_ARUSER_WIDTH : integer;
-  attribute C_AXI_ARUSER_WIDTH of inst : label is 1;
-  attribute C_AXI_AWUSER_WIDTH : integer;
-  attribute C_AXI_AWUSER_WIDTH of inst : label is 1;
-  attribute C_AXI_BUSER_WIDTH : integer;
-  attribute C_AXI_BUSER_WIDTH of inst : label is 1;
-  attribute C_AXI_DATA_WIDTH : integer;
-  attribute C_AXI_DATA_WIDTH of inst : label is 32;
-  attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of inst : label is 1;
-  attribute C_AXI_PROTOCOL : integer;
-  attribute C_AXI_PROTOCOL of inst : label is 2;
-  attribute C_AXI_RUSER_WIDTH : integer;
-  attribute C_AXI_RUSER_WIDTH of inst : label is 1;
-  attribute C_AXI_SUPPORTS_USER_SIGNALS : integer;
-  attribute C_AXI_SUPPORTS_USER_SIGNALS of inst : label is 0;
-  attribute C_AXI_WUSER_WIDTH : integer;
-  attribute C_AXI_WUSER_WIDTH of inst : label is 1;
-  attribute C_CONNECTIVITY_MODE : integer;
-  attribute C_CONNECTIVITY_MODE of inst : label is 0;
-  attribute C_DEBUG : integer;
-  attribute C_DEBUG of inst : label is 1;
-  attribute C_FAMILY : string;
-  attribute C_FAMILY of inst : label is "zynq";
-  attribute C_M_AXI_ADDR_WIDTH : string;
-  attribute C_M_AXI_ADDR_WIDTH of inst : label is "96'b000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000";
-  attribute C_M_AXI_BASE_ADDR : string;
-  attribute C_M_AXI_BASE_ADDR of inst : label is "192'b000000000000000000000000000000000100001111000000000000000000000000000000000000000000000000000000010000111100000100000000000000000000000000000000000000000000000001000001001000000000000000000000";
-  attribute C_M_AXI_READ_CONNECTIVITY : string;
-  attribute C_M_AXI_READ_CONNECTIVITY of inst : label is "96'b000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001";
-  attribute C_M_AXI_READ_ISSUING : string;
-  attribute C_M_AXI_READ_ISSUING of inst : label is "96'b000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001";
-  attribute C_M_AXI_SECURE : string;
-  attribute C_M_AXI_SECURE of inst : label is "96'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  attribute C_M_AXI_WRITE_CONNECTIVITY : string;
-  attribute C_M_AXI_WRITE_CONNECTIVITY of inst : label is "96'b000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001";
-  attribute C_M_AXI_WRITE_ISSUING : string;
-  attribute C_M_AXI_WRITE_ISSUING of inst : label is "96'b000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001";
-  attribute C_NUM_ADDR_RANGES : integer;
-  attribute C_NUM_ADDR_RANGES of inst : label is 1;
-  attribute C_NUM_MASTER_SLOTS : integer;
-  attribute C_NUM_MASTER_SLOTS of inst : label is 3;
-  attribute C_NUM_SLAVE_SLOTS : integer;
-  attribute C_NUM_SLAVE_SLOTS of inst : label is 1;
-  attribute C_R_REGISTER : integer;
-  attribute C_R_REGISTER of inst : label is 1;
-  attribute C_S_AXI_ARB_PRIORITY : integer;
-  attribute C_S_AXI_ARB_PRIORITY of inst : label is 0;
-  attribute C_S_AXI_BASE_ID : integer;
-  attribute C_S_AXI_BASE_ID of inst : label is 0;
-  attribute C_S_AXI_READ_ACCEPTANCE : integer;
-  attribute C_S_AXI_READ_ACCEPTANCE of inst : label is 1;
-  attribute C_S_AXI_SINGLE_THREAD : integer;
-  attribute C_S_AXI_SINGLE_THREAD of inst : label is 1;
-  attribute C_S_AXI_THREAD_ID_WIDTH : integer;
-  attribute C_S_AXI_THREAD_ID_WIDTH of inst : label is 0;
-  attribute C_S_AXI_WRITE_ACCEPTANCE : integer;
-  attribute C_S_AXI_WRITE_ACCEPTANCE of inst : label is 1;
-  attribute DowngradeIPIdentifiedWarnings of inst : label is "yes";
-  attribute P_ADDR_DECODE : integer;
-  attribute P_ADDR_DECODE of inst : label is 1;
-  attribute P_AXI3 : integer;
-  attribute P_AXI3 of inst : label is 1;
-  attribute P_AXI4 : integer;
-  attribute P_AXI4 of inst : label is 0;
-  attribute P_AXILITE : integer;
-  attribute P_AXILITE of inst : label is 2;
-  attribute P_AXILITE_SIZE : string;
-  attribute P_AXILITE_SIZE of inst : label is "3'b010";
-  attribute P_FAMILY : string;
-  attribute P_FAMILY of inst : label is "zynq";
-  attribute P_INCR : string;
-  attribute P_INCR of inst : label is "2'b01";
-  attribute P_LEN : integer;
-  attribute P_LEN of inst : label is 8;
-  attribute P_LOCK : integer;
-  attribute P_LOCK of inst : label is 1;
-  attribute P_M_AXI_ERR_MODE : string;
-  attribute P_M_AXI_ERR_MODE of inst : label is "96'b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-  attribute P_M_AXI_SUPPORTS_READ : string;
-  attribute P_M_AXI_SUPPORTS_READ of inst : label is "3'b111";
-  attribute P_M_AXI_SUPPORTS_WRITE : string;
-  attribute P_M_AXI_SUPPORTS_WRITE of inst : label is "3'b111";
-  attribute P_ONES : string;
-  attribute P_ONES of inst : label is "65'b11111111111111111111111111111111111111111111111111111111111111111";
-  attribute P_RANGE_CHECK : integer;
-  attribute P_RANGE_CHECK of inst : label is 1;
-  attribute P_S_AXI_BASE_ID : string;
-  attribute P_S_AXI_BASE_ID of inst : label is "64'b0000000000000000000000000000000000000000000000000000000000000000";
-  attribute P_S_AXI_HIGH_ID : string;
-  attribute P_S_AXI_HIGH_ID of inst : label is "64'b0000000000000000000000000000000000000000000000000000000000000000";
-  attribute P_S_AXI_SUPPORTS_READ : string;
-  attribute P_S_AXI_SUPPORTS_READ of inst : label is "1'b1";
-  attribute P_S_AXI_SUPPORTS_WRITE : string;
-  attribute P_S_AXI_SUPPORTS_WRITE of inst : label is "1'b1";
+  signal \^m_axi_araddr\ : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal \^m_axi_arprot\ : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal \^m_axi_awaddr\ : STD_LOGIC_VECTOR ( 95 downto 80 );
+  signal \^s_axi_wdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \^s_axi_wstrb\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of aclk : signal is "xilinx.com:signal:clock:1.0 CLKIF CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME CLKIF, FREQ_HZ 50000000, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI:M08_AXI:M09_AXI:M10_AXI:M11_AXI:M12_AXI:M13_AXI:M14_AXI:M15_AXI:S00_AXI:S01_AXI:S02_AXI:S03_AXI:S04_AXI:S05_AXI:S06_AXI:S07_AXI:S08_AXI:S09_AXI:S10_AXI:S11_AXI:S12_AXI:S13_AXI:S14_AXI:S15_AXI, ASSOCIATED_RESET ARESETN, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME CLKIF, FREQ_HZ 5e+07, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M04_AXI:M05_AXI:M06_AXI:M07_AXI:M08_AXI:M09_AXI:M10_AXI:M11_AXI:M12_AXI:M13_AXI:M14_AXI:M15_AXI:S00_AXI:S01_AXI:S02_AXI:S03_AXI:S04_AXI:S05_AXI:S06_AXI:S07_AXI:S08_AXI:S09_AXI:S10_AXI:S11_AXI:S12_AXI:S13_AXI:S14_AXI:S15_AXI, ASSOCIATED_RESET ARESETN, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of aresetn : signal is "xilinx.com:signal:reset:1.0 RSTIF RST";
   attribute X_INTERFACE_PARAMETER of aresetn : signal is "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, INSERT_VIP 0, TYPE INTERCONNECT";
   attribute X_INTERFACE_INFO of m_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 M00_AXI ARADDR [31:0] [31:0], xilinx.com:interface:aximm:1.0 M01_AXI ARADDR [31:0] [63:32], xilinx.com:interface:aximm:1.0 M02_AXI ARADDR [31:0] [95:64]";
@@ -4361,7 +3881,7 @@ architecture STRUCTURE of platform_xbar_0 is
   attribute X_INTERFACE_INFO of m_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 M00_AXI BVALID [0:0] [0:0], xilinx.com:interface:aximm:1.0 M01_AXI BVALID [0:0] [1:1], xilinx.com:interface:aximm:1.0 M02_AXI BVALID [0:0] [2:2]";
   attribute X_INTERFACE_INFO of m_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RDATA [31:0] [31:0], xilinx.com:interface:aximm:1.0 M01_AXI RDATA [31:0] [63:32], xilinx.com:interface:aximm:1.0 M02_AXI RDATA [31:0] [95:64]";
   attribute X_INTERFACE_INFO of m_axi_rready : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RREADY [0:0] [0:0], xilinx.com:interface:aximm:1.0 M01_AXI RREADY [0:0] [1:1], xilinx.com:interface:aximm:1.0 M02_AXI RREADY [0:0] [2:2]";
-  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M00_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0, XIL_INTERFACENAME M01_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0, XIL_INTERFACENAME M02_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M00_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 5e+07, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0, XIL_INTERFACENAME M01_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 5e+07, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0, XIL_INTERFACENAME M02_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 5e+07, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RRESP [1:0] [1:0], xilinx.com:interface:aximm:1.0 M01_AXI RRESP [1:0] [3:2], xilinx.com:interface:aximm:1.0 M02_AXI RRESP [1:0] [5:4]";
   attribute X_INTERFACE_INFO of m_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 M00_AXI RVALID [0:0] [0:0], xilinx.com:interface:aximm:1.0 M01_AXI RVALID [0:0] [1:1], xilinx.com:interface:aximm:1.0 M02_AXI RVALID [0:0] [2:2]";
   attribute X_INTERFACE_INFO of m_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 M00_AXI WDATA [31:0] [31:0], xilinx.com:interface:aximm:1.0 M01_AXI WDATA [31:0] [63:32], xilinx.com:interface:aximm:1.0 M02_AXI WDATA [31:0] [95:64]";
@@ -4381,7 +3901,7 @@ architecture STRUCTURE of platform_xbar_0 is
   attribute X_INTERFACE_INFO of s_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 S00_AXI BVALID";
   attribute X_INTERFACE_INFO of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RDATA";
   attribute X_INTERFACE_INFO of s_axi_rready : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RREADY";
-  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S00_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S00_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 5e+07, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN platform_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RRESP";
   attribute X_INTERFACE_INFO of s_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RVALID";
   attribute X_INTERFACE_INFO of s_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 S00_AXI WDATA";
@@ -4389,97 +3909,68 @@ architecture STRUCTURE of platform_xbar_0 is
   attribute X_INTERFACE_INFO of s_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 S00_AXI WSTRB";
   attribute X_INTERFACE_INFO of s_axi_wvalid : signal is "xilinx.com:interface:aximm:1.0 S00_AXI WVALID";
 begin
+  \^s_axi_wdata\(31 downto 0) <= s_axi_wdata(31 downto 0);
+  \^s_axi_wstrb\(3 downto 0) <= s_axi_wstrb(3 downto 0);
+  m_axi_araddr(95 downto 80) <= \^m_axi_awaddr\(95 downto 80);
+  m_axi_araddr(79 downto 64) <= \^m_axi_araddr\(15 downto 0);
+  m_axi_araddr(63 downto 48) <= \^m_axi_awaddr\(95 downto 80);
+  m_axi_araddr(47 downto 32) <= \^m_axi_araddr\(15 downto 0);
+  m_axi_araddr(31 downto 16) <= \^m_axi_awaddr\(95 downto 80);
+  m_axi_araddr(15 downto 0) <= \^m_axi_araddr\(15 downto 0);
+  m_axi_arprot(8 downto 6) <= \^m_axi_arprot\(2 downto 0);
+  m_axi_arprot(5 downto 3) <= \^m_axi_arprot\(2 downto 0);
+  m_axi_arprot(2 downto 0) <= \^m_axi_arprot\(2 downto 0);
+  m_axi_awaddr(95 downto 80) <= \^m_axi_awaddr\(95 downto 80);
+  m_axi_awaddr(79 downto 64) <= \^m_axi_araddr\(15 downto 0);
+  m_axi_awaddr(63 downto 48) <= \^m_axi_awaddr\(95 downto 80);
+  m_axi_awaddr(47 downto 32) <= \^m_axi_araddr\(15 downto 0);
+  m_axi_awaddr(31 downto 16) <= \^m_axi_awaddr\(95 downto 80);
+  m_axi_awaddr(15 downto 0) <= \^m_axi_araddr\(15 downto 0);
+  m_axi_awprot(8 downto 6) <= \^m_axi_arprot\(2 downto 0);
+  m_axi_awprot(5 downto 3) <= \^m_axi_arprot\(2 downto 0);
+  m_axi_awprot(2 downto 0) <= \^m_axi_arprot\(2 downto 0);
+  m_axi_wdata(95 downto 64) <= \^s_axi_wdata\(31 downto 0);
+  m_axi_wdata(63 downto 32) <= \^s_axi_wdata\(31 downto 0);
+  m_axi_wdata(31 downto 0) <= \^s_axi_wdata\(31 downto 0);
+  m_axi_wstrb(11 downto 8) <= \^s_axi_wstrb\(3 downto 0);
+  m_axi_wstrb(7 downto 4) <= \^s_axi_wstrb\(3 downto 0);
+  m_axi_wstrb(3 downto 0) <= \^s_axi_wstrb\(3 downto 0);
 inst: entity work.platform_xbar_0_axi_crossbar_v2_1_19_axi_crossbar
      port map (
+      Q(34 downto 32) => \^m_axi_arprot\(2 downto 0),
+      Q(31 downto 16) => \^m_axi_awaddr\(95 downto 80),
+      Q(15 downto 0) => \^m_axi_araddr\(15 downto 0),
       aclk => aclk,
       aresetn => aresetn,
-      m_axi_araddr(95 downto 0) => m_axi_araddr(95 downto 0),
-      m_axi_arburst(5 downto 0) => NLW_inst_m_axi_arburst_UNCONNECTED(5 downto 0),
-      m_axi_arcache(11 downto 0) => NLW_inst_m_axi_arcache_UNCONNECTED(11 downto 0),
-      m_axi_arid(2 downto 0) => NLW_inst_m_axi_arid_UNCONNECTED(2 downto 0),
-      m_axi_arlen(23 downto 0) => NLW_inst_m_axi_arlen_UNCONNECTED(23 downto 0),
-      m_axi_arlock(2 downto 0) => NLW_inst_m_axi_arlock_UNCONNECTED(2 downto 0),
-      m_axi_arprot(8 downto 0) => m_axi_arprot(8 downto 0),
-      m_axi_arqos(11 downto 0) => NLW_inst_m_axi_arqos_UNCONNECTED(11 downto 0),
       m_axi_arready(2 downto 0) => m_axi_arready(2 downto 0),
-      m_axi_arregion(11 downto 0) => NLW_inst_m_axi_arregion_UNCONNECTED(11 downto 0),
-      m_axi_arsize(8 downto 0) => NLW_inst_m_axi_arsize_UNCONNECTED(8 downto 0),
-      m_axi_aruser(2 downto 0) => NLW_inst_m_axi_aruser_UNCONNECTED(2 downto 0),
       m_axi_arvalid(2 downto 0) => m_axi_arvalid(2 downto 0),
-      m_axi_awaddr(95 downto 0) => m_axi_awaddr(95 downto 0),
-      m_axi_awburst(5 downto 0) => NLW_inst_m_axi_awburst_UNCONNECTED(5 downto 0),
-      m_axi_awcache(11 downto 0) => NLW_inst_m_axi_awcache_UNCONNECTED(11 downto 0),
-      m_axi_awid(2 downto 0) => NLW_inst_m_axi_awid_UNCONNECTED(2 downto 0),
-      m_axi_awlen(23 downto 0) => NLW_inst_m_axi_awlen_UNCONNECTED(23 downto 0),
-      m_axi_awlock(2 downto 0) => NLW_inst_m_axi_awlock_UNCONNECTED(2 downto 0),
-      m_axi_awprot(8 downto 0) => m_axi_awprot(8 downto 0),
-      m_axi_awqos(11 downto 0) => NLW_inst_m_axi_awqos_UNCONNECTED(11 downto 0),
       m_axi_awready(2 downto 0) => m_axi_awready(2 downto 0),
-      m_axi_awregion(11 downto 0) => NLW_inst_m_axi_awregion_UNCONNECTED(11 downto 0),
-      m_axi_awsize(8 downto 0) => NLW_inst_m_axi_awsize_UNCONNECTED(8 downto 0),
-      m_axi_awuser(2 downto 0) => NLW_inst_m_axi_awuser_UNCONNECTED(2 downto 0),
       m_axi_awvalid(2 downto 0) => m_axi_awvalid(2 downto 0),
-      m_axi_bid(2 downto 0) => B"000",
       m_axi_bready(2 downto 0) => m_axi_bready(2 downto 0),
       m_axi_bresp(5 downto 0) => m_axi_bresp(5 downto 0),
-      m_axi_buser(2 downto 0) => B"000",
       m_axi_bvalid(2 downto 0) => m_axi_bvalid(2 downto 0),
       m_axi_rdata(95 downto 0) => m_axi_rdata(95 downto 0),
-      m_axi_rid(2 downto 0) => B"000",
-      m_axi_rlast(2 downto 0) => B"111",
       m_axi_rready(2 downto 0) => m_axi_rready(2 downto 0),
       m_axi_rresp(5 downto 0) => m_axi_rresp(5 downto 0),
-      m_axi_ruser(2 downto 0) => B"000",
       m_axi_rvalid(2 downto 0) => m_axi_rvalid(2 downto 0),
-      m_axi_wdata(95 downto 0) => m_axi_wdata(95 downto 0),
-      m_axi_wid(2 downto 0) => NLW_inst_m_axi_wid_UNCONNECTED(2 downto 0),
-      m_axi_wlast(2 downto 0) => NLW_inst_m_axi_wlast_UNCONNECTED(2 downto 0),
       m_axi_wready(2 downto 0) => m_axi_wready(2 downto 0),
-      m_axi_wstrb(11 downto 0) => m_axi_wstrb(11 downto 0),
-      m_axi_wuser(2 downto 0) => NLW_inst_m_axi_wuser_UNCONNECTED(2 downto 0),
       m_axi_wvalid(2 downto 0) => m_axi_wvalid(2 downto 0),
+      \m_payload_i_reg[34]\(33 downto 2) => s_axi_rdata(31 downto 0),
+      \m_payload_i_reg[34]\(1 downto 0) => s_axi_rresp(1 downto 0),
       s_axi_araddr(31 downto 0) => s_axi_araddr(31 downto 0),
-      s_axi_arburst(1 downto 0) => B"00",
-      s_axi_arcache(3 downto 0) => B"0000",
-      s_axi_arid(0) => '0',
-      s_axi_arlen(7 downto 0) => B"00000000",
-      s_axi_arlock(0) => '0',
       s_axi_arprot(2 downto 0) => s_axi_arprot(2 downto 0),
-      s_axi_arqos(3 downto 0) => B"0000",
       s_axi_arready(0) => s_axi_arready(0),
-      s_axi_arsize(2 downto 0) => B"000",
-      s_axi_aruser(0) => '0',
       s_axi_arvalid(0) => s_axi_arvalid(0),
       s_axi_awaddr(31 downto 0) => s_axi_awaddr(31 downto 0),
-      s_axi_awburst(1 downto 0) => B"00",
-      s_axi_awcache(3 downto 0) => B"0000",
-      s_axi_awid(0) => '0',
-      s_axi_awlen(7 downto 0) => B"00000000",
-      s_axi_awlock(0) => '0',
       s_axi_awprot(2 downto 0) => s_axi_awprot(2 downto 0),
-      s_axi_awqos(3 downto 0) => B"0000",
       s_axi_awready(0) => s_axi_awready(0),
-      s_axi_awsize(2 downto 0) => B"000",
-      s_axi_awuser(0) => '0',
       s_axi_awvalid(0) => s_axi_awvalid(0),
-      s_axi_bid(0) => NLW_inst_s_axi_bid_UNCONNECTED(0),
       s_axi_bready(0) => s_axi_bready(0),
       s_axi_bresp(1 downto 0) => s_axi_bresp(1 downto 0),
-      s_axi_buser(0) => NLW_inst_s_axi_buser_UNCONNECTED(0),
       s_axi_bvalid(0) => s_axi_bvalid(0),
-      s_axi_rdata(31 downto 0) => s_axi_rdata(31 downto 0),
-      s_axi_rid(0) => NLW_inst_s_axi_rid_UNCONNECTED(0),
-      s_axi_rlast(0) => NLW_inst_s_axi_rlast_UNCONNECTED(0),
       s_axi_rready(0) => s_axi_rready(0),
-      s_axi_rresp(1 downto 0) => s_axi_rresp(1 downto 0),
-      s_axi_ruser(0) => NLW_inst_s_axi_ruser_UNCONNECTED(0),
       s_axi_rvalid(0) => s_axi_rvalid(0),
-      s_axi_wdata(31 downto 0) => s_axi_wdata(31 downto 0),
-      s_axi_wid(0) => '0',
-      s_axi_wlast(0) => '1',
       s_axi_wready(0) => s_axi_wready(0),
-      s_axi_wstrb(3 downto 0) => s_axi_wstrb(3 downto 0),
-      s_axi_wuser(0) => '0',
       s_axi_wvalid(0) => s_axi_wvalid(0)
     );
 end STRUCTURE;
