@@ -9,7 +9,7 @@ module platformTop
 #(
     parameter CLK_FREQ = 50_000_000,
     parameter CHIP_CLK_FREQ = 1_000_000,
-    parameter AES_TX_FREQ = 200_000,
+    parameter AES_TX_FREQ = 200_000
 )(
     clk, rst_n,
     clk_chip,
@@ -57,16 +57,16 @@ wire    [ 31: 0]    asyfifo_wr_data;
 datagenerator datagenerator(
     .clk(clk),
     .rst_n(rst_n),
-    .enc(enc),
+    .enc(1'b1),
     .work(work),
-    .key(key),
-    .write_key(write_key),
+    .key(128'hab7240f9_c5e0bb5e_ee8e34b6_bb84cfb0),
+    .write_key(1'b0),
     .data_require(generator_data_fifo_require),
     .data(generator_data_fifo_data),
     .data_empty(generator_data_fifo_empty),
     .result_require(generator_result_fifo_require),
-    .result(generator_result_fifo_data)
-    //.result_empty()
+    .result(generator_result_fifo_data),
+    .result_empty()
 );
 
 clk_div #(.DIV(CLK_FREQ/CHIP_CLK_FREQ)) clk_div(
@@ -75,16 +75,16 @@ clk_div #(.DIV(CLK_FREQ/CHIP_CLK_FREQ)) clk_div(
     .clk_out(clk_chip)
 );
 
-clk_div_en #(.DIV(CLK_FREQ/AES_TX_FREQ)) clk_div(
+clk_div_en #(.DIV(CLK_FREQ/AES_TX_FREQ)) clk_div_en(
     .clk_in(clk),
     .rst_n(rst_n),
-    .clk_out(aes_tx_en)
+    .en(aes_tx_en)
 );
 
 aes_tx aes_tx_module(
     .clk(clk),
     .rst_n(rst_n),
-    .en(aes_tx_en)
+    .en(aes_tx_en),
     .data(generator_data_fifo_data),
     .empty(generator_data_fifo_empty),
     .require(generator_data_fifo_require),

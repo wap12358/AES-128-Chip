@@ -12,7 +12,7 @@ module aes_tx(
 );
 
 //Define pins:
-input               clk, rst_n;
+input               clk, rst_n, en;
 input   [127: 0]    data;
 input               empty;
 output reg          require;

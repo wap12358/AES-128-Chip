@@ -44,7 +44,7 @@ always@(posedge clk_in or negedge rst_n) begin
 end //the end of always
 
 
-assign en <= ( ~|counter ) ? 1'b1 : 1'b0;
+assign en = ( ~|counter ) ? 1'b1 : 1'b0;
 
 endmodule
 
