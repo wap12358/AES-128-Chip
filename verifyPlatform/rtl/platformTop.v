@@ -1,26 +1,35 @@
-//File name  :    top.v
+//File name  :    platformTop.v
 //Author     :    wap12358
 //Time       :    2021/01/09 15:28:13
 //Abstract   :        
 
 `timescale 1ns/1ps
 
-module top(
-    clk, clk_tx, rst_n,
-    enc, work, sel,
-    key, write_key,
-    cpu_wr_tx_data, cpu_wr_tx_require,
+module platformTop
+#(
+    parameter CLK_FREQ = 50_000_000,
+    parameter CHIP_CLK_FREQ = 1_000_000,
+    parameter AES_TX_FREQ = 200_000,
+)(
+    clk, rst_n,
+    clk_chip,
+    work,
+    //enc, sel,
+    //key, write_key,
+    //cpu_wr_tx_data, cpu_wr_tx_require,
     total, correct,
     aes_tx, aes_rx
 );
 
 //Define pins:
-input               clk, clk_tx, rst_n;
-input               enc, work, sel;
-input   [127: 0]    key;
-input               write_key;
-input   [ 31: 0]    cpu_wr_tx_data;
-input               cpu_wr_tx_require;
+input               clk, rst_n;
+output              clk_chip;
+input               work;
+//input               enc, sel;
+//input   [127: 0]    key;
+//input               write_key;
+//input   [ 31: 0]    cpu_wr_tx_data;
+//input               cpu_wr_tx_require;
 output  [  8: 0]    aes_tx;
 input   [  8: 0]    aes_rx;
 output  [ 31: 0]    total, correct;
@@ -37,6 +46,7 @@ wire                aes_result_en;
 
 wire    [ 31: 0]    aes_tx_data;
 wire                aes_tx_require, aes_tx_empty;
+wire                aes_tx_en;
 
 wire                asyfifo_full, asyfifo_wr_require;
 wire    [ 31: 0]    asyfifo_wr_data;
@@ -59,38 +69,25 @@ datagenerator datagenerator(
     //.result_empty()
 );
 
-mux mux(
-    .clk(clk),
+clk_div #(.DIV(CLK_FREQ/CHIP_CLK_FREQ)) clk_div(
+    .clk_in(clk),
     .rst_n(rst_n),
-    .sel(sel),
-    .cpu_wr_tx_data(cpu_wr_tx_data),
-    .cpu_wr_tx_require(cpu_wr_tx_require),
-    .data_data(generator_data_fifo_data),
-    .data_require(generator_data_fifo_require),
-    .data_empty(generator_data_fifo_empty),
-    .tx_data(asyfifo_wr_data),
-    .tx_requre(asyfifo_wr_require),
-    .full(asyfifo_full)
+    .clk_out(clk_chip)
 );
 
-asyfifo asyfifo(
-    .wclk(clk),
-    .rclk(clk_tx),
-    .arst_n(rst_n),
-    .wdv(asyfifo_wr_require),
-    .wdata(asyfifo_wr_data),
-    .wfull(asyfifo_full),
-    .rrq(aes_tx_require),
-    .rdata(aes_tx_data),
-    .rempty(aes_tx_empty)
+clk_div_en #(.DIV(CLK_FREQ/AES_TX_FREQ)) clk_div(
+    .clk_in(clk),
+    .rst_n(rst_n),
+    .clk_out(aes_tx_en)
 );
 
 aes_tx aes_tx_module(
-    .clk(clk_tx),
+    .clk(clk),
     .rst_n(rst_n),
-    .data(aes_tx_data),
-    .empty(aes_tx_empty),
-    .require(aes_tx_require),
+    .en(aes_tx_en)
+    .data(generator_data_fifo_data),
+    .empty(generator_data_fifo_empty),
+    .require(generator_data_fifo_require),
     .shakehand(aes_tx[8]),
     .tx(aes_tx[7:0])
 );
