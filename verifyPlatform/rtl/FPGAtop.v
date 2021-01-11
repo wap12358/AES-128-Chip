@@ -14,6 +14,7 @@ module FPGAtop#(
 )(
     clk, rst_n,
     clk_chip, rst_n_chip,
+    cu_chip, id_chip,
     work, enc,
     aes_tx, aes_rx,
     uart_tx
@@ -26,7 +27,7 @@ output              uart_tx;
 input   [ 8: 0]     aes_rx;
 output  [ 8: 0]     aes_tx;
 output              clk_chip, rst_n_chip;
-
+output              cu_chip, id_chip;
 
 //Define signals:
 wire    [31: 0]     total, correct;
@@ -35,6 +36,9 @@ wire    [ 7: 0]     data;
 wire                require, valid;
 
 //Edit code:
+assign cu_chip = 1'b0;
+assign id_chip = enc;
+
 platformTop#(
     .CLK_FREQ(CLK_FREQ),
     .CHIP_CLK_FREQ(CHIP_CLK_FREQ),
