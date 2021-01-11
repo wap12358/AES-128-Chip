@@ -38,7 +38,7 @@ always@(posedge clk or negedge rst_n) begin
         data_tmp <= 128'h0;
         counter <= 'h0;
     end else if ( ~shakehand_last & shakehand ) begin
-        data_tmp[(8*counter)+:8] <= rx;
+        data_tmp[(8*(15-counter))+:8] <= rx;
         counter <= counter + 1'b1;
         en <= &counter;
     end else begin
