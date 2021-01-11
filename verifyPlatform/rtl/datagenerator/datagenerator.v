@@ -32,6 +32,8 @@ wire    [127: 0]    random128, result_data;
 // registers
 reg     [127: 0]    key_tmp;
 reg                 key_init;
+reg     [127: 0]    data_tmp;
+reg                 module_result_valid_tmp;
 
 
 // write key
@@ -48,6 +50,19 @@ always@(posedge clk or negedge rst_n) begin
         end
     end
 end
+
+// data tmp for model
+always@(posedge clk or negedge rst_n) begin
+    if(~rst_n) begin
+        data_tmp <= 128'h0;
+        module_result_valid_tmp <= 1'b0;
+    end else begin
+        data_tmp <= random128;
+        module_result_valid_tmp <= result_valid;
+    end
+end
+assign module_result_valid_1period = ( result_valid & ~module_result_valid_tmp );
+
 
 // core busy
 //always@(posedge clk or negedge rst_n) begin
@@ -74,7 +89,7 @@ aes_core core(
     .next(require),
     .ready(core_ready),
     .key(key_tmp),
-    .block(random128),
+    .block(data_tmp),
     .result(result_data),
     .result_valid(result_valid)
 );
@@ -101,7 +116,7 @@ FIFO128 #(.fifo_addr(4)) resultfifo(
     .clk(clk),
     .rst_n(rst_n),
     .in_data(result_data),
-    .in_require(result_valid),
+    .in_require(module_result_valid_1period),
     .full(),
     .out_data(result),
     .out_require(result_require),
