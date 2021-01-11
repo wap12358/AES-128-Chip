@@ -26,7 +26,7 @@ initial begin
     work = 1'b0;
     #1003
     rst_n = 1'b1;
-    #5003
+    #50003
     work = 1'b1;
 
 end

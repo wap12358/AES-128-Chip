@@ -25,7 +25,7 @@ reg     [  3: 0]    counter;
 reg     [127: 0]    data_tmp;
 
 //Edit code:
-assign shakehand = counter[0];
+assign shakehand = ~counter[0];
 assign tx = data_tmp[(8*(15-counter))+:8];
 
 always@(posedge clk or negedge rst_n) begin

@@ -42,7 +42,7 @@ aes_top aes_top(
     .clk(clk_chip),
     .rst(rst_n_chip),
     .cu(1'b0),
-    .id(1'b0),
+    .id(1'b1),
 	.user_data(aes_tx[7:0]),
     .shi(aes_tx[8]),
     .chip_data(aes_rx[7:0]),
