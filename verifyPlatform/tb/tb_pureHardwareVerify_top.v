@@ -35,6 +35,7 @@ top top(
     .clk(clk),
     .rst_n(rst_n),
     .work(work),
+    .enc(1'b0),
     .total(),
     .correct()
 );

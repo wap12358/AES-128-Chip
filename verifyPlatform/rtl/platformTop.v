@@ -13,8 +13,8 @@ module platformTop
 )(
     clk, rst_n,
     clk_chip, rst_n_chip,
-    work,
-    //enc, sel,
+    work, enc,
+    //sel,
     //key, write_key,
     //cpu_wr_tx_data, cpu_wr_tx_require,
     total, correct,
@@ -24,8 +24,8 @@ module platformTop
 //Define pins:
 input               clk, rst_n;
 output              clk_chip, rst_n_chip;
-input               work;
-//input               enc, sel;
+input               work, enc;
+//input               sel;
 //input   [127: 0]    key;
 //input               write_key;
 //input   [ 31: 0]    cpu_wr_tx_data;
@@ -57,7 +57,7 @@ wire    [ 31: 0]    asyfifo_wr_data;
 datagenerator datagenerator(
     .clk(clk),
     .rst_n(rst_n),
-    .enc(1'b1),
+    .enc(enc),
     .work(work),
     .key(128'hab7240f9_c5e0bb5e_ee8e34b6_bb84cfb0),
     .write_key(1'b0),

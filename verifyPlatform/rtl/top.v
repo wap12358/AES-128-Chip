@@ -7,13 +7,13 @@
 
 module top(
     clk, rst_n,
-    work,
+    work, enc,
     total, correct
 );
 
 //Define pins:
 input               clk, rst_n;
-input               work;
+input               work, enc;
 output  [31: 0]     total, correct;
 
 
@@ -32,6 +32,7 @@ platformTop#(
     .clk_chip(clk_chip),
     .rst_n_chip(rst_n_chip),
     .work(work),
+    .enc(enc),
     .total(total),
     .correct(correct),
     .aes_tx(aes_tx),
@@ -42,7 +43,7 @@ aes_top aes_top(
     .clk(clk_chip),
     .rst(rst_n_chip),
     .cu(1'b0),
-    .id(1'b1),
+    .id(enc),
 	.user_data(aes_tx[7:0]),
     .shi(aes_tx[8]),
     .chip_data(aes_rx[7:0]),
