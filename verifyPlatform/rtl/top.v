@@ -3,7 +3,7 @@
 //Time       :    2021/01/11 10:14:46
 //Abstract   :        
 
-`timescale 1ns/1ps
+`timescale 1ns/10ps
 
 module top(
     clk, rst_n,
@@ -19,17 +19,18 @@ output  [31: 0]     total, correct;
 
 //Define signals:
 wire    [ 8: 0]     aes_tx, aes_rx;
-wire                clk_chip;
+wire                clk_chip, rst_n_chip;
 
 //Edit code:
 platformTop#(
     .CLK_FREQ(50_000_000),
     .CHIP_CLK_FREQ(1_000_000),
-    .AES_TX_FREQ(200_000)
+    .AES_TX_FREQ(50_000)
 )platformTop(
     .clk(clk),
     .rst_n(rst_n),
     .clk_chip(clk_chip),
+    .rst_n_chip(rst_n_chip),
     .work(work),
     .total(total),
     .correct(correct),
@@ -39,7 +40,7 @@ platformTop#(
 
 aes_top aes_top(
     .clk(clk_chip),
-    .rst(rst_n),
+    .rst(rst_n_chip),
     .cu(1'b0),
     .id(1'b0),
 	.user_data(aes_tx[7:0]),

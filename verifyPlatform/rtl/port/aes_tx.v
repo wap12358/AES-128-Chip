@@ -22,7 +22,7 @@ output  [  7: 0]    tx;
 
 //Define signals:
 reg     [  3: 0]    counter;
-reg     [ 31: 0]    data_tmp;
+reg     [127: 0]    data_tmp;
 
 //Edit code:
 assign shakehand = counter[0];

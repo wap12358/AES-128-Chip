@@ -20,7 +20,7 @@ output  [127: 0]    out_data;
 output              empty, full;
 
 //Define signals:
-reg     [127: 0]    data_out_reg;
+//reg     [127: 0]    data_out_reg;
 
 reg     [127: 0]            ram [fifo_depth-1:0];
 reg     [fifo_addr-1:0]     wr_ptr, rd_ptr;
@@ -28,11 +28,12 @@ reg     [fifo_addr-1:0]     counter;
 
 
 //Edit code:
-assign  out_data = data_out_reg;
+assign  out_data = ram[rd_ptr];
+//assign  out_data = data_out_reg;
 
 always@(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
-        data_out_reg <= 0;
+        //data_out_reg <= 0;
         counter <= 0;
         wr_ptr <= 0;
         rd_ptr <= 0;
@@ -44,7 +45,7 @@ always@(posedge clk or negedge rst_n) begin
             counter <= counter;
             end
         2'b01: begin
-            data_out_reg <= ram[rd_ptr];
+            //data_out_reg <= ram[rd_ptr];
             counter <= counter - 1'b1;
             rd_ptr <= rd_ptr + 1'b1;
             end
@@ -54,7 +55,7 @@ always@(posedge clk or negedge rst_n) begin
         	wr_ptr <= wr_ptr + 1'b1;
             end
         2'b11: begin
-            data_out_reg <= ram[rd_ptr];
+            //data_out_reg <= ram[rd_ptr];
             rd_ptr <= rd_ptr + 1'b1;
         	ram[wr_ptr] <= in_data;
         	wr_ptr <= wr_ptr + 1'b1;

@@ -3,7 +3,7 @@
 //Time       :    2021/01/11 10:24:41
 //Abstract   :        
 
-`timescale 1ns/1ps
+`timescale 1ns/10ps
 
 module tb_pureHardwareVerify_top();
 
@@ -24,9 +24,9 @@ initial begin
     clk = 1'b0;
     rst_n = 1'b0;
     work = 1'b0;
-    #13
+    #1003
     rst_n = 1'b1;
-    #10000
+    #5003
     work = 1'b1;
 
 end

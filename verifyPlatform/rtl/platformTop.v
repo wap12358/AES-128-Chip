@@ -12,7 +12,7 @@ module platformTop
     parameter AES_TX_FREQ = 200_000
 )(
     clk, rst_n,
-    clk_chip,
+    clk_chip, rst_n_chip,
     work,
     //enc, sel,
     //key, write_key,
@@ -23,7 +23,7 @@ module platformTop
 
 //Define pins:
 input               clk, rst_n;
-output              clk_chip;
+output              clk_chip, rst_n_chip;
 input               work;
 //input               enc, sel;
 //input   [127: 0]    key;
@@ -67,6 +67,12 @@ datagenerator datagenerator(
     .result_require(generator_result_fifo_require),
     .result(generator_result_fifo_data),
     .result_empty()
+);
+
+chip_rst chip_rst(
+    .clk(clk),
+    .rst_n(rst_n),
+    .chip_rst_n(rst_n_chip)
 );
 
 clk_div #(.DIV(CLK_FREQ/CHIP_CLK_FREQ)) clk_div(

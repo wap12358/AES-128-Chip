@@ -20,6 +20,8 @@ output  [127:0]     random128;
 reg     [127:0]     random128_reg;
 
 //Edit code:
+assign random128 = random128_reg;
+
 always@(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
         random128_reg <= 128'd123456789012345678901234567890123456789;
