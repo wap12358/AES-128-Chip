@@ -28,7 +28,7 @@ input   [ 8: 0]     aes_rx;
 output  [ 8: 0]     aes_tx;
 output              clk_chip, rst_n_chip;
 output              cu_chip, id_chip;
-wire  [127: 0]    error_chip, error_generator;
+wire    [127: 0]    error_chip, error_generator;
 
 //Define signals:
 wire    [31: 0]     total, correct;

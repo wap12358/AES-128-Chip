@@ -53,6 +53,17 @@ wire                aes_tx_en;
 wire                asyfifo_full, asyfifo_wr_require;
 wire    [ 31: 0]    asyfifo_wr_data;
 
+wire                shakehand_tmp_wire;
+reg                 shakehand_tmp_reg;
+assign              aes_tx[8] = shakehand_tmp_reg;
+always@(posedge clk_chip or negedge rst_n) begin
+    if(~rst_n) begin
+        shakehand_tmp_reg <= 1'b0;
+    end else begin
+        shakehand_tmp_reg <= shakehand_tmp_wire;
+    end
+end
+
 
 
 //Edit code:
@@ -97,7 +108,7 @@ aes_tx aes_tx_module(
     .data(generator_data_fifo_data),
     .empty(generator_data_fifo_empty),
     .require(generator_data_fifo_require),
-    .shakehand(aes_tx[8]),
+    .shakehand(shakehand_tmp_wire),
     .tx(aes_tx[7:0])
 );
 
