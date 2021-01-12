@@ -18,7 +18,8 @@ module platformTop
     //key, write_key,
     //cpu_wr_tx_data, cpu_wr_tx_require,
     total, correct,
-    aes_tx, aes_rx
+    aes_tx, aes_rx,
+    error_chip, error_generator
 );
 
 //Define pins:
@@ -33,6 +34,7 @@ input               work, enc;
 output  [  8: 0]    aes_tx;
 input   [  8: 0]    aes_rx;
 output  [ 31: 0]    total, correct;
+output  [127: 0]    error_chip, error_generator;
 
 
 
@@ -50,6 +52,7 @@ wire                aes_tx_en;
 
 wire                asyfifo_full, asyfifo_wr_require;
 wire    [ 31: 0]    asyfifo_wr_data;
+
 
 
 //Edit code:
@@ -114,6 +117,8 @@ scoreboard scoreboard(
     .correct(correct),
     .chip_result(aes_result_data),
     .chip_en(aes_result_en),
+    .error_chip(error_chip),
+    .error_generator(error_generator),
     .generator_result(generator_result_fifo_data),
     .generator_require(generator_result_fifo_require)
 );

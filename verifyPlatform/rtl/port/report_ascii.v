@@ -11,6 +11,7 @@ module report_ascii#(
 )(
     clk, rst_n,
     total, correct,
+    error_chip, error_generator,
     data, require, valid
 );
 
@@ -24,13 +25,14 @@ input   [31: 0]     total, correct;
 output reg  [ 7: 0]     data;
 input                   require;
 output reg              valid;
+input       [127: 0]    error_chip, error_generator;
 
 //Define functions
 function [7:0] ascii ( input [3:0] hex ); begin
     if ( hex < 4'd10 )
         ascii = { 4'b0011, hex };
     else
-        ascii = { 5'b0100_0, hex[2:1] - 1'b1 };
+        ascii = { 5'b0100_0, hex[2:0] - 1'b1 };
 end
 endfunction
 
@@ -51,8 +53,8 @@ reg     [COUNTER_WIDTH-1: 0]    report_counter;
 reg     [31: 0]     total_reg, correct_reg;
 
 //Define FSM:
-reg     [  5: 0]    current_state, next_state;
-parameter IDLE  = 6'd0;
+reg     [  6: 0]    current_state, next_state;
+parameter IDLE  = 7'd0;
 
 //Edit code:
 
@@ -60,7 +62,7 @@ always @(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
         current_state <= IDLE;
     end else begin
-        current_state <= next_state; 
+        current_state <= next_state;
     end
 end
 
@@ -68,9 +70,9 @@ always @* begin
     next_state = IDLE;
     case (current_state)
         IDLE: begin
-            next_state = ( report_counter == REPORT_COUNT ) ? 6'd1 : IDLE ;
+            next_state = ( report_counter == REPORT_COUNT ) ? 7'd1 : IDLE ;
         end
-        6'd39: begin
+        7'd106: begin
             next_state = require ? IDLE : current_state ;
         end
         default: begin
@@ -87,45 +89,112 @@ always @* begin
             data = 8'h0;
             valid = 1'b0;
         end
-        6'd1: data = ascii(report_times[11:8]);
-        6'd2: data = ascii(report_times[ 7:4]);
-        6'd3: data = ascii(report_times[ 3:0]);
-        6'd4: data = " ";
-        6'd5: data = "t";
-        6'd6: data = "o";
-        6'd7: data = "t";
-        6'd8: data = "a";
-        6'd9: data = "l";
-        6'd10: data = ":";
-        6'd11: data = " ";
-        6'd12: data = ascii(total_reg[31:28]);
-        6'd13: data = ascii(total_reg[27:24]);
-        6'd14: data = ascii(total_reg[23:20]);
-        6'd15: data = ascii(total_reg[19:16]);
-        6'd16: data = ascii(total_reg[15:12]);
-        6'd17: data = ascii(total_reg[11: 8]);
-        6'd18: data = ascii(total_reg[ 7: 4]);
-        6'd19: data = ascii(total_reg[ 3: 0]);
-        6'd20: data = " ";
-        6'd21: data = "c";
-        6'd22: data = "o";
-        6'd23: data = "r";
-        6'd24: data = "r";
-        6'd25: data = "e";
-        6'd26: data = "c";
-        6'd27: data = "t";
-        6'd28: data = ":";
-        6'd29: data = " ";
-        6'd30: data = ascii(correct_reg[31:28]);
-        6'd31: data = ascii(correct_reg[27:24]);
-        6'd32: data = ascii(correct_reg[23:20]);
-        6'd33: data = ascii(correct_reg[19:16]);
-        6'd34: data = ascii(correct_reg[15:12]);
-        6'd35: data = ascii(correct_reg[11: 8]);
-        6'd36: data = ascii(correct_reg[ 7: 4]);
-        6'd37: data = ascii(correct_reg[ 3: 0]);
-        6'd38: data = "\n";
-        6'd39: data = "\r";
+        7'd1: data = ascii(report_times[11:8]);
+        7'd2: data = ascii(report_times[ 7:4]);
+        7'd3: data = ascii(report_times[ 3:0]);
+        7'd4: data = " ";
+        7'd5: data = "t";
+        7'd6: data = "o";
+        7'd7: data = "t";
+        7'd8: data = "a";
+        7'd9: data = "l";
+        7'd10: data = ":";
+        7'd11: data = " ";
+        7'd12: data = ascii(total_reg[31:28]);
+        7'd13: data = ascii(total_reg[27:24]);
+        7'd14: data = ascii(total_reg[23:20]);
+        7'd15: data = ascii(total_reg[19:16]);
+        7'd16: data = ascii(total_reg[15:12]);
+        7'd17: data = ascii(total_reg[11: 8]);
+        7'd18: data = ascii(total_reg[ 7: 4]);
+        7'd19: data = ascii(total_reg[ 3: 0]);
+        7'd20: data = " ";
+        7'd21: data = "c";
+        7'd22: data = "o";
+        7'd23: data = "r";
+        7'd24: data = "r";
+        7'd25: data = "e";
+        7'd26: data = "c";
+        7'd27: data = "t";
+        7'd28: data = ":";
+        7'd29: data = " ";
+        7'd30: data = ascii(correct_reg[31:28]);
+        7'd31: data = ascii(correct_reg[27:24]);
+        7'd32: data = ascii(correct_reg[23:20]);
+        7'd33: data = ascii(correct_reg[19:16]);
+        7'd34: data = ascii(correct_reg[15:12]);
+        7'd35: data = ascii(correct_reg[11: 8]);
+        7'd36: data = ascii(correct_reg[ 7: 4]);
+        7'd37: data = ascii(correct_reg[ 3: 0]);
+        7'd38: data = "\n";
+        7'd39: data = "\r";
+        7'd40: data = ascii(error_chip[127:124]);
+        7'd41: data = ascii(error_chip[124:120]);
+        7'd42: data = ascii(error_chip[119:116]);
+        7'd43: data = ascii(error_chip[115:112]);
+        7'd44: data = ascii(error_chip[111:108]);
+        7'd45: data = ascii(error_chip[107:104]);
+        7'd46: data = ascii(error_chip[103:100]);
+        7'd47: data = ascii(error_chip[ 99: 96]);
+        7'd48: data = ascii(error_chip[ 95: 92]);
+        7'd49: data = ascii(error_chip[ 91: 88]);
+        7'd50: data = ascii(error_chip[ 87: 84]);
+        7'd51: data = ascii(error_chip[ 83: 80]);
+        7'd52: data = ascii(error_chip[ 79: 76]);
+        7'd53: data = ascii(error_chip[ 75: 72]);
+        7'd54: data = ascii(error_chip[ 71: 68]);
+        7'd55: data = ascii(error_chip[ 67: 64]);
+        7'd56: data = ascii(error_chip[ 63: 60]);
+        7'd57: data = ascii(error_chip[ 59: 56]);
+        7'd58: data = ascii(error_chip[ 55: 52]);
+        7'd59: data = ascii(error_chip[ 51: 48]);
+        7'd60: data = ascii(error_chip[ 47: 44]);
+        7'd61: data = ascii(error_chip[ 43: 40]);
+        7'd62: data = ascii(error_chip[ 39: 36]);
+        7'd63: data = ascii(error_chip[ 35: 32]);
+        7'd64: data = ascii(error_chip[ 31: 28]);
+        7'd65: data = ascii(error_chip[ 27: 24]);
+        7'd66: data = ascii(error_chip[ 23: 20]);
+        7'd67: data = ascii(error_chip[ 19: 16]);
+        7'd68: data = ascii(error_chip[ 15: 12]);
+        7'd69: data = ascii(error_chip[ 11:  8]);
+        7'd70: data = ascii(error_chip[  7:  4]);
+        7'd71: data = ascii(error_chip[  3:  0]);
+        7'd72: data = " ";
+        7'd73: data = ascii(error_generator[127:124]);
+        7'd74: data = ascii(error_generator[124:120]);
+        7'd75: data = ascii(error_generator[119:116]);
+        7'd76: data = ascii(error_generator[115:112]);
+        7'd77: data = ascii(error_generator[111:108]);
+        7'd78: data = ascii(error_generator[107:104]);
+        7'd79: data = ascii(error_generator[103:100]);
+        7'd80: data = ascii(error_generator[ 99: 96]);
+        7'd81: data = ascii(error_generator[ 95: 92]);
+        7'd82: data = ascii(error_generator[ 91: 88]);
+        7'd83: data = ascii(error_generator[ 87: 84]);
+        7'd84: data = ascii(error_generator[ 83: 80]);
+        7'd85: data = ascii(error_generator[ 79: 76]);
+        7'd86: data = ascii(error_generator[ 75: 72]);
+        7'd87: data = ascii(error_generator[ 71: 68]);
+        7'd88: data = ascii(error_generator[ 67: 64]);
+        7'd89: data = ascii(error_generator[ 63: 60]);
+        7'd90: data = ascii(error_generator[ 59: 56]);
+        7'd91: data = ascii(error_generator[ 55: 52]);
+        7'd92: data = ascii(error_generator[ 51: 48]);
+        7'd93: data = ascii(error_generator[ 47: 44]);
+        7'd94: data = ascii(error_generator[ 43: 40]);
+        7'd95: data = ascii(error_generator[ 39: 36]);
+        7'd96: data = ascii(error_generator[ 35: 32]);
+        7'd97: data = ascii(error_generator[ 31: 28]);
+        7'd98: data = ascii(error_generator[ 27: 24]);
+        7'd99: data = ascii(error_generator[ 23: 20]);
+        7'd100: data = ascii(error_generator[ 19: 16]);
+        7'd101: data = ascii(error_generator[ 15: 12]);
+        7'd102: data = ascii(error_generator[ 11:  8]);
+        7'd103: data = ascii(error_generator[  7:  4]);
+        7'd104: data = ascii(error_generator[  3:  0]);
+        7'd105: data = "\n";
+        7'd106: data = "\r";
         default: data = 8'd0;
     endcase
 end

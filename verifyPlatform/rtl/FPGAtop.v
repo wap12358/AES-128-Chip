@@ -7,9 +7,9 @@
 
 module FPGAtop#(
     parameter CLK_FREQ = 50_000_000,
-    parameter REPORT_FREQ = 2,
+    parameter REPORT_FREQ = 10,
     parameter UART_BPS = 115200,
-    parameter CHIP_CLK_FREQ = 1_000_000,
+    parameter CHIP_CLK_FREQ = 1000_000,
     parameter AES_TX_FREQ = 50_000
 )(
     clk, rst_n,
@@ -28,6 +28,7 @@ input   [ 8: 0]     aes_rx;
 output  [ 8: 0]     aes_tx;
 output              clk_chip, rst_n_chip;
 output              cu_chip, id_chip;
+wire  [127: 0]    error_chip, error_generator;
 
 //Define signals:
 wire    [31: 0]     total, correct;
@@ -52,6 +53,8 @@ platformTop#(
     .enc(enc),
     .total(total),
     .correct(correct),
+    .error_chip(error_chip),
+    .error_generator(error_generator),
     .aes_tx(aes_tx),
     .aes_rx(aes_rx)
 );
@@ -66,7 +69,9 @@ report_ascii#(
     .correct(correct),
     .data(data),
     .require(require),
-    .valid(valid)
+    .valid(valid),
+    .error_chip(error_chip),
+    .error_generator(error_generator)
 );
 
 uart_tx#(

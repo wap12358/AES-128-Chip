@@ -57,7 +57,6 @@ end
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
         tx_cnt <= 4'd0;
-        bps_counter <= 'd0;
     end else begin
         if ( ( tx_cnt == 4'h0 ) & require & valid ) begin
             tx_cnt <= 4'd1;
