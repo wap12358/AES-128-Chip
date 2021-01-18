@@ -15,25 +15,25 @@ module FPGAtop#(
     clk, rst_n,
     clk_chip, rst_n_chip,
     cu_chip, id_chip,
-    work, enc,
     aes_tx, aes_rx,
     uart_tx
 );
 
 //Define pins:
 input               clk, rst_n;
-input               work, enc;
 output              uart_tx;
 input   [ 8: 0]     aes_rx;
 output  [ 8: 0]     aes_tx;
 output              clk_chip, rst_n_chip;
 output              cu_chip, id_chip;
-wire    [127: 0]    error_chip, error_generator;
+
 
 //Define signals:
-wire    [31: 0]     total, correct;
+wire                work, enc;
+wire    [ 31: 0]    total, correct;
+wire    [127: 0]    error_chip, error_generator;
 //UART report
-wire    [ 7: 0]     data;
+wire    [  7: 0]    data;
 wire                require, valid;
 
 //Edit code:
@@ -71,7 +71,9 @@ report_ascii#(
     .require(require),
     .valid(valid),
     .error_chip(error_chip),
-    .error_generator(error_generator)
+    .error_generator(error_generator),
+    .work(work),
+    .enc(enc)
 );
 
 uart_tx#(
@@ -84,6 +86,17 @@ uart_tx#(
     .data(data),
     .require(require),
     .valid(valid)
+);
+
+uart_rx#(
+    .CLK_FREQ(CLK_FREQ),
+    .UART_BPS(UART_BPS)
+)uart_rx_module(
+    .clk(clk),
+    .rst_n(rst_n),
+    .uart_rxd(uart_rx),
+    .work(work),
+    .enc(enc)
 );
 
 endmodule
