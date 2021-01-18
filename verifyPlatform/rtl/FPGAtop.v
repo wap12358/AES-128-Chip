@@ -16,11 +16,12 @@ module FPGAtop#(
     clk_chip, rst_n_chip,
     cu_chip, id_chip,
     aes_tx, aes_rx,
-    uart_tx
+    uart_tx, uart_rx
 );
 
 //Define pins:
 input               clk, rst_n;
+input               uart_rx;
 output              uart_tx;
 input   [ 8: 0]     aes_rx;
 output  [ 8: 0]     aes_tx;

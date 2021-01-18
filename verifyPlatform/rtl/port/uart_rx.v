@@ -27,7 +27,6 @@ endfunction
 //Define parameters
 localparam BPS_CNT  = CLK_FREQ/UART_BPS;
 localparam COUNTER_WIDTH =$clog2(BPS_CNT);
-localparam IDLE = 'd0;
 
 //Define registers
 reg     [COUNTER_WIDTH-1: 0]    bps_counter;
