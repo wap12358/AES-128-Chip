@@ -14,7 +14,7 @@ def aes_decrypt(key, origin_data):
 
 
 
-input_data = a2b_hex('5055e0ec75049cff0a14443f24c5effb')
+input_data = a2b_hex('D6224823E083F6928DE4B89E2AC77E65')
 key        = a2b_hex('ab7240f9c5e0bb5eee8e34b6bb84cfb0')
 
 
