@@ -24,7 +24,7 @@ assign random128 = random128_reg;
 
 always@(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
-        random128_reg <= 128'd123456789012345678901234567890123456789;
+        random128_reg <= 128'h53504402;
     end else if (require) begin
         random128_reg[  0] <= random128_reg[127];
         random128_reg[  1] <= random128_reg[  0];

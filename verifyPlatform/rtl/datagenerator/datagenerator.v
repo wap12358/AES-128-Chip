@@ -78,8 +78,26 @@ assign module_result_valid_1period = ( result_valid & ~module_result_valid_tmp )
 //end
 
 // generate origin data
-assign require = work & ~data_full & core_ready;
+reg [1:0] rst_n_tmp;
+always@(posedge clk or negedge rst_n)begin
+if(!rst_n) begin
+rst_n_tmp <= 'd0;
+end
+else begin
 
+case(rst_n_tmp)
+2'b00:rst_n_tmp <= 2'b01;
+2'b01:rst_n_tmp <= 2'b10;
+default:;
+endcase
+
+end
+end
+
+
+assign require = work & ~data_full & core_ready;
+wire require_datatx;
+assign require_datatx = require | rst_n_tmp[0];
 
 aes_core core(
     .clk(clk),
@@ -105,7 +123,7 @@ FIFO128 #(.fifo_addr(2)) datafifo(
     .clk(clk),
     .rst_n(rst_n),
     .in_data(random128),
-    .in_require(require),
+    .in_require(require_datatx),
     .full(data_full),
     .out_data(data),
     .out_require(data_require),

@@ -25,7 +25,7 @@ always@(posedge clk or negedge rst_n) begin
         chip_rst_n <= 16'h0;
     end else begin
         counter <= counter + 1'b1;
-        chip_rst_n <= ( counter == 'd 203 ) ? 1'b1 : chip_rst_n;
+        chip_rst_n <= ( counter == 'd 1 ) ? 1'b1 : chip_rst_n;
     end //the end of biggest if
 end //the end of always
 

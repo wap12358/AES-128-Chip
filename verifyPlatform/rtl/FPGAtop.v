@@ -9,8 +9,8 @@ module FPGAtop#(
     parameter CLK_FREQ = 50_000_000,
     parameter REPORT_FREQ = 10,
     parameter UART_BPS = 115200,
-    parameter CHIP_CLK_FREQ = 1000_000,
-    parameter AES_TX_FREQ = 50_000
+    parameter CHIP_CLK_FREQ = 12_500_000,
+    parameter AES_TX_FREQ = 7_000_000
 )(
     clk, rst_n,
     clk_chip, rst_n_chip,
@@ -38,8 +38,10 @@ wire    [  7: 0]    data;
 wire                require, valid;
 
 //Edit code:
-assign cu_chip = 1'b0;
+assign cu_chip = 1'b1;
 assign id_chip = enc;
+
+assign clk_chip = clk;
 
 platformTop#(
     .CLK_FREQ(CLK_FREQ),
@@ -48,7 +50,7 @@ platformTop#(
 )platformTop(
     .clk(clk),
     .rst_n(rst_n),
-    .clk_chip(clk_chip),
+    .clk_chip(),
     .rst_n_chip(rst_n_chip),
     .work(work),
     .enc(enc),
