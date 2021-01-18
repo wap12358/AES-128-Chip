@@ -8,11 +8,9 @@
 module platformTop
 #(
     parameter CLK_FREQ = 50_000_000,
-    parameter CHIP_CLK_FREQ = 1_000_000,
     parameter AES_TX_FREQ = 200_000
 )(
     clk, rst_n,
-    clk_chip, rst_n_chip,
     work, enc,
     //sel,
     //key, write_key,
@@ -24,7 +22,6 @@ module platformTop
 
 //Define pins:
 input               clk, rst_n;
-output              clk_chip, rst_n_chip;
 input               work, enc;
 //input               sel;
 //input   [127: 0]    key;
@@ -53,18 +50,6 @@ wire                aes_tx_en;
 wire                asyfifo_full, asyfifo_wr_require;
 wire    [ 31: 0]    asyfifo_wr_data;
 
-wire                shakehand_tmp_wire;
-reg                 shakehand_tmp_reg;
-assign              aes_tx[8] = shakehand_tmp_reg;
-always@(posedge clk_chip or negedge rst_n) begin
-    if(~rst_n) begin
-        shakehand_tmp_reg <= 1'b0;
-    end else begin
-        shakehand_tmp_reg <= shakehand_tmp_wire;
-    end
-end
-
-
 
 //Edit code:
 
@@ -83,18 +68,6 @@ datagenerator datagenerator(
     .result_empty()
 );
 
-chip_rst chip_rst(
-    .clk(clk),
-    .rst_n(rst_n),
-    .chip_rst_n(rst_n_chip)
-);
-
-clk_div #(.DIV(CLK_FREQ/CHIP_CLK_FREQ)) clk_div(
-    .clk_in(clk),
-    .rst_n(rst_n),
-    .clk_out(clk_chip)
-);
-
 clk_div_en #(.DIV(CLK_FREQ/AES_TX_FREQ)) clk_div_en(
     .clk_in(clk),
     .rst_n(rst_n),
@@ -108,7 +81,7 @@ aes_tx aes_tx_module(
     .data(generator_data_fifo_data),
     .empty(generator_data_fifo_empty),
     .require(generator_data_fifo_require),
-    .shakehand(shakehand_tmp_wire),
+    .shakehand(aes_tx[8]),
     .tx(aes_tx[7:0])
 );
 
